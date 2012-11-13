@@ -1,0 +1,318 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7D08AC8F1651C56D0050663D /* DogsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08AC8D1651C56D0050663D /* DogsViewController.m */; };
+		7D08AC901651C56D0050663D /* DogsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D08AC8E1651C56D0050663D /* DogsViewController.xib */; };
+		7D08AC951651C5860050663D /* CatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08AC931651C5860050663D /* CatsViewController.m */; };
+		7D08AC961651C5860050663D /* CatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D08AC941651C5860050663D /* CatsViewController.xib */; };
+		7D08AC9A1651C5A10050663D /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08AC981651C5A10050663D /* FavoritesViewController.m */; };
+		7D08AC9B1651C5A10050663D /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D08AC991651C5A10050663D /* FavoritesViewController.xib */; };
+		ECD235D3164C6F5C0099253C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD235D2164C6F5C0099253C /* UIKit.framework */; };
+		ECD235D5164C6F5C0099253C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD235D4164C6F5C0099253C /* Foundation.framework */; };
+		ECD235D7164C6F5C0099253C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD235D6164C6F5C0099253C /* CoreGraphics.framework */; };
+		ECD235DD164C6F5C0099253C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECD235DB164C6F5C0099253C /* InfoPlist.strings */; };
+		ECD235DF164C6F5C0099253C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD235DE164C6F5C0099253C /* main.m */; };
+		ECD235E3164C6F5C0099253C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD235E2164C6F5C0099253C /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7D08AC8C1651C56D0050663D /* DogsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DogsViewController.h; sourceTree = "<group>"; };
+		7D08AC8D1651C56D0050663D /* DogsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DogsViewController.m; sourceTree = "<group>"; };
+		7D08AC8E1651C56D0050663D /* DogsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DogsViewController.xib; sourceTree = "<group>"; };
+		7D08AC921651C5860050663D /* CatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatsViewController.h; sourceTree = "<group>"; };
+		7D08AC931651C5860050663D /* CatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatsViewController.m; sourceTree = "<group>"; };
+		7D08AC941651C5860050663D /* CatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatsViewController.xib; sourceTree = "<group>"; };
+		7D08AC971651C5A10050663D /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		7D08AC981651C5A10050663D /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		7D08AC991651C5A10050663D /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		ECD235CE164C6F5C0099253C /* PetFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECD235D2164C6F5C0099253C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		ECD235D4164C6F5C0099253C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ECD235D6164C6F5C0099253C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ECD235DA164C6F5C0099253C /* PetFinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PetFinder-Info.plist"; sourceTree = "<group>"; };
+		ECD235DC164C6F5C0099253C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ECD235DE164C6F5C0099253C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ECD235E0164C6F5C0099253C /* PetFinder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetFinder-Prefix.pch"; sourceTree = "<group>"; };
+		ECD235E1164C6F5C0099253C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ECD235E2164C6F5C0099253C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECD235CB164C6F5C0099253C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECD235D3164C6F5C0099253C /* UIKit.framework in Frameworks */,
+				ECD235D5164C6F5C0099253C /* Foundation.framework in Frameworks */,
+				ECD235D7164C6F5C0099253C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7D08AC9C1651C76A0050663D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7D08AC9D1651C7850050663D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7D08AC8C1651C56D0050663D /* DogsViewController.h */,
+				7D08AC8D1651C56D0050663D /* DogsViewController.m */,
+				7D08AC921651C5860050663D /* CatsViewController.h */,
+				7D08AC931651C5860050663D /* CatsViewController.m */,
+				7D08AC971651C5A10050663D /* FavoritesViewController.h */,
+				7D08AC981651C5A10050663D /* FavoritesViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7D08AC9E1651C7A20050663D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7D08AC8E1651C56D0050663D /* DogsViewController.xib */,
+				7D08AC941651C5860050663D /* CatsViewController.xib */,
+				7D08AC991651C5A10050663D /* FavoritesViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		ECD235C3164C6F5C0099253C = {
+			isa = PBXGroup;
+			children = (
+				ECD235D8164C6F5C0099253C /* PetFinder */,
+				ECD235D1164C6F5C0099253C /* Frameworks */,
+				ECD235CF164C6F5C0099253C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECD235CF164C6F5C0099253C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECD235CE164C6F5C0099253C /* PetFinder.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECD235D1164C6F5C0099253C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECD235D2164C6F5C0099253C /* UIKit.framework */,
+				ECD235D4164C6F5C0099253C /* Foundation.framework */,
+				ECD235D6164C6F5C0099253C /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECD235D8164C6F5C0099253C /* PetFinder */ = {
+			isa = PBXGroup;
+			children = (
+				7D08AC9E1651C7A20050663D /* Views */,
+				7D08AC9C1651C76A0050663D /* Models */,
+				7D08AC9D1651C7850050663D /* View Controllers */,
+				ECD235E1164C6F5C0099253C /* AppDelegate.h */,
+				ECD235E2164C6F5C0099253C /* AppDelegate.m */,
+				ECD235D9164C6F5C0099253C /* Supporting Files */,
+			);
+			path = PetFinder;
+			sourceTree = "<group>";
+		};
+		ECD235D9164C6F5C0099253C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECD235DA164C6F5C0099253C /* PetFinder-Info.plist */,
+				ECD235DB164C6F5C0099253C /* InfoPlist.strings */,
+				ECD235DE164C6F5C0099253C /* main.m */,
+				ECD235E0164C6F5C0099253C /* PetFinder-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECD235CD164C6F5C0099253C /* PetFinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECD235EC164C6F5C0099253C /* Build configuration list for PBXNativeTarget "PetFinder" */;
+			buildPhases = (
+				ECD235CA164C6F5C0099253C /* Sources */,
+				ECD235CB164C6F5C0099253C /* Frameworks */,
+				ECD235CC164C6F5C0099253C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PetFinder;
+			productName = PetFinder;
+			productReference = ECD235CE164C6F5C0099253C /* PetFinder.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECD235C5164C6F5C0099253C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = ECD235C8164C6F5C0099253C /* Build configuration list for PBXProject "PetFinder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ECD235C3164C6F5C0099253C;
+			productRefGroup = ECD235CF164C6F5C0099253C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECD235CD164C6F5C0099253C /* PetFinder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECD235CC164C6F5C0099253C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECD235DD164C6F5C0099253C /* InfoPlist.strings in Resources */,
+				7D08AC901651C56D0050663D /* DogsViewController.xib in Resources */,
+				7D08AC961651C5860050663D /* CatsViewController.xib in Resources */,
+				7D08AC9B1651C5A10050663D /* FavoritesViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECD235CA164C6F5C0099253C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECD235DF164C6F5C0099253C /* main.m in Sources */,
+				ECD235E3164C6F5C0099253C /* AppDelegate.m in Sources */,
+				7D08AC8F1651C56D0050663D /* DogsViewController.m in Sources */,
+				7D08AC951651C5860050663D /* CatsViewController.m in Sources */,
+				7D08AC9A1651C5A10050663D /* FavoritesViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ECD235DB164C6F5C0099253C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECD235DC164C6F5C0099253C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECD235EA164C6F5C0099253C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ECD235EB164C6F5C0099253C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECD235ED164C6F5C0099253C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PetFinder/PetFinder-Prefix.pch";
+				INFOPLIST_FILE = "PetFinder/PetFinder-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ECD235EE164C6F5C0099253C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PetFinder/PetFinder-Prefix.pch";
+				INFOPLIST_FILE = "PetFinder/PetFinder-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECD235C8164C6F5C0099253C /* Build configuration list for PBXProject "PetFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECD235EA164C6F5C0099253C /* Debug */,
+				ECD235EB164C6F5C0099253C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECD235EC164C6F5C0099253C /* Build configuration list for PBXNativeTarget "PetFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECD235ED164C6F5C0099253C /* Debug */,
+				ECD235EE164C6F5C0099253C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECD235C5164C6F5C0099253C /* Project object */;
+}
