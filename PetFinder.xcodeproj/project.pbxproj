@@ -13,6 +13,14 @@
 		7D08AC961651C5860050663D /* CatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D08AC941651C5860050663D /* CatsViewController.xib */; };
 		7D08AC9A1651C5A10050663D /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08AC981651C5A10050663D /* FavoritesViewController.m */; };
 		7D08AC9B1651C5A10050663D /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D08AC991651C5A10050663D /* FavoritesViewController.xib */; };
+		7D08ACB91651DC2E0050663D /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACB81651DC2E0050663D /* Animal.m */; };
+		7D08ACBC1651DC530050663D /* CSVAnimalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACBB1651DC530050663D /* CSVAnimalController.m */; };
+		7D08ACCE1651F6130050663D /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACC71651F6130050663D /* CHCSVParser.m */; };
+		7D08ACCF1651F6130050663D /* CHCSVWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACC91651F6130050663D /* CHCSVWriter.m */; };
+		7D08ACD01651F6130050663D /* NSArray+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACCB1651F6130050663D /* NSArray+CHCSVAdditions.m */; };
+		7D08ACD11651F6130050663D /* NSString+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACCD1651F6130050663D /* NSString+CHCSVAdditions.m */; };
+		7D08ACD41651FBF10050663D /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACD31651FBF10050663D /* Utilities.m */; };
+		7D08ACD81651FCF30050663D /* AnimalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACD71651FCF30050663D /* AnimalData.m */; };
 		ECD235D3164C6F5C0099253C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD235D2164C6F5C0099253C /* UIKit.framework */; };
 		ECD235D5164C6F5C0099253C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD235D4164C6F5C0099253C /* Foundation.framework */; };
 		ECD235D7164C6F5C0099253C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD235D6164C6F5C0099253C /* CoreGraphics.framework */; };
@@ -31,6 +39,23 @@
 		7D08AC971651C5A10050663D /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		7D08AC981651C5A10050663D /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		7D08AC991651C5A10050663D /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		7D08ACB71651DC2E0050663D /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
+		7D08ACB81651DC2E0050663D /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
+		7D08ACBA1651DC530050663D /* CSVAnimalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVAnimalController.h; sourceTree = "<group>"; };
+		7D08ACBB1651DC530050663D /* CSVAnimalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVAnimalController.m; sourceTree = "<group>"; };
+		7D08ACC51651F6130050663D /* CHCSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSV.h; sourceTree = "<group>"; };
+		7D08ACC61651F6130050663D /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		7D08ACC71651F6130050663D /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
+		7D08ACC81651F6130050663D /* CHCSVWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVWriter.h; sourceTree = "<group>"; };
+		7D08ACC91651F6130050663D /* CHCSVWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVWriter.m; sourceTree = "<group>"; };
+		7D08ACCA1651F6130050663D /* NSArray+CHCSVAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CHCSVAdditions.h"; sourceTree = "<group>"; };
+		7D08ACCB1651F6130050663D /* NSArray+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CHCSVAdditions.m"; sourceTree = "<group>"; };
+		7D08ACCC1651F6130050663D /* NSString+CHCSVAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CHCSVAdditions.h"; sourceTree = "<group>"; };
+		7D08ACCD1651F6130050663D /* NSString+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CHCSVAdditions.m"; sourceTree = "<group>"; };
+		7D08ACD21651FBF10050663D /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		7D08ACD31651FBF10050663D /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		7D08ACD61651FCF30050663D /* AnimalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalData.h; sourceTree = "<group>"; };
+		7D08ACD71651FCF30050663D /* AnimalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalData.m; sourceTree = "<group>"; };
 		ECD235CE164C6F5C0099253C /* PetFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD235D2164C6F5C0099253C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ECD235D4164C6F5C0099253C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,6 +85,10 @@
 		7D08AC9C1651C76A0050663D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7D08ACB71651DC2E0050663D /* Animal.h */,
+				7D08ACB81651DC2E0050663D /* Animal.m */,
+				7D08ACD61651FCF30050663D /* AnimalData.h */,
+				7D08ACD71651FCF30050663D /* AnimalData.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -85,6 +114,31 @@
 				7D08AC991651C5A10050663D /* FavoritesViewController.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		7D08ACA71651CE7B0050663D /* CHCSVParser */ = {
+			isa = PBXGroup;
+			children = (
+				7D08ACC51651F6130050663D /* CHCSV.h */,
+				7D08ACC61651F6130050663D /* CHCSVParser.h */,
+				7D08ACC71651F6130050663D /* CHCSVParser.m */,
+				7D08ACC81651F6130050663D /* CHCSVWriter.h */,
+				7D08ACC91651F6130050663D /* CHCSVWriter.m */,
+				7D08ACCA1651F6130050663D /* NSArray+CHCSVAdditions.h */,
+				7D08ACCB1651F6130050663D /* NSArray+CHCSVAdditions.m */,
+				7D08ACCC1651F6130050663D /* NSString+CHCSVAdditions.h */,
+				7D08ACCD1651F6130050663D /* NSString+CHCSVAdditions.m */,
+			);
+			path = CHCSVParser;
+			sourceTree = "<group>";
+		};
+		7D08ACB61651DBF80050663D /* Data Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7D08ACBA1651DC530050663D /* CSVAnimalController.h */,
+				7D08ACBB1651DC530050663D /* CSVAnimalController.m */,
+			);
+			name = "Data Controller";
 			sourceTree = "<group>";
 		};
 		ECD235C3164C6F5C0099253C = {
@@ -117,12 +171,16 @@
 		ECD235D8164C6F5C0099253C /* PetFinder */ = {
 			isa = PBXGroup;
 			children = (
+				7D08ACB61651DBF80050663D /* Data Controller */,
 				7D08AC9E1651C7A20050663D /* Views */,
 				7D08AC9C1651C76A0050663D /* Models */,
 				7D08AC9D1651C7850050663D /* View Controllers */,
 				ECD235E1164C6F5C0099253C /* AppDelegate.h */,
 				ECD235E2164C6F5C0099253C /* AppDelegate.m */,
+				7D08ACA71651CE7B0050663D /* CHCSVParser */,
 				ECD235D9164C6F5C0099253C /* Supporting Files */,
+				7D08ACD21651FBF10050663D /* Utilities.h */,
+				7D08ACD31651FBF10050663D /* Utilities.m */,
 			);
 			path = PetFinder;
 			sourceTree = "<group>";
@@ -207,6 +265,14 @@
 				7D08AC8F1651C56D0050663D /* DogsViewController.m in Sources */,
 				7D08AC951651C5860050663D /* CatsViewController.m in Sources */,
 				7D08AC9A1651C5A10050663D /* FavoritesViewController.m in Sources */,
+				7D08ACB91651DC2E0050663D /* Animal.m in Sources */,
+				7D08ACBC1651DC530050663D /* CSVAnimalController.m in Sources */,
+				7D08ACCE1651F6130050663D /* CHCSVParser.m in Sources */,
+				7D08ACCF1651F6130050663D /* CHCSVWriter.m in Sources */,
+				7D08ACD01651F6130050663D /* NSArray+CHCSVAdditions.m in Sources */,
+				7D08ACD11651F6130050663D /* NSString+CHCSVAdditions.m in Sources */,
+				7D08ACD41651FBF10050663D /* Utilities.m in Sources */,
+				7D08ACD81651FCF30050663D /* AnimalData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

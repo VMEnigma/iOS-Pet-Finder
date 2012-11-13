@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DogsViewController : UIViewController
+@interface DogsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic,strong)NSArray* filteredData;
+@property (nonatomic,strong)NSArray* unfilteredData;
 
 @end

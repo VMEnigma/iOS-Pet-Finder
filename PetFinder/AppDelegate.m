@@ -11,14 +11,31 @@
 #import "DogsViewController.h"
 #import "CatsViewController.h"
 #import "FavoritesViewController.h"
+#import "AnimalData.h"
+#import "CSVAnimalController.h"
 
 @implementation AppDelegate
+AnimalData* animalData;
 
 @synthesize window = _window;
 @synthesize tabBarController = _tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Use animal data singleton
+
+    animalData = [AnimalData sharedAnimalData];
+    
+    // Load animal data with CSV parser
+    CSVAnimalController* dataLoader = [[CSVAnimalController alloc] initWithStringUrl:@"http://www.venexmedia.com/AnimalShelterApp/animals.csv"];
+    
+    //Populate singleton data with CSV parsed data
+    [animalData populateAnimalData:[dataLoader getAnimalDataAsArray]];
+    
+    // - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Load views with tab bar controller
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     UIViewController *viewController1 = [[DogsViewController alloc] initWithNibName:@"DogsViewController" bundle:nil];
