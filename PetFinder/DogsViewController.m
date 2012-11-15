@@ -11,6 +11,7 @@
 #import "AnimalData.h"
 #import "Utilities.h"
 #import "CSVAnimalController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface DogsViewController ()
@@ -38,6 +39,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    //Outer view without clipping (shadow + rounded)
+    UIView *viewContainer1 = [self.view viewWithTag:2];
+    viewContainer1.layer.cornerRadius = 10;
+    viewContainer1.layer.shadowColor = [[UIColor blackColor] CGColor];
+    viewContainer1.layer.shadowOpacity = 0.5;
+    viewContainer1.layer.shadowRadius = 10.0;
+    viewContainer1.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    //Inner view with clipping that contains the table view (rounded)
+    UIView *viewContainer2 = [self.view viewWithTag:3];
+    viewContainer2.layer.cornerRadius = 10;
     
     self.unfilteredData = [AnimalData sharedAnimalData].animalData;
     [self.tableView reloadData];

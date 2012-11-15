@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48D2307816558EF30028785F /* AnimalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48D2307716558EF30028785F /* AnimalCell.xib */; };
 		7D08AC8F1651C56D0050663D /* DogsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08AC8D1651C56D0050663D /* DogsViewController.m */; };
 		7D08AC901651C56D0050663D /* DogsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D08AC8E1651C56D0050663D /* DogsViewController.xib */; };
 		7D08AC951651C5860050663D /* CatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08AC931651C5860050663D /* CatsViewController.m */; };
@@ -21,6 +22,7 @@
 		7D08ACD11651F6130050663D /* NSString+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACCD1651F6130050663D /* NSString+CHCSVAdditions.m */; };
 		7D08ACD41651FBF10050663D /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACD31651FBF10050663D /* Utilities.m */; };
 		7D08ACD81651FCF30050663D /* AnimalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACD71651FCF30050663D /* AnimalData.m */; };
+		7DDF187E165306AB00F7FD78 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7DDF187D165306AB00F7FD78 /* Settings.bundle */; };
 		ECD235D3164C6F5C0099253C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD235D2164C6F5C0099253C /* UIKit.framework */; };
 		ECD235D5164C6F5C0099253C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD235D4164C6F5C0099253C /* Foundation.framework */; };
 		ECD235D7164C6F5C0099253C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD235D6164C6F5C0099253C /* CoreGraphics.framework */; };
@@ -30,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48D2307716558EF30028785F /* AnimalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimalCell.xib; sourceTree = "<group>"; };
 		7D08AC8C1651C56D0050663D /* DogsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DogsViewController.h; sourceTree = "<group>"; };
 		7D08AC8D1651C56D0050663D /* DogsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DogsViewController.m; sourceTree = "<group>"; };
 		7D08AC8E1651C56D0050663D /* DogsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DogsViewController.xib; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		7D08ACD31651FBF10050663D /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		7D08ACD61651FCF30050663D /* AnimalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalData.h; sourceTree = "<group>"; };
 		7D08ACD71651FCF30050663D /* AnimalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalData.m; sourceTree = "<group>"; };
+		7DDF187D165306AB00F7FD78 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		ECD235CE164C6F5C0099253C /* PetFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD235D2164C6F5C0099253C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ECD235D4164C6F5C0099253C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -112,6 +116,7 @@
 				7D08AC8E1651C56D0050663D /* DogsViewController.xib */,
 				7D08AC941651C5860050663D /* CatsViewController.xib */,
 				7D08AC991651C5A10050663D /* FavoritesViewController.xib */,
+				48D2307716558EF30028785F /* AnimalCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				ECD235D9164C6F5C0099253C /* Supporting Files */,
 				7D08ACD21651FBF10050663D /* Utilities.h */,
 				7D08ACD31651FBF10050663D /* Utilities.m */,
+				7DDF187D165306AB00F7FD78 /* Settings.bundle */,
 			);
 			path = PetFinder;
 			sourceTree = "<group>";
@@ -250,6 +256,8 @@
 				7D08AC901651C56D0050663D /* DogsViewController.xib in Resources */,
 				7D08AC961651C5860050663D /* CatsViewController.xib in Resources */,
 				7D08AC9B1651C5A10050663D /* FavoritesViewController.xib in Resources */,
+				7DDF187E165306AB00F7FD78 /* Settings.bundle in Resources */,
+				48D2307816558EF30028785F /* AnimalCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
