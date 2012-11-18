@@ -43,7 +43,7 @@
         //Add object to general array
         [self.animalData addObject: animalModel];
         
-        //- - - - - - - - - - - - - - - - - - - - - - 
+        //- - - - - - - - - - - - - - - - - - - - - -
         //Create dictionary with animal type as key
         
         //Check if dictionary exists for type, if not then create it.

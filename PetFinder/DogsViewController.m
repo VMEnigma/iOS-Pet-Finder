@@ -8,6 +8,7 @@
 
 #import "DogsViewController.h"
 #import "Animal.h"
+#import "AnimalCell.h"
 #import "AnimalData.h"
 #import "Utilities.h"
 #import "CSVAnimalController.h"
@@ -52,6 +53,12 @@
     UIView *viewContainer2 = [self.view viewWithTag:3];
     viewContainer2.layer.cornerRadius = 10;
     
+    //Load custom tableview cell
+    UINib* nib = [UINib nibWithNibName:@"AnimalCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier: @"AnimalCell"];
+    self.tableView.rowHeight = ((UITableViewCell*)[[nib instantiateWithOwner:self options:nil] objectAtIndex:0]).bounds.size.height;
+    
+    
     self.unfilteredData = [AnimalData sharedAnimalData].animalData;
     [self.tableView reloadData];
     
@@ -81,19 +88,23 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     
-    static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"AnimalCell";
+    
+    AnimalCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[AnimalCell alloc] init];
     }
     
     // Configure the cell...
     
-    Animal *cellAnimal = [self.unfilteredData objectAtIndex:[indexPath row]];
-    cell.textLabel.text = cellAnimal.Name;
+    Animal *animal = [self.unfilteredData objectAtIndex:[indexPath row]];
+    [cell setAnimalModel: animal];
+    cell.animalImage.image = [UIImage imageNamed:@"Dogs"];
+    
     
     return cell;
 }
