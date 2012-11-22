@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface DogsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface DogsViewController : BaseViewController 
 
-@property (nonatomic,strong)NSArray* filteredData;
-@property (nonatomic,strong)NSArray* unfilteredData;
+
 
 @end

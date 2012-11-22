@@ -40,9 +40,9 @@ AnimalData* animalData;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //Initialize 3 view controllers for tabs
-    UIViewController *viewController1 = [[DogsViewController alloc] initWithNibName:@"DogsViewController" bundle:nil];
-    UIViewController *viewController2 = [[CatsViewController alloc] initWithNibName:@"CatsViewController" bundle:nil];
-    UIViewController *viewController3 = [[FavoritesViewController alloc] initWithNibName:@"FavoritesViewController" bundle:nil];
+    UIViewController *viewController1 = [[DogsViewController alloc] initWithNibName:@"BaseViewController" bundle:nil];
+    UIViewController *viewController2 = [[CatsViewController alloc] initWithNibName:@"BaseViewController" bundle:nil];
+    UIViewController *viewController3 = [[FavoritesViewController alloc] initWithNibName:@"BaseViewController" bundle:nil];
     
     //Initialize 3 navigation controllers for tabs
     UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
