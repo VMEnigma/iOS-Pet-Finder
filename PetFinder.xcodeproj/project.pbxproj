@@ -32,6 +32,8 @@
 		ECD235DD164C6F5C0099253C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECD235DB164C6F5C0099253C /* InfoPlist.strings */; };
 		ECD235DF164C6F5C0099253C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD235DE164C6F5C0099253C /* main.m */; };
 		ECD235E3164C6F5C0099253C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD235E2164C6F5C0099253C /* AppDelegate.m */; };
+		F1F332F21659FECA0092329F /* animals.xml in Resources */ = {isa = PBXBuildFile; fileRef = F1F332F01659FECA0092329F /* animals.xml */; };
+		F1F332F51659FEDE0092329F /* AnimalDataXML.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F332F41659FEDE0092329F /* AnimalDataXML.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,9 @@
 		ECD235E0164C6F5C0099253C /* PetFinder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetFinder-Prefix.pch"; sourceTree = "<group>"; };
 		ECD235E1164C6F5C0099253C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ECD235E2164C6F5C0099253C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F1F332EF1659FECA0092329F /* AnimalDataXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalDataXML.h; sourceTree = "<group>"; };
+		F1F332F01659FECA0092329F /* animals.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = animals.xml; sourceTree = "<group>"; };
+		F1F332F41659FEDE0092329F /* AnimalDataXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalDataXML.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +105,9 @@
 				7D08ACB81651DC2E0050663D /* Animal.m */,
 				7D08ACD61651FCF30050663D /* AnimalData.h */,
 				7D08ACD71651FCF30050663D /* AnimalData.m */,
+				F1F332EF1659FECA0092329F /* AnimalDataXML.h */,
+				F1F332F41659FEDE0092329F /* AnimalDataXML.m */,
+				F1F332F01659FECA0092329F /* animals.xml */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -279,6 +287,7 @@
 				48D2307816558EF30028785F /* AnimalCell.xib in Resources */,
 				7D60D18816597CAC007F83D2 /* Dogs.png in Resources */,
 				7D60D18916597CAC007F83D2 /* Dogs@2x.png in Resources */,
+				F1F332F21659FECA0092329F /* animals.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +312,7 @@
 				7D08ACD41651FBF10050663D /* Utilities.m in Sources */,
 				7D08ACD81651FCF30050663D /* AnimalData.m in Sources */,
 				7D60D18316583903007F83D2 /* AnimalCell.m in Sources */,
+				F1F332F51659FEDE0092329F /* AnimalDataXML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
