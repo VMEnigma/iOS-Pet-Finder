@@ -16,6 +16,9 @@
 
 
 @interface DogsViewController ()
+{
+    NSMutableDictionary* dictionaryDogs;
+}
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dogs;
@@ -61,8 +64,6 @@
     
     self.unfilteredData = [AnimalData sharedAnimalData].animalData;
     [self.tableView reloadData];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
