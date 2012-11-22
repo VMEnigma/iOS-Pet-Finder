@@ -20,6 +20,7 @@
     if (self) {
         self.title = @"Favorites";
         self.tabBarItem.title = @"Favorites";
+        self.tabBarItem.image = [UIImage imageNamed:@"FavoriteTab"];
     }
     return self;
 }

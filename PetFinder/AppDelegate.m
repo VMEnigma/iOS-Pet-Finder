@@ -56,6 +56,7 @@ AnimalData* animalData;
     //Create tab bar controller with 3 tabs and make it the rootViewController
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:0.682353 green:0.062745 blue:0.121569 alpha:1];
+    self.tabBarController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.992157 green:0.772549 blue:0.188235 alpha:1];
     NSArray* controllers = [NSArray arrayWithObjects: navigationController1, navigationController2, navigationController3, nil];
     [self.tabBarController setViewControllers: controllers];
     [self.window setRootViewController:self.tabBarController];

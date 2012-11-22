@@ -11,9 +11,6 @@
 
 
 @interface DogsViewController ()
-{
-    NSMutableDictionary* dictionaryDogs;
-}
 
 @property (nonatomic, strong) NSMutableArray *dogs;
 
@@ -29,6 +26,8 @@
     if (self) {
         self.title = @"Dogs";
         self.tabBarItem.title = @"Dogs";
+        self.tabBarItem.image = [UIImage imageNamed:@"DogsTab"];
+        
     }
     return self;
 }
@@ -37,7 +36,7 @@
 {
     [super viewDidLoad];
     
-    self.unfilteredData = [AnimalData sharedAnimalData].animalData;
+    self.unfilteredData = [[AnimalData sharedAnimalData].animalOfType mutableArrayValueForKey:@"Dog"];
     [self.tableView reloadData];
 }
 
