@@ -19,10 +19,11 @@ AnimalData* animalData;
 
 @synthesize window = _window;
 @synthesize tabBarController = _tabBarController;
+@synthesize navigationController = _navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // - - - - - - - - - - - - - - - - - - - - - - - - -
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Use animal data singleton
 
     animalData = [AnimalData sharedAnimalData];
@@ -33,19 +34,33 @@ AnimalData* animalData;
     //Populate singleton data with CSV parsed data
     [animalData populateAnimalData:[dataLoader getAnimalDataAsArray]];
     
-    // - - - - - - - - - - - - - - - - - - - - - - - - -
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Load views with tab bar controller
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    //Initialize 3 view controllers for tabs
     UIViewController *viewController1 = [[DogsViewController alloc] initWithNibName:@"DogsViewController" bundle:nil];
     UIViewController *viewController2 = [[CatsViewController alloc] initWithNibName:@"CatsViewController" bundle:nil];
     UIViewController *viewController3 = [[FavoritesViewController alloc] initWithNibName:@"FavoritesViewController" bundle:nil];
+    
+    //Initialize 3 navigation controllers for tabs
+    UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
+    UINavigationController *navigationController2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
+    UINavigationController *navigationController3 = [[UINavigationController alloc] initWithRootViewController:viewController3];
+    UIColor *navigationBarColor = [UIColor colorWithRed:0.172549 green:0.643137 blue:0.905882 alpha:1];
+    [navigationController1.navigationBar setTintColor: navigationBarColor];
+    [navigationController2.navigationBar setTintColor: navigationBarColor];
+    [navigationController3.navigationBar setTintColor: navigationBarColor];
+    
+    //Create tab bar controller with 3 tabs and make it the rootViewController
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[viewController1, viewController2, viewController3];
     self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:0.682353 green:0.062745 blue:0.121569 alpha:1];
-    self.window.rootViewController = self.tabBarController;
+    NSArray* controllers = [NSArray arrayWithObjects: navigationController1, navigationController2, navigationController3, nil];
+    [self.tabBarController setViewControllers: controllers];
+    [self.window setRootViewController:self.tabBarController];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
