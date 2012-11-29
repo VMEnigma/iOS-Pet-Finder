@@ -13,6 +13,7 @@
 #import "FavoritesViewController.h"
 #import "AnimalData.h"
 #import "CSVAnimalController.h"
+#import "FavoriteAnimalStore.h"
 
 @implementation AppDelegate
 AnimalData* animalData;
@@ -33,6 +34,32 @@ AnimalData* animalData;
     
     //Populate singleton data with CSV parsed data
     [animalData populateAnimalData:[dataLoader getAnimalDataAsArray]];
+    
+    // - - - - - - - - - - - - - - - 
+    
+    //Invalidate invalid favorites
+    
+    FavoriteAnimalStore * favorites = [FavoriteAnimalStore singletonFavorites];
+    
+    for(FavoriteAnimal * fave in [favorites allFavorites])
+    {
+        BOOL exists = NO;
+        
+        for(Animal * beast in [animalData animalData])
+        {
+            if([[fave AnimalID] compare:[beast AnimalID]] == NSOrderedSame)
+            {
+                exists = YES;
+                break;
+            }
+        }
+        
+        if(exists == NO)
+        {
+            fave.validity = NO;
+        }
+    }
+    
     
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Load views with tab bar controller
@@ -73,8 +100,16 @@ AnimalData* animalData;
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    BOOL success = [[FavoriteAnimalStore singletonFavorites] saveChanges];
+    
+    if(success)
+    {
+        NSLog(@"Good");
+    }
+    else 
+    {
+        NSLog(@"Fuck you");
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

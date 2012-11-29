@@ -10,4 +10,7 @@
 #import "BaseViewController.h"
 
 @interface FavoritesViewController : BaseViewController
+@property (strong, nonatomic) NSArray * unfilteredData;
+
+-(IBAction)editing:(id)sender;
 @end

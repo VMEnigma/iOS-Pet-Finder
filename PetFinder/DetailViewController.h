@@ -21,5 +21,6 @@
 @property (nonatomic, strong) Animal * animal;
 
 -(IBAction)adoptThisPet:(id)sender;
+-(IBAction)backPressed:(id)sender;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "DetailViewController.h"
+#import "FavoriteAnimalStore.h"
+#import "FavoriteAnimal.h"
 
 @implementation DetailViewController
 @synthesize animal;
@@ -17,6 +19,10 @@
     
     //can set exact shade later
     [[self view] setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UIBarButtonItem * back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backPressed:)];
+    
+    [[self navigationItem] setLeftBarButtonItem:back];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -31,6 +37,23 @@
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     
     [dateField setText:[dateFormatter stringFromDate:[animal ShelterDate]]];
+    NSLog(@"%@", [animal Type]);
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    BOOL success = [self becomeFirstResponder];
+    
+    if(success)
+    {
+        NSLog(@"Win");
+    }
+    else 
+    {
+        NSLog(@"Lose");
+    }
+    
+    [super viewDidAppear:animated];
 }
 
 - (void)viewDidUnload {
@@ -41,4 +64,46 @@
     animalImageView = nil;
     [super viewDidUnload];
 }
+
+-(IBAction)adoptThisPet:(id)sender
+{
+    
+}
+
+-(IBAction)backPressed:(id)sender
+{
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
+-(BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+-(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if(motion == UIEventSubtypeMotionShake && [animal isKindOfClass:[Animal class]])
+    {
+        if(![[FavoriteAnimalStore singletonFavorites] isDuplicate:animal])
+        {
+            NSString * theMessage  = [[NSString alloc] initWithFormat:@"%@ has been added to your favorites.", [animal Name]];
+        
+            FavoriteAnimal * fave = [[FavoriteAnimal alloc] initWithAnimal:animal];
+            [[FavoriteAnimalStore singletonFavorites] addAnimal:fave];
+        
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Success" message:theMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+            [alert show];
+        }
+        else 
+        {
+            NSString * theMessage = @"This animal is already on your favorites list.";
+            
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Hmm..?" message:theMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            [alert show];
+        }
+    }
+}
+
 @end
