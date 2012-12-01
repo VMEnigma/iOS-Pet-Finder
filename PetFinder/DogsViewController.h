@@ -11,6 +11,6 @@
 
 @interface DogsViewController : BaseViewController 
 
-
+-(void)refresh;
 
 @end

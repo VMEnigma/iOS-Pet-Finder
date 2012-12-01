@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "FavoriteAnimalStore.h"
 #import "FavoriteAnimal.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
 @implementation DetailViewController
 @synthesize animal;
@@ -67,7 +68,27 @@
 
 -(IBAction)adoptThisPet:(id)sender
 {
+    NSString * body = [NSString stringWithFormat:@"I would like more information on adopting %@ (%@)",[animal Name], [animal AnimalID]];
+    MFMailComposeViewController * mfmvc = [[MFMailComposeViewController alloc] init];
+    mfmvc.mailComposeDelegate = self;
+    [mfmvc setSubject:@"Adoption Request"];
+    [mfmvc setMessageBody:body isHTML:NO];
+    [mfmvc setToRecipients:[NSArray arrayWithObject:@"gjean011@fiu.edu"]];
     
+    if(mfmvc)
+    {
+        [self presentModalViewController:mfmvc animated:YES];
+    }
+}
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    if(result == MFMailComposeResultSent)
+    {
+        NSLog(@"good email");
+    }
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction)backPressed:(id)sender

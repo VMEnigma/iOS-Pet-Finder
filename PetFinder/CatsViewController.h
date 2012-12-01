@@ -11,4 +11,6 @@
 
 @interface CatsViewController : BaseViewController
 
+-(void)refresh;
+
 @end

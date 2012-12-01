@@ -8,7 +8,9 @@
 
 #import "DogsViewController.h"
 #import "DetailViewController.h"
-
+#import "AnimalData.h"
+#import "CSVAnimalController.h"
+#import "FavoriteAnimalStore.h"
 
 @interface DogsViewController ()
 
@@ -27,6 +29,10 @@
         self.title = @"Dogs";
         self.tabBarItem.title = @"Dogs";
         self.tabBarItem.image = [UIImage imageNamed:@"DogsTab"];
+        
+        UIBarButtonItem * bbi = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refresh)];
+        
+        [[self navigationItem] setLeftBarButtonItem:bbi];
         
     }
     return self;
@@ -95,4 +101,44 @@
     
     [[self navigationController] pushViewController:dvc animated:YES];
 }
+
+-(void)refresh
+{
+    AnimalData * animalData = [AnimalData sharedAnimalData];
+    
+    // Load animal data with CSV parser
+    CSVAnimalController* dataLoader = [[CSVAnimalController alloc] initWithStringUrl:@"http://www.venexmedia.com/AnimalShelterApp/animals.csv"];
+    
+    //Populate singleton data with CSV parsed data
+    [animalData populateAnimalData:[dataLoader getAnimalDataAsArray]];
+    
+    // - - - - - - - - - - - - - - - 
+    
+    //Invalidate invalid favorites
+    
+    FavoriteAnimalStore * favorites = [FavoriteAnimalStore singletonFavorites];
+    
+    for(FavoriteAnimal * fave in [favorites allFavorites])
+    {
+        BOOL exists = NO;
+        
+        for(Animal * beast in [animalData animalData])
+        {
+            if([[fave AnimalID] compare:[beast AnimalID]] == NSOrderedSame)
+            {
+                exists = YES;
+                break;
+            }
+        }
+        
+        if(exists == NO)
+        {
+            fave.validity = NO;
+        }
+    }
+    
+    self.unfilteredData = [[AnimalData sharedAnimalData].animalOfType mutableArrayValueForKey:@"Dog"];
+    [self.tableView reloadData];
+}
+
 @end

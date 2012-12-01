@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Animal.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <MFMailComposeViewControllerDelegate>
 {
     
     __weak IBOutlet UILabel *dateField;
