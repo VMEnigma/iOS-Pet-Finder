@@ -23,6 +23,8 @@
 
 -(IBAction)adoptThisPet:(id)sender;
 
+-(void)addToFavorites;
+
 
 @end
 

@@ -12,6 +12,8 @@
 		482991E7166BF0CE00C197DE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 482991E6166BF0CE00C197DE /* MessageUI.framework */; };
 		482991E9166C033600C197DE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 482991E8166C033600C197DE /* Default-568h@2x.png */; };
 		482991F0166C0D2300C197DE /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 482991EF166C0D2300C197DE /* AsyncImageView.m */; };
+		482991FB166C1A2200C197DE /* FavoriteNavButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 482991F9166C1A2200C197DE /* FavoriteNavButton.png */; };
+		482991FC166C1A2200C197DE /* FavoriteNavButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 482991FA166C1A2200C197DE /* FavoriteNavButton@2x.png */; };
 		489BD522166BE805008E9EE8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BD520166BE805008E9EE8 /* DetailViewController.m */; };
 		489BD523166BE805008E9EE8 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 489BD521166BE805008E9EE8 /* DetailViewController.xib */; };
 		489BD531166BE8A4008E9EE8 /* Cats.png in Resources */ = {isa = PBXBuildFile; fileRef = 489BD525166BE8A4008E9EE8 /* Cats.png */; };
@@ -64,6 +66,8 @@
 		482991E8166C033600C197DE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		482991EE166C0D2300C197DE /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		482991EF166C0D2300C197DE /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		482991F9166C1A2200C197DE /* FavoriteNavButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavoriteNavButton.png; sourceTree = "<group>"; };
+		482991FA166C1A2200C197DE /* FavoriteNavButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FavoriteNavButton@2x.png"; sourceTree = "<group>"; };
 		489BD51F166BE805008E9EE8 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		489BD520166BE805008E9EE8 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		489BD521166BE805008E9EE8 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 		7D60D18516597C50007F83D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				482991F9166C1A2200C197DE /* FavoriteNavButton.png */,
+				482991FA166C1A2200C197DE /* FavoriteNavButton@2x.png */,
 				7D08ACA71651CE7B0050663D /* CHCSVParser */,
 				482991ED166C0D2300C197DE /* AsyncImageView */,
 				489BD525166BE8A4008E9EE8 /* Cats.png */,
@@ -378,6 +384,8 @@
 				489BD53B166BE8A4008E9EE8 /* FavoriteTab.png in Resources */,
 				489BD53C166BE8A4008E9EE8 /* FavoriteTab@2x.png in Resources */,
 				482991E9166C033600C197DE /* Default-568h@2x.png in Resources */,
+				482991FB166C1A2200C197DE /* FavoriteNavButton.png in Resources */,
+				482991FC166C1A2200C197DE /* FavoriteNavButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

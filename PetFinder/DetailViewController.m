@@ -22,6 +22,10 @@
    // UIBarButtonItem * back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backPressed:)];
     
   // [[self navigationItem] setLeftBarButtonItem:back];
+    
+    UIBarButtonItem *favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"FavoriteNavButton"] style:UIBarButtonItemStylePlain target:self action:@selector(addToFavorites)];
+    favoriteButton.tintColor = [UIColor colorWithRed:1.000000 green:0.627451 blue:0.168627 alpha:1];
+    self.navigationItem.rightBarButtonItem = favoriteButton;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -43,6 +47,7 @@
     self.animalImageView.imageURL = [NSURL  URLWithString:[NSString stringWithFormat:@"http://www.venexmedia.com/AnimalShelterApp/images/%@.jpeg", [self.animal AnimalID]]];
     
 }
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -108,26 +113,32 @@
 {
     if(motion == UIEventSubtypeMotionShake && [animal isKindOfClass:[Animal class]])
     {
-        if(![[FavoriteAnimalStore singletonFavorites] isDuplicate:animal])
-        {
-            NSString * theMessage  = [[NSString alloc] initWithFormat:@"%@ has been added to your favorites.", [animal Name]];
-            
-            FavoriteAnimal * fave = [[FavoriteAnimal alloc] initWithAnimal:animal];
-            [[FavoriteAnimalStore singletonFavorites] addAnimal:fave];
-            
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Success" message:theMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            
-            [alert show];
-        }
-        else
-        {
-            NSString * theMessage = @"This animal is already on your favorites list.";
-            
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Hmm..?" message:theMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            
-            [alert show];
-        }
+        [self addToFavorites];
     }
+}
+
+-(void)addToFavorites
+{
+    if(![[FavoriteAnimalStore singletonFavorites] isDuplicate:animal])
+    {
+        NSString * theMessage  = [[NSString alloc] initWithFormat:@"%@ has been added to your favorites.", [self.animal Name]];
+        
+        FavoriteAnimal * fave = [[FavoriteAnimal alloc] initWithAnimal:animal];
+        [[FavoriteAnimalStore singletonFavorites] addAnimal:fave];
+        
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Success" message:theMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
+    else
+    {
+        NSString * theMessage = @"This animal is already on your favorites list.";
+        
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Hmm..?" message:theMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
+
 }
 
 @end
