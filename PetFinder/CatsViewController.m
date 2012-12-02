@@ -8,11 +8,13 @@
 
 #import "CatsViewController.h"
 
+
 @interface CatsViewController ()
 
 @end
 
 @implementation CatsViewController
+@synthesize unfilteredData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -73,22 +75,60 @@
     return cell;
 }
 
+-(void)refresh
+{
+    AnimalData * animalData = [AnimalData sharedAnimalData];
+    
+    // Load animal data with CSV parser
+    CSVAnimalController* dataLoader = [[CSVAnimalController alloc] initWithStringUrl:@"http://www.venexmedia.com/AnimalShelterApp/animals.csv"];
+    
+    //Populate singleton data with CSV parsed data
+    [animalData populateAnimalData:[dataLoader getAnimalDataAsArray]];
+    
+    // - - - - - - - - - - - - - - -
+    
+    //Invalidate invalid favorites
+    
+    FavoriteAnimalStore * favorites = [FavoriteAnimalStore singletonFavorites];
+    
+    for(FavoriteAnimal * fave in [favorites allFavorites])
+    {
+        BOOL exists = NO;
+        
+        for(Animal * beast in [animalData animalData])
+        {
+            if([[fave AnimalID] compare:[beast AnimalID]] == NSOrderedSame)
+            {
+                exists = YES;
+                break;
+            }
+        }
+        
+        if(exists == NO)
+        {
+            fave.validity = NO;
+        }
+    }
+    
+    self.unfilteredData = [[AnimalData sharedAnimalData].animalOfType mutableArrayValueForKey:@"Cat"];
+    [self.tableView reloadData];
+}
+
 
 
 #pragma mark -
 #pragma mark Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DetailViewController * dvc = [[DetailViewController alloc] init];
+    
+    dvc.hidesBottomBarWhenPushed = YES;
+    
+    Animal * theAnimal = [unfilteredData objectAtIndex:[indexPath row]];
+    
+    [dvc setAnimal:theAnimal];
+    
+    [[self navigationController] pushViewController:dvc animated:YES];
 }
-
 
 @end

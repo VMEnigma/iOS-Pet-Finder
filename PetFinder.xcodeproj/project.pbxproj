@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482991E3166BEF7B00C197DE /* FavoriteAnimal.m in Sources */ = {isa = PBXBuildFile; fileRef = 482991E0166BEF7B00C197DE /* FavoriteAnimal.m */; };
+		482991E4166BEF7B00C197DE /* FavoriteAnimalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 482991E2166BEF7B00C197DE /* FavoriteAnimalStore.m */; };
+		482991E7166BF0CE00C197DE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 482991E6166BF0CE00C197DE /* MessageUI.framework */; };
+		482991E9166C033600C197DE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 482991E8166C033600C197DE /* Default-568h@2x.png */; };
+		482991F0166C0D2300C197DE /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 482991EF166C0D2300C197DE /* AsyncImageView.m */; };
 		489BD522166BE805008E9EE8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BD520166BE805008E9EE8 /* DetailViewController.m */; };
 		489BD523166BE805008E9EE8 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 489BD521166BE805008E9EE8 /* DetailViewController.xib */; };
 		489BD531166BE8A4008E9EE8 /* Cats.png in Resources */ = {isa = PBXBuildFile; fileRef = 489BD525166BE8A4008E9EE8 /* Cats.png */; };
@@ -51,6 +56,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		482991DF166BEF7B00C197DE /* FavoriteAnimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteAnimal.h; sourceTree = "<group>"; };
+		482991E0166BEF7B00C197DE /* FavoriteAnimal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteAnimal.m; sourceTree = "<group>"; };
+		482991E1166BEF7B00C197DE /* FavoriteAnimalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteAnimalStore.h; sourceTree = "<group>"; };
+		482991E2166BEF7B00C197DE /* FavoriteAnimalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteAnimalStore.m; sourceTree = "<group>"; };
+		482991E6166BF0CE00C197DE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		482991E8166C033600C197DE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		482991EE166C0D2300C197DE /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		482991EF166C0D2300C197DE /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		489BD51F166BE805008E9EE8 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		489BD520166BE805008E9EE8 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		489BD521166BE805008E9EE8 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
@@ -120,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482991E7166BF0CE00C197DE /* MessageUI.framework in Frameworks */,
 				ECD235D3164C6F5C0099253C /* UIKit.framework in Frameworks */,
 				ECD235D5164C6F5C0099253C /* Foundation.framework in Frameworks */,
 				ECD235D7164C6F5C0099253C /* CoreGraphics.framework in Frameworks */,
@@ -129,6 +143,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		482991ED166C0D2300C197DE /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
+				482991EE166C0D2300C197DE /* AsyncImageView.h */,
+				482991EF166C0D2300C197DE /* AsyncImageView.m */,
+			);
+			path = AsyncImageView;
+			sourceTree = "<group>";
+		};
 		7D08AC9C1651C76A0050663D /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +169,8 @@
 		7D08AC9D1651C7850050663D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				489BD51F166BE805008E9EE8 /* DetailViewController.h */,
+				489BD520166BE805008E9EE8 /* DetailViewController.m */,
 				7D08AC8C1651C56D0050663D /* DogsViewController.h */,
 				7D08AC8D1651C56D0050663D /* DogsViewController.m */,
 				7D08AC921651C5860050663D /* CatsViewController.h */,
@@ -165,6 +190,7 @@
 		7D08AC9E1651C7A20050663D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				489BD521166BE805008E9EE8 /* DetailViewController.xib */,
 				7D08AC8E1651C56D0050663D /* BaseViewController.xib */,
 				7D9DE0F9165ECAE900831BB8 /* FilterViewController.xib */,
 				48D2307716558EF30028785F /* AnimalCell.xib */,
@@ -200,6 +226,8 @@
 		7D60D18516597C50007F83D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7D08ACA71651CE7B0050663D /* CHCSVParser */,
+				482991ED166C0D2300C197DE /* AsyncImageView */,
 				489BD525166BE8A4008E9EE8 /* Cats.png */,
 				489BD526166BE8A4008E9EE8 /* Cats@2x.png */,
 				489BD527166BE8A4008E9EE8 /* CatsTab.png */,
@@ -219,6 +247,8 @@
 		ECD235C3164C6F5C0099253C = {
 			isa = PBXGroup;
 			children = (
+				482991E8166C033600C197DE /* Default-568h@2x.png */,
+				482991E6166BF0CE00C197DE /* MessageUI.framework */,
 				ECD235D8164C6F5C0099253C /* PetFinder */,
 				ECD235D1164C6F5C0099253C /* Frameworks */,
 				ECD235CF164C6F5C0099253C /* Products */,
@@ -246,6 +276,10 @@
 		ECD235D8164C6F5C0099253C /* PetFinder */ = {
 			isa = PBXGroup;
 			children = (
+				482991DF166BEF7B00C197DE /* FavoriteAnimal.h */,
+				482991E0166BEF7B00C197DE /* FavoriteAnimal.m */,
+				482991E1166BEF7B00C197DE /* FavoriteAnimalStore.h */,
+				482991E2166BEF7B00C197DE /* FavoriteAnimalStore.m */,
 				7D60D18516597C50007F83D2 /* Resources */,
 				7D08ACB61651DBF80050663D /* Data Controller */,
 				7D08AC9E1651C7A20050663D /* Views */,
@@ -253,15 +287,11 @@
 				7D08AC9D1651C7850050663D /* View Controllers */,
 				ECD235E1164C6F5C0099253C /* AppDelegate.h */,
 				ECD235E2164C6F5C0099253C /* AppDelegate.m */,
-				7D08ACA71651CE7B0050663D /* CHCSVParser */,
 				ECD235D9164C6F5C0099253C /* Supporting Files */,
 				7D08ACD21651FBF10050663D /* Utilities.h */,
 				7D08ACD31651FBF10050663D /* Utilities.m */,
 				7DDF187D165306AB00F7FD78 /* Settings.bundle */,
 				7D9DE0FC165EE62D00831BB8 /* Filter.plist */,
-				489BD51F166BE805008E9EE8 /* DetailViewController.h */,
-				489BD520166BE805008E9EE8 /* DetailViewController.m */,
-				489BD521166BE805008E9EE8 /* DetailViewController.xib */,
 			);
 			path = PetFinder;
 			sourceTree = "<group>";
@@ -347,6 +377,7 @@
 				489BD53A166BE8A4008E9EE8 /* Favorite@2x.png in Resources */,
 				489BD53B166BE8A4008E9EE8 /* FavoriteTab.png in Resources */,
 				489BD53C166BE8A4008E9EE8 /* FavoriteTab@2x.png in Resources */,
+				482991E9166C033600C197DE /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +406,9 @@
 				7D9DE0DE165EA7C600831BB8 /* BaseViewController.m in Sources */,
 				7D9DE0FA165ECAEA00831BB8 /* FilterViewController.m in Sources */,
 				489BD522166BE805008E9EE8 /* DetailViewController.m in Sources */,
+				482991E3166BEF7B00C197DE /* FavoriteAnimal.m in Sources */,
+				482991E4166BEF7B00C197DE /* FavoriteAnimalStore.m in Sources */,
+				482991F0166C0D2300C197DE /* AsyncImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

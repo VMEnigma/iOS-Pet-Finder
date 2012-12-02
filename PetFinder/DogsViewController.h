@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface DogsViewController : BaseViewController 
+@interface DogsViewController : BaseViewController
+
+-(void)refresh;
 
 
 

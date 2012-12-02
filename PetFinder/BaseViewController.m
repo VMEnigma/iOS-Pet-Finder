@@ -7,6 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "DetailViewController.h"
+#import "AnimalData.h"
+#import "CSVAnimalController.h"
+#import "FavoriteAnimalStore.h"
 
 
 @interface BaseViewController ()
@@ -15,6 +19,7 @@
 @end
 
 @implementation BaseViewController
+@synthesize tableView, unfilteredData;
 
 
 
@@ -139,14 +144,13 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    DetailViewController * dvc = [[DetailViewController alloc] init];
+    
+    Animal * theAnimal = [unfilteredData objectAtIndex:[indexPath row]];
+    
+    [dvc setAnimal:theAnimal];
+    
+    [[self navigationController] pushViewController:dvc animated:YES];
 }
 
 
