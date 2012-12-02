@@ -12,10 +12,14 @@
 #import "AnimalData.h"
 #import "Utilities.h"
 #import "CSVAnimalController.h"
+#import "FilterViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface BaseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic,strong)NSArray* filteredData;
 @property (nonatomic,strong)NSArray* unfilteredData;
+
+-(void)refreshData;
+-(void)filterData;
 @end

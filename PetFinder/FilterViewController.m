@@ -1,28 +1,31 @@
 //
-//  BaseViewController.m
+//  FilterViewController.m
 //  PetFinder
 //
 //  Created by Raymond G on 11/22/12.
 //
 //
 
-#import "BaseViewController.h"
+#import "FilterViewController.h"
 
+@interface FilterViewController ()
 
-@interface BaseViewController ()
-
+{
+    NSArray *filterData;
+}
 
 @end
 
-@implementation BaseViewController
-
-
+@implementation FilterViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = @"Filter";
+        
+       
     }
     return self;
 }
@@ -31,70 +34,68 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UIColor *navigationBarColor = [UIColor colorWithRed:0.172549 green:0.643137 blue:0.905882 alpha:1];
+    [self.navigationController.navigationBar setTintColor: navigationBarColor];
     
-    //Outer view without clipping (shadow + rounded)
-    UIView *viewContainer1 = [self.view viewWithTag:2];
-    viewContainer1.layer.cornerRadius = 10;
-    viewContainer1.layer.shadowColor = [[UIColor blackColor] CGColor];
-    viewContainer1.layer.shadowOpacity = 0.5;
-    viewContainer1.layer.shadowRadius = 10.0;
-    viewContainer1.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
-    //Inner view with clipping that contains the table view (rounded)
-    UIView *viewContainer2 = [self.view viewWithTag:3];
-    viewContainer2.layer.cornerRadius = 10;
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(cancelFilter)];
+    self.navigationItem.leftBarButtonItem = cancelButton;
     
-    //Load custom tableview cell
-    UINib* nib = [UINib nibWithNibName:@"AnimalCell" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier: @"AnimalCell"];
-    self.tableView.rowHeight = ((UITableViewCell*)[[nib instantiateWithOwner:self options:nil] objectAtIndex:0]).bounds.size.height;
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneFilter)];
+    self.navigationItem.rightBarButtonItem = doneButton;
     
-    //Add filter button to navigation controller
-    UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(filterData)];
-    self.navigationItem.leftBarButtonItem = filterButton;
     
-    //Add refresh button to navigation controller
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];
-    self.navigationItem.rightBarButtonItem = refreshButton;
+    NSBundle* bundle = [NSBundle mainBundle];
+	NSString* plistPath = [bundle pathForResource:@"Filter" ofType:@"plist"];
+    
+	NSArray*  filterData= [[NSArray alloc] initWithContentsOfFile:plistPath];
+    NSLog(@"%@", filterData);
+    
 }
 
+-(void)cancelFilter
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    
+}
+-(void)doneFilter
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)refreshData
-{
-    
-}
--(void)filterData
-{
-    FilterViewController *filterController = [[FilterViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:filterController];
-    
-    [self presentViewController:navigationController animated:YES completion:nil];
-}
-#pragma mark -
+
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return 4;
 }
 
 
 // Customize the appearance of table view cells.
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    
-//
-//}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+
+    static NSString *CellIdentifier = @"filterCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"filterCell"];
+    }
+    
+   
+    return cell;
+}
 
 /*
  // Override to support conditional editing of the table view.
@@ -149,7 +150,10 @@
      */
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 30;
+}
 
 
 @end
