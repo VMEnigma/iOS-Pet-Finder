@@ -47,7 +47,7 @@ AnimalData* animalData;
         
         for(Animal * beast in [animalData animalData])
         {
-            if([[fave AnimalID] compare:[beast AnimalID]] == NSOrderedSame)
+            if([[fave animalID] compare:[beast AnimalID]] == NSOrderedSame)
             {
                 exists = YES;
                 break;

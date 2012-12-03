@@ -42,6 +42,10 @@
     unfilteredData = [[FavoriteAnimalStore singletonFavorites] allFavorites];
     
     [[self tableView] reloadData];
+    
+    UIBarButtonItem * bbi = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editing:)];
+    
+    [[self navigationItem] setRightBarButtonItem:bbi];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,7 +69,23 @@
     }
     
     // Configure the cell...
-    Animal *animal = [self.unfilteredData objectAtIndex:[indexPath row]];
+    //Animal *animal = [self.unfilteredData objectAtIndex:[indexPath row]];
+    
+    Animal * animal = [[Animal alloc] init];
+    FavoriteAnimal * temp = [self.unfilteredData objectAtIndex:[indexPath row]];
+    
+    [animal setName:[temp name]];
+    [animal setType:[temp type]];
+    [animal setBreed:[temp breed]];
+    [animal setSize:[temp size]];
+    [animal setSex:[temp sex]];
+    [animal setDescription1:[temp description1]];
+    [animal setDescription2:[temp description2]];
+    [animal setDescription3:[temp description3]];
+    [animal setShelterDate:[NSDate dateWithTimeIntervalSinceReferenceDate:[temp shelterDate]]];
+    [animal setAge:[NSNumber numberWithInt:[temp age]]];
+    [animal setAnimalID:[temp animalID]];
+
     [cell setAnimalModel: animal];
     
     if([[animal Type] compare:@"Dog"] == NSOrderedSame)
@@ -103,7 +123,7 @@
         NSArray * list = [favorites allFavorites];
         FavoriteAnimal * fave = [list objectAtIndex:[indexPath row]];
         [favorites removeAnimal:fave];
-        [[FavoriteImageStore sharedImages] deleteImageForKey:[fave AnimalID]];
+        [[FavoriteImageStore sharedImages] deleteImageForKey:[fave animalID]];
         
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }

@@ -2,27 +2,30 @@
 //  FavoriteAnimal.h
 //  PetFinder
 //
-//  Created by gregory jean baptiste on 11/28/12.
+//  Created by Gregory Jean-Baptiste on 12/2/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "Animal.h"
 
-@interface FavoriteAnimal : NSObject <NSCoding>
 
-@property (copy, nonatomic) NSString* AnimalID;
-@property (copy, nonatomic) NSString* Name;
-@property (copy, nonatomic) NSString* Type;
-@property (copy, nonatomic) NSString* Breed;
-@property (copy, nonatomic) NSString* Description1;
-@property (copy, nonatomic) NSString* Description2;
-@property (copy, nonatomic) NSString* Description3;
-@property (copy, nonatomic) NSString* Sex;
-@property (strong, nonatomic) NSNumber* Age;
-@property (copy, nonatomic) NSString* Size;
-@property (strong, nonatomic) NSDate* ShelterDate;
-@property BOOL validity;
+@interface FavoriteAnimal : NSManagedObject
+
+@property (nonatomic, retain) NSString * animalID;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSString * breed;
+@property (nonatomic, retain) NSString * description1;
+@property (nonatomic, retain) NSString * description2;
+@property (nonatomic, retain) NSString * description3;
+@property (nonatomic, retain) NSString * sex;
+@property (nonatomic) int32_t age;
+@property (nonatomic, retain) NSString * size;
+@property (nonatomic) NSTimeInterval shelterDate;
+@property (nonatomic) BOOL validity;
+@property (nonatomic) double orderingValue;
 
 -(id)initWithAnimal:(Animal *)theAnimal;
 

@@ -52,18 +52,20 @@
     else
     {
         //Set Animal Name, ID and Description
-        [self.nameField setText:[faveAnimal Name]];
-        [self.idField setText:[NSString stringWithFormat:@"#%@", [self.faveAnimal AnimalID]]];
-        [self.descriptionField setText:[NSString stringWithFormat:@"%@ %@ %@", [self.faveAnimal Description1], [self.faveAnimal Description2], [self.faveAnimal Description3]]];
+        [self.nameField setText:[faveAnimal name]];
+        [self.idField setText:[NSString stringWithFormat:@"#%@", [self.faveAnimal animalID]]];
+        [self.descriptionField setText:[NSString stringWithFormat:@"%@ %@ %@", [self.faveAnimal description1], [self.faveAnimal description2], [self.faveAnimal description3]]];
         
         //Set Date
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MM/dd/yyyy"];
-        NSString *stringFromDate = [formatter stringFromDate: [self.faveAnimal ShelterDate]];
-        [self.dateField setText: stringFromDate];
+        
+        NSDate * date = [NSDate dateWithTimeIntervalSinceReferenceDate:[faveAnimal shelterDate]];
+        
+        [self.dateField setText: [formatter stringFromDate:date]];
         
         //Set animal image in background
-        [animalImageView setImage:[[FavoriteImageStore sharedImages] imageForKey:[faveAnimal AnimalID]]];
+        [animalImageView setImage:[[FavoriteImageStore sharedImages] imageForKey:[faveAnimal animalID]]];
     }
 }
 
@@ -103,7 +105,7 @@
     }
     else
     {
-        body = [NSString stringWithFormat:@"I would like more information on adopting %@ (%@)",[faveAnimal Name], [faveAnimal AnimalID]];
+        body = [NSString stringWithFormat:@"I would like more information on adopting %@ (%@)",[faveAnimal name], [faveAnimal animalID]];
     }
     
     MFMailComposeViewController * mfmvc = [[MFMailComposeViewController alloc] init];
@@ -152,10 +154,24 @@
     {
         NSString * theMessage  = [[NSString alloc] initWithFormat:@"%@ has been added to your favorites.", [self.animal Name]];
         
-        FavoriteAnimal * fave = [[FavoriteAnimal alloc] initWithAnimal:animal];
+        FavoriteAnimal * fave = [[FavoriteAnimalStore singletonFavorites] createFavoriteAnimal];
+        
+        [fave setAnimalID:[animal AnimalID]];
+        [fave setBreed:[animal Breed]];
+        [fave setType:[animal Type]];
+        [fave setName:[animal Name]];
+        [fave setDescription1:[animal Description1]];
+        [fave setDescription2:[animal Description2]];
+        [fave setDescription3:[animal Description3]];
+        [fave setAge:[[animal Age] intValue]];
+        [fave setShelterDate:[[animal ShelterDate] timeIntervalSinceReferenceDate]];
+        [fave setSize:[animal Size]];
+        [fave setSex:[animal Sex]];
+        [fave setValidity:YES];
+        
         [[FavoriteAnimalStore singletonFavorites] addAnimal:fave];
         
-        [[FavoriteImageStore sharedImages] setImage:[animalImageView image] forKey:[fave AnimalID]];
+        [[FavoriteImageStore sharedImages] setImage:[animalImageView image] forKey:[fave animalID]];
         
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Success" message:theMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         

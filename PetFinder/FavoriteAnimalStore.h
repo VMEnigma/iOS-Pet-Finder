@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "FavoriteAnimal.h"
+#import <CoreData/CoreData.h>
 
 @interface FavoriteAnimalStore : NSObject
 {
     NSMutableArray * allFavorites;
+    NSManagedObjectContext * context;
+    NSManagedObjectModel * model;
 }
 
 +(FavoriteAnimalStore *)singletonFavorites;
@@ -20,7 +23,9 @@
 -(NSString *)itemArchivePath;
 -(BOOL)saveChanges;
 -(void)addAnimal:(FavoriteAnimal *)newFavorite;
+-(FavoriteAnimal *)createFavoriteAnimal;
 -(BOOL)isDuplicate:(Animal *)theAnimal;
 -(void)removeAnimal:(FavoriteAnimal *)theAnimal;
+-(void)loadAllItems;
 
 @end
