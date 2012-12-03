@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *Age;
 @end
 @implementation AnimalCell
-@synthesize animalImage;
+@synthesize animalImage, name, breed, shelterDate, sex, Age, Size;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

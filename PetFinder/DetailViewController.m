@@ -10,10 +10,11 @@
 #import "FavoriteAnimalStore.h"
 #import "FavoriteAnimal.h"
 #import "AsyncImageView.h"
+#import "FavoriteImageStore.h"
 #import <MessageUI/MFMailComposeViewController.h>
 
 @implementation DetailViewController
-@synthesize animal, nameField, idField, dateField, descriptionField, animalImageView;
+@synthesize animal, nameField, idField, dateField, descriptionField, animalImageView, faveAnimal;
 
 -(void)viewDidLoad
 {
@@ -32,20 +33,38 @@
 {
     [super viewWillAppear:animated];
     
-    //Set Animal Name, ID and Description
-    [self.nameField setText:[animal Name]];
-    [self.idField setText:[NSString stringWithFormat:@"#%@", [self.animal AnimalID]]];
-    [self.descriptionField setText:[NSString stringWithFormat:@"%@ %@ %@", [self.animal Description1], [self.animal Description2], [self.animal Description3]]];
+    if(!faveAnimal)
+    {
+        //Set Animal Name, ID and Description
+        [self.nameField setText:[animal Name]];
+        [self.idField setText:[NSString stringWithFormat:@"#%@", [self.animal AnimalID]]];
+        [self.descriptionField setText:[NSString stringWithFormat:@"%@ %@ %@", [self.animal Description1], [self.animal Description2], [self.animal Description3]]];
     
-    //Set Date
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM/dd/yyyy"];
-    NSString *stringFromDate = [formatter stringFromDate: [self.animal ShelterDate]];
-    [self.dateField setText: stringFromDate];
+        //Set Date
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MM/dd/yyyy"];
+        NSString *stringFromDate = [formatter stringFromDate: [self.animal ShelterDate]];
+        [self.dateField setText: stringFromDate];
 
-    //Set animal image in background
-    self.animalImageView.imageURL = [NSURL  URLWithString:[NSString stringWithFormat:@"http://www.venexmedia.com/AnimalShelterApp/images/%@.jpeg", [self.animal AnimalID]]];
-    
+        //Set animal image in background
+        self.animalImageView.imageURL = [NSURL  URLWithString:[NSString stringWithFormat:@"http://www.venexmedia.com/AnimalShelterApp/images/%@.jpeg", [self.animal AnimalID]]];
+    }
+    else
+    {
+        //Set Animal Name, ID and Description
+        [self.nameField setText:[faveAnimal Name]];
+        [self.idField setText:[NSString stringWithFormat:@"#%@", [self.faveAnimal AnimalID]]];
+        [self.descriptionField setText:[NSString stringWithFormat:@"%@ %@ %@", [self.faveAnimal Description1], [self.faveAnimal Description2], [self.faveAnimal Description3]]];
+        
+        //Set Date
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MM/dd/yyyy"];
+        NSString *stringFromDate = [formatter stringFromDate: [self.faveAnimal ShelterDate]];
+        [self.dateField setText: stringFromDate];
+        
+        //Set animal image in background
+        [animalImageView setImage:[[FavoriteImageStore sharedImages] imageForKey:[faveAnimal AnimalID]]];
+    }
 }
 
 
@@ -76,7 +95,17 @@
 
 -(IBAction)adoptThisPet:(id)sender
 {
-    NSString * body = [NSString stringWithFormat:@"I would like more information on adopting %@ (%@)",[animal Name], [animal AnimalID]];
+    NSString * body;
+    
+    if(!faveAnimal)
+    {
+        body = [NSString stringWithFormat:@"I would like more information on adopting %@ (%@)",[animal Name], [animal AnimalID]];
+    }
+    else
+    {
+        body = [NSString stringWithFormat:@"I would like more information on adopting %@ (%@)",[faveAnimal Name], [faveAnimal AnimalID]];
+    }
+    
     MFMailComposeViewController * mfmvc = [[MFMailComposeViewController alloc] init];
     mfmvc.mailComposeDelegate = self;
     [mfmvc setSubject:@"Adoption Request"];
@@ -111,7 +140,7 @@
 
 -(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
-    if(motion == UIEventSubtypeMotionShake && [animal isKindOfClass:[Animal class]])
+    if(motion == UIEventSubtypeMotionShake && [self animal])
     {
         [self addToFavorites];
     }
@@ -125,6 +154,8 @@
         
         FavoriteAnimal * fave = [[FavoriteAnimal alloc] initWithAnimal:animal];
         [[FavoriteAnimalStore singletonFavorites] addAnimal:fave];
+        
+        [[FavoriteImageStore sharedImages] setImage:[animalImageView image] forKey:[fave AnimalID]];
         
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Success" message:theMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         

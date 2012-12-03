@@ -7,6 +7,7 @@
 //
 
 #import "FavoritesViewController.h"
+#import "FavoriteImageStore.h"
 
 @interface FavoritesViewController ()
 
@@ -31,6 +32,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    unfilteredData = [[FavoriteAnimalStore singletonFavorites] allFavorites];
+    
+    [[self tableView] reloadData];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     unfilteredData = [[FavoriteAnimalStore singletonFavorites] allFavorites];
     
     [[self tableView] reloadData];
@@ -71,10 +79,7 @@
         //can use an image to signify invalidity
         cell.animalImage.image = nil;
     }
-    
-    //Set cell image to dogs
-    //cell.animalImage.image = [UIImage imageNamed:@"Dogs"];
-    
+
     return cell;
 }
 
@@ -83,9 +88,9 @@
     
     dvc.hidesBottomBarWhenPushed = YES;
     
-    Animal * theAnimal = [unfilteredData objectAtIndex:[indexPath row]];
+    FavoriteAnimal * theAnimal = [unfilteredData objectAtIndex:[indexPath row]];
     
-    [dvc setAnimal:theAnimal];
+    [dvc setFaveAnimal:theAnimal];
     
     [[self navigationController] pushViewController:dvc animated:YES];
 }
@@ -98,6 +103,7 @@
         NSArray * list = [favorites allFavorites];
         FavoriteAnimal * fave = [list objectAtIndex:[indexPath row]];
         [favorites removeAnimal:fave];
+        [[FavoriteImageStore sharedImages] deleteImageForKey:[fave AnimalID]];
         
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }

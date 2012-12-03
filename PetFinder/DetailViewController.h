@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Animal.h"
+#import "FavoriteAnimal.h"
 #import <MessageUI/MFMailComposeViewController.h>
 
 @interface DetailViewController : UIViewController <MFMailComposeViewControllerDelegate>
@@ -20,6 +21,7 @@
 
 
 @property (nonatomic, strong) Animal * animal;
+@property (nonatomic, strong) FavoriteAnimal * faveAnimal;
 
 -(IBAction)adoptThisPet:(id)sender;
 
