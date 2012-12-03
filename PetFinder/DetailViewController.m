@@ -22,13 +22,26 @@
     
    // UIBarButtonItem * back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backPressed:)];
     
-  // [[self navigationItem] setLeftBarButtonItem:back];
+    self.navigationItem.title = @"Details";
     
-    UIBarButtonItem *favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"FavoriteNavButton"] style:UIBarButtonItemStylePlain target:self action:@selector(addToFavorites)];
-    favoriteButton.tintColor = [UIColor colorWithRed:1.000000 green:0.627451 blue:0.168627 alpha:1];
-    self.navigationItem.rightBarButtonItem = favoriteButton;
+    [self checkIfFavorite];
 }
 
+//Set navigation bar to favorite star when animal is a favortie
+-(void)checkIfFavorite
+{
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,28,28)];
+    if([[FavoriteAnimalStore singletonFavorites] isDuplicate:animal])
+    {
+        [iv setImage:[UIImage imageNamed:@"Favorite-Selected"]];
+    }
+    else
+    {
+        [iv setImage:[UIImage imageNamed:@"Favorite-NotSelected"]];
+    }
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:iv];
+    
+}
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -186,6 +199,7 @@
         [alert show];
     }
 
+    [self checkIfFavorite];
 }
 
 @end

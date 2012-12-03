@@ -26,7 +26,7 @@
 -(IBAction)adoptThisPet:(id)sender;
 
 -(void)addToFavorites;
-
+-(void)checkIfFavorite;
 
 @end
 
