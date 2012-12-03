@@ -32,6 +32,8 @@
 		48ECD470166C40D700BF2384 /* Favorite-NotSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ECD46A166C40D700BF2384 /* Favorite-NotSelected.png */; };
 		48ECD471166C40D700BF2384 /* ShakeToFavorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ECD46B166C40D700BF2384 /* ShakeToFavorite@2x.png */; };
 		48ECD472166C40D700BF2384 /* ShakeToFavorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ECD46C166C40D700BF2384 /* ShakeToFavorite.png */; };
+		48ECD47D166C636100BF2384 /* Favorite-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ECD47B166C636100BF2384 /* Favorite-Selected.png */; };
+		48ECD47E166C636100BF2384 /* Favorite-Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ECD47C166C636100BF2384 /* Favorite-Selected@2x.png */; };
 		4BBCBDD8166C1DDC004C619F /* FavoriteImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBCBDD7166C1DDC004C619F /* FavoriteImageStore.m */; };
 		4BBCBDDA166C30FA004C619F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BBCBDD9166C30FA004C619F /* CoreData.framework */; };
 		4BBCBDDD166C315C004C619F /* PetFinderModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BBCBDDB166C315C004C619F /* PetFinderModel.xcdatamodeld */; };
@@ -93,6 +95,8 @@
 		48ECD46A166C40D700BF2384 /* Favorite-NotSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Favorite-NotSelected.png"; sourceTree = "<group>"; };
 		48ECD46B166C40D700BF2384 /* ShakeToFavorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShakeToFavorite@2x.png"; sourceTree = "<group>"; };
 		48ECD46C166C40D700BF2384 /* ShakeToFavorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShakeToFavorite.png; sourceTree = "<group>"; };
+		48ECD47B166C636100BF2384 /* Favorite-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Favorite-Selected.png"; sourceTree = "<group>"; };
+		48ECD47C166C636100BF2384 /* Favorite-Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Favorite-Selected@2x.png"; sourceTree = "<group>"; };
 		4BBCBDD6166C1DDC004C619F /* FavoriteImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteImageStore.h; sourceTree = "<group>"; };
 		4BBCBDD7166C1DDC004C619F /* FavoriteImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteImageStore.m; sourceTree = "<group>"; };
 		4BBCBDD9166C30FA004C619F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -249,6 +253,8 @@
 		7D60D18516597C50007F83D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				48ECD47B166C636100BF2384 /* Favorite-Selected.png */,
+				48ECD47C166C636100BF2384 /* Favorite-Selected@2x.png */,
 				48ECD467166C40D700BF2384 /* FavoriteNavButton.png */,
 				48ECD468166C40D700BF2384 /* FavoriteNavButton@2x.png */,
 				48ECD469166C40D700BF2384 /* Favorite-NotSelected@2x.png */,
@@ -414,6 +420,8 @@
 				48ECD470166C40D700BF2384 /* Favorite-NotSelected.png in Resources */,
 				48ECD471166C40D700BF2384 /* ShakeToFavorite@2x.png in Resources */,
 				48ECD472166C40D700BF2384 /* ShakeToFavorite.png in Resources */,
+				48ECD47D166C636100BF2384 /* Favorite-Selected.png in Resources */,
+				48ECD47E166C636100BF2384 /* Favorite-Selected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

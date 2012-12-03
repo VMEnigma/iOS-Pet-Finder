@@ -24,6 +24,22 @@ AnimalData* animalData;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Get plist path in documents directory
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *pListPath = [documentsDirectory stringByAppendingPathComponent:@"Filter.plist"];
+    
+    //Check if plist does not exist in documents directory
+    NSError *error;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL success = [fileManager fileExistsAtPath:pListPath];
+    
+    //Copy plist to documents directory if it does not exist
+    if(!success){
+        NSString *defaultPlistPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Filter.plist"];
+        success = [fileManager copyItemAtPath:defaultPlistPath  toPath:pListPath error:&error];
+    }
+    
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Use animal data singleton
 

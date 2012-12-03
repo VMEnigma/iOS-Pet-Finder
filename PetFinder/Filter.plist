@@ -3,6 +3,18 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>Selected</key>
+		<integer>2</integer>
+		<key>Title</key>
+		<string>Gender</string>
+		<key>Rows</key>
+		<array>
+			<string>Male</string>
+			<string>Female</string>
+			<string>No Preference</string>
+		</array>
+	</dict>
+	<dict>
 		<key>Rows</key>
 		<array>
 			<string>Less than 1 year</string>
@@ -25,19 +37,7 @@
 			<string>No Preference</string>
 		</array>
 		<key>Title</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>Selected</key>
-		<string>2</string>
-		<key>Title</key>
-		<string>Gender</string>
-		<key>Rows</key>
-		<array>
-			<string>Male</string>
-			<string>Female</string>
-			<string>No Preference</string>
-		</array>
+		<string>Size</string>
 	</dict>
 </array>
 </plist>

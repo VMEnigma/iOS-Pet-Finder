@@ -11,7 +11,8 @@
 @interface FilterViewController ()
 
 {
-    NSArray *filterData;
+    NSMutableArray *filterData;
+    NSString *pListPath;
 }
 
 @end
@@ -25,7 +26,7 @@
         // Custom initialization
         self.title = @"Filter";
         
-       
+        
     }
     return self;
 }
@@ -43,11 +44,15 @@
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneFilter)];
     self.navigationItem.rightBarButtonItem = doneButton;
     
+    //Get plist path in documents directory
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    pListPath = [documentsDirectory stringByAppendingPathComponent:@"Filter.plist"];
+
     
-    NSBundle* bundle = [NSBundle mainBundle];
-	NSString* plistPath = [bundle pathForResource:@"Filter" ofType:@"plist"];
+    //load filter data array with plist
+	filterData= [[NSMutableArray alloc] initWithContentsOfFile:pListPath];
     
-	NSArray*  filterData= [[NSArray alloc] initWithContentsOfFile:plistPath];
     NSLog(@"%@", filterData);
     
 }
@@ -78,14 +83,21 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    if (section == 0 || section == 1)
+    {
+        return 3;
+    }
+    else
+    {
+        return 4;
+    }
+    
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-
+    
     static NSString *CellIdentifier = @"filterCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
     if (cell == nil)
@@ -93,8 +105,37 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"filterCell"];
     }
     
-   
+    //Load plist data for sections and rows
+    NSDictionary *currentSectionDictionary = [filterData objectAtIndex: indexPath.section];
+    NSArray *currentRowArray = [currentSectionDictionary objectForKey: @"Rows"];
+    cell.textLabel.text = [currentRowArray objectAtIndex: indexPath.row];
+    
+    //Add checkmark to selected row
+    NSNumber *currentCheckMark = [currentSectionDictionary objectForKey: @"Selected"];
+    if ([currentCheckMark isEqualToNumber:[NSNumber numberWithInteger: indexPath.row]])
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    
+    
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    NSDictionary *currentSectionDictionary = [filterData objectAtIndex: section];
+    return [currentSectionDictionary objectForKey: @"Title"];
+    
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 26;
 }
 
 /*
@@ -139,15 +180,19 @@
 #pragma mark -
 #pragma mark Table view delegate
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    //Load plist data for sections and rows
+    NSMutableDictionary *currentSectionDictionary = [filterData objectAtIndex: indexPath.section];
+    [currentSectionDictionary setObject:[NSNumber numberWithInteger:indexPath.row] forKey:@"Selected"];
+    
+    //reload filter data
+    [filterData writeToFile:pListPath atomically:YES];
+    filterData = [[NSMutableArray alloc] initWithContentsOfFile:pListPath];
+    
+    //reload tableview
+    [tableView reloadData];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
