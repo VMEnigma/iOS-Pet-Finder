@@ -10,7 +10,8 @@
 
 @interface Utilities : NSObject
 
-+(NSArray*) sortArray:(NSArray*) array forProperty:(NSString*) key ascending:(BOOL) ascending;
-+(NSString*) getContentsFromUrlAsString:(NSString*) stringUrl;
++(NSArray*)sortArray:(NSArray*) array forProperty:(NSString*) key ascending:(BOOL) ascending;
++(NSString*)getContentsFromUrlAsString:(NSString*) stringUrl;
++(NSString*)getFilterPath;
 
 @end

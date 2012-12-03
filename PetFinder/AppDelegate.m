@@ -14,6 +14,7 @@
 #import "AnimalData.h"
 #import "CSVAnimalController.h"
 #import "FavoriteAnimalStore.h"
+#import "Utilities.h"
 
 @implementation AppDelegate
 AnimalData* animalData;
@@ -25,7 +26,7 @@ AnimalData* animalData;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Load plist for filter
+    // Load Filter data
     
     //Get plist path in documents directory
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -44,7 +45,7 @@ AnimalData* animalData;
     }
     
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Use animal data singleton
+    // Load Animal Data Singleton
 
     animalData = [AnimalData sharedAnimalData];
     
@@ -54,8 +55,7 @@ AnimalData* animalData;
     //Populate singleton data with CSV parsed data
     [animalData populateAnimalData:[dataLoader getAnimalDataAsArray]];
     
-    // - - - - - - - - - - - - - - -
-    
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     //Invalidate invalid favorites
     
     FavoriteAnimalStore * favorites = [FavoriteAnimalStore singletonFavorites];
@@ -80,7 +80,7 @@ AnimalData* animalData;
     }
     
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Load views with tab bar controller
+    // Load main views with tab bar controller
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -104,6 +104,7 @@ AnimalData* animalData;
     self.tabBarController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.992157 green:0.772549 blue:0.188235 alpha:1];
     NSArray* controllers = [NSArray arrayWithObjects: navigationController1, navigationController2, navigationController3, nil];
     [self.tabBarController setViewControllers: controllers];
+    
     [self.window setRootViewController:self.tabBarController];
     [self.window makeKeyAndVisible];
     

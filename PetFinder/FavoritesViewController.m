@@ -32,6 +32,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.navigationItem.rightBarButtonItem = nil;
+    
+    UIBarButtonItem * bbi = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editing:)];
+    
+    [[self navigationItem] setLeftBarButtonItem:bbi];
+
+    
     unfilteredData = [[FavoriteAnimalStore singletonFavorites] allFavorites];
     
     [[self tableView] reloadData];
@@ -43,10 +50,7 @@
     
     [[self tableView] reloadData];
     
-    UIBarButtonItem * bbi = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editing:)];
-    
-    [[self navigationItem] setRightBarButtonItem:bbi];
-}
+    }
 
 - (void)didReceiveMemoryWarning
 {

@@ -11,6 +11,7 @@
 #import "FavoriteAnimal.h"
 #import "AsyncImageView.h"
 #import "FavoriteImageStore.h"
+#import <QuartzCore/QuartzCore.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
 @implementation DetailViewController
@@ -23,6 +24,12 @@
    // UIBarButtonItem * back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backPressed:)];
     
     self.navigationItem.title = @"Details";
+    
+    //Rounded corners for animal image
+    UIView *viewContainer1 = [self.view viewWithTag:2];
+    viewContainer1.layer.cornerRadius = 10;
+    viewContainer1.clipsToBounds = YES;
+
     
     [self checkIfFavorite];
 }

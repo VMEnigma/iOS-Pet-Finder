@@ -14,7 +14,7 @@
 @end
 
 @implementation CatsViewController
-@synthesize unfilteredData;
+@synthesize unfilteredData, filteredData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,10 +32,16 @@
 {
     [super viewDidLoad];
     
-    self.unfilteredData = [[AnimalData sharedAnimalData].animalOfType mutableArrayValueForKey:@"Cat"];
-    [self.tableView reloadData];
+    
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.unfilteredData = [[AnimalData sharedAnimalData].animalOfType mutableArrayValueForKey:@"Cat"];
+    self.filteredData = [[AnimalData sharedAnimalData] returnFilteredWithAnimalData: self.unfilteredData];
+    [self.tableView reloadData];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -53,7 +59,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.unfilteredData count];
+    return [self.filteredData count];
 }
 
 // Customize the appearance of table view cells.
@@ -67,7 +73,7 @@
     }
     
     // Configure the cell...
-    Animal *animal = [self.unfilteredData objectAtIndex:[indexPath row]];
+    Animal *animal = [self.filteredData objectAtIndex:[indexPath row]];
     [cell setAnimalModel: animal];
     //Set cell image to dogs
     cell.animalImage.image = [UIImage imageNamed:@"Cats"];
@@ -111,6 +117,7 @@
     }
     
     self.unfilteredData = [[AnimalData sharedAnimalData].animalOfType mutableArrayValueForKey:@"Cat"];
+    self.filteredData = [[AnimalData sharedAnimalData] returnFilteredWithAnimalData: self.unfilteredData];
     [self.tableView reloadData];
 }
 
@@ -124,7 +131,7 @@
     
     dvc.hidesBottomBarWhenPushed = YES;
     
-    Animal * theAnimal = [unfilteredData objectAtIndex:[indexPath row]];
+    Animal * theAnimal = [filteredData objectAtIndex:[indexPath row]];
     
     [dvc setAnimal:theAnimal];
     

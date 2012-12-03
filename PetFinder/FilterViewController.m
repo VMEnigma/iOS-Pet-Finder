@@ -7,6 +7,7 @@
 //
 
 #import "FilterViewController.h"
+#import "Utilities.h"
 
 @interface FilterViewController ()
 
@@ -38,30 +39,14 @@
     UIColor *navigationBarColor = [UIColor colorWithRed:0.172549 green:0.643137 blue:0.905882 alpha:1];
     [self.navigationController.navigationBar setTintColor: navigationBarColor];
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(cancelFilter)];
-    self.navigationItem.leftBarButtonItem = cancelButton;
-    
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneFilter)];
     self.navigationItem.rightBarButtonItem = doneButton;
     
-    //Get plist path in documents directory
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    pListPath = [documentsDirectory stringByAppendingPathComponent:@"Filter.plist"];
-
-    
-    //load filter data array with plist
+    //Load filter data from plist
+    pListPath = [Utilities getFilterPath];
 	filterData= [[NSMutableArray alloc] initWithContentsOfFile:pListPath];
-    
-    NSLog(@"%@", filterData);
-    
 }
 
--(void)cancelFilter
-{
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    
-}
 -(void)doneFilter
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];

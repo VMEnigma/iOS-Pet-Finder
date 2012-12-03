@@ -8,9 +8,6 @@
 
 #import "DogsViewController.h"
 
-
-
-
 @interface DogsViewController ()
 
 @property (nonatomic, strong) NSMutableArray *dogs;
@@ -36,11 +33,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
+    //Load Animal Data from Singleton
     self.unfilteredData = [[AnimalData sharedAnimalData].animalOfType mutableArrayValueForKey:@"Dog"];
     self.filteredData = [[AnimalData sharedAnimalData] returnFilteredWithAnimalData: self.unfilteredData];
     [self.tableView reloadData];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -59,7 +63,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.unfilteredData count];
+    return [self.filteredData count];
 }
 
 // Customize the appearance of table view cells.
@@ -73,8 +77,9 @@
     }
     
     // Configure the cell...
-    Animal *animal = [self.unfilteredData objectAtIndex:[indexPath row]];
+    Animal *animal = [self.filteredData objectAtIndex:[indexPath row]];
     [cell setAnimalModel: animal];
+    
     //Set cell image to dogs
     cell.animalImage.image = [UIImage imageNamed:@"Dogs"];
     
@@ -128,7 +133,7 @@
     
     dvc.hidesBottomBarWhenPushed = YES;
     
-    Animal * theAnimal = [unfilteredData objectAtIndex:[indexPath row]];
+    Animal * theAnimal = [filteredData objectAtIndex:[indexPath row]];
     
     [dvc setAnimal:theAnimal];
     

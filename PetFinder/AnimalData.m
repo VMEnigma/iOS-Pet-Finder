@@ -8,6 +8,7 @@
 
 #import "AnimalData.h"
 #import "Animal.h"
+#import "Utilities.h"
 
 @implementation AnimalData
 
@@ -87,7 +88,8 @@
         }
         
         //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
-        [[self.animalOfAge objectForKey: animalModel.Age] addObject: animalModel];
+        [[self.animalOfAge objectForKey: animalModel.Age ] addObject: animalModel];
+        
         
         //- - - - - - - - - - - - - - - - - - - - - -
         //Create dictionary with animal Size as key
@@ -158,24 +160,19 @@
         }
     }
 #endif
-    //return _default;
     
     return _default;
     
 }
-//return filtered animal data array
--(id)returnFilteredWithAnimalData: (id) currentData
+
+#pragma mark - Filtered Animal Data
+
+//Return filtered animal data based on filter settings
+-(id)returnFilteredWithAnimalData: (id)currentData
 {    
-    //Get plist path in documents directory
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *pListPath = [documentsDirectory stringByAppendingPathComponent:@"Filter.plist"];
-    
-    //load filter data array with plist
-	NSArray *filterData= [[NSMutableArray alloc] initWithContentsOfFile:pListPath];
-    
-    // #################################### $$$$$$$$$$$$$$$$$$$$$$$$$ #################################### $$$$$$$$$$$$$$$$$$$$$$$$$
-    //Check Sex Selection
+	NSArray *filterData= [[NSMutableArray alloc] initWithContentsOfFile:[Utilities getFilterPath]];
+   
+    //Sex Filter
     NSMutableArray *filteredSex = [[NSMutableArray alloc] init];
     NSDictionary *currentSexDictionary = [filterData objectAtIndex: 0];
     NSNumber *currentSex = [currentSexDictionary objectForKey: @"Selected"];
@@ -191,7 +188,25 @@
             filteredSex = [_animalData mutableCopy];
             break;
     }
-    //Check Size Selection
+    
+    //Age Filter
+    NSMutableArray *filteredAge = [[NSMutableArray alloc] init];
+    NSDictionary *currentAgeDictionary = [filterData objectAtIndex: 1];
+    NSNumber *currentAge = [currentAgeDictionary objectForKey: @"Selected"];
+    switch ([currentAge intValue])
+    {
+        case 0:
+            filteredAge = [_animalOfAge mutableArrayValueForKey:@"0"];
+            break;
+        case 1:
+            filteredAge = [_animalOfAge mutableArrayValueForKey:@"1"];
+            break;
+        case 2:
+            filteredAge = [_animalData mutableCopy];
+            break;
+    }
+    
+    //Size Filter
     NSMutableArray *filteredSize = [[NSMutableArray alloc] init];
     NSDictionary *currentSizeDictionary = [filterData objectAtIndex: 2];
     NSNumber *currentSize = [currentSizeDictionary objectForKey: @"Selected"];
@@ -210,24 +225,13 @@
             filteredSize = [_animalData mutableCopy];
             break;
     }
-    
-    
-    NSMutableSet *intersection = [NSMutableSet setWithArray:filteredSex];
+   
+    //Intersection of Current Animal Data, Sex Filter, Age Filter, and Size Filter
+    NSMutableSet *intersection = [NSMutableSet setWithArray:currentData];
+    [intersection intersectSet:[NSSet setWithArray:filteredSex]];
+    [intersection intersectSet:[NSSet setWithArray:filteredAge]];
     [intersection intersectSet:[NSSet setWithArray:filteredSize]];
-    
-    NSArray *finalarray = [intersection allObjects];
-
-//    
-//    for(Animal* obj in finalarray)
-//    {
-//        NSLog(@"%@ - %@", obj.Sex, obj.Size);
-//        
-//    }
-
-    
-
-    
-    return nil;
-
+      
+    return [intersection allObjects];
 }
 @end
