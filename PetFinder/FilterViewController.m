@@ -109,12 +109,14 @@
     NSDictionary *currentSectionDictionary = [filterData objectAtIndex: indexPath.section];
     NSArray *currentRowArray = [currentSectionDictionary objectForKey: @"Rows"];
     cell.textLabel.text = [currentRowArray objectAtIndex: indexPath.row];
+    cell.textLabel.font = [UIFont systemFontOfSize:15.0];
     
-    //Add checkmark to selected row
+    //Add checkmark to selected row and make font bold
     NSNumber *currentCheckMark = [currentSectionDictionary objectForKey: @"Selected"];
     if ([currentCheckMark isEqualToNumber:[NSNumber numberWithInteger: indexPath.row]])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.textLabel.font  = [UIFont boldSystemFontOfSize:15.0];
     }
     else
     {
@@ -189,6 +191,7 @@
     //reload filter data
     [filterData writeToFile:pListPath atomically:YES];
     filterData = [[NSMutableArray alloc] initWithContentsOfFile:pListPath];
+    
     
     //reload tableview
     [tableView reloadData];

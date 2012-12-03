@@ -38,6 +38,7 @@
     [super viewDidLoad];
     
     self.unfilteredData = [[AnimalData sharedAnimalData].animalOfType mutableArrayValueForKey:@"Dog"];
+    self.filteredData = [[AnimalData sharedAnimalData] returnFilteredWithAnimalData: self.unfilteredData];
     [self.tableView reloadData];
 }
 

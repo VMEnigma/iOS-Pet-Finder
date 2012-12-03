@@ -13,6 +13,9 @@
 
 @synthesize animalData = _animalData;
 @synthesize animalOfType = _animalOfType;
+@synthesize animalOfSex = _animalOfSex;
+@synthesize animalOfAge = _animalOfAge;
+@synthesize animalOfSize = _animalOfSize;
 
 
 #pragma mark - Animal Data Methods
@@ -56,6 +59,50 @@
         
         //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
         [[self.animalOfType objectForKey: animalModel.Type] addObject: animalModel];
+        
+        
+        //- - - - - - - - - - - - - - - - - - - - - -
+        //Create dictionary with animal sex as key
+        
+        //Check if dictionary exists for type, if not then create it.
+        NSArray* animalArrayOfSex = [_animalOfSex objectForKey:animalModel.Sex];
+        if (animalArrayOfSex == nil)
+        {
+            animalArrayOfSex = [[NSMutableArray alloc]init];
+            [self.animalOfSex setObject:animalArrayOfSex forKey:animalModel.Sex];
+        }
+        
+        //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
+        [[self.animalOfSex objectForKey: animalModel.Sex] addObject: animalModel];
+        
+        //- - - - - - - - - - - - - - - - - - - - - -
+        //Create dictionary with animal Age as key
+        
+        //Check if dictionary exists for type, if not then create it.
+        NSArray* animalArrayOfAge = [_animalOfAge objectForKey:animalModel.Age];
+        if (animalArrayOfAge == nil)
+        {
+            animalArrayOfAge = [[NSMutableArray alloc]init];
+            [self.animalOfAge setObject:animalArrayOfAge forKey:animalModel.Age];
+        }
+        
+        //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
+        [[self.animalOfAge objectForKey: animalModel.Age] addObject: animalModel];
+        
+        //- - - - - - - - - - - - - - - - - - - - - -
+        //Create dictionary with animal Size as key
+        
+        //Check if dictionary exists for type, if not then create it.
+        NSArray* animalArrayOfSize = [_animalOfSize objectForKey:animalModel.Size];
+        if (animalArrayOfSize == nil)
+        {
+            animalArrayOfSize = [[NSMutableArray alloc]init];
+            [self.animalOfSize setObject:animalArrayOfSize forKey:animalModel.Size];
+        }
+        
+        //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
+        [[self.animalOfSize objectForKey: animalModel.Size] addObject: animalModel];
+
     }
 }
 
@@ -69,6 +116,9 @@
         // Initialization code here.
         self.animalData = [[NSMutableArray alloc] init];
         self.animalOfType = [[NSMutableDictionary alloc] init];
+        self.animalOfSex = [[NSMutableDictionary alloc] init];
+        self.animalOfAge = [[NSMutableDictionary alloc] init];
+        self.animalOfSize = [[NSMutableDictionary alloc] init];
     }
     
     return self;
@@ -108,6 +158,76 @@
         }
     }
 #endif
+    //return _default;
+    
     return _default;
+    
+}
+//return filtered animal data array
+-(id)returnFilteredWithAnimalData: (id) currentData
+{    
+    //Get plist path in documents directory
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *pListPath = [documentsDirectory stringByAppendingPathComponent:@"Filter.plist"];
+    
+    //load filter data array with plist
+	NSArray *filterData= [[NSMutableArray alloc] initWithContentsOfFile:pListPath];
+    
+    // #################################### $$$$$$$$$$$$$$$$$$$$$$$$$ #################################### $$$$$$$$$$$$$$$$$$$$$$$$$
+    //Check Sex Selection
+    NSMutableArray *filteredSex = [[NSMutableArray alloc] init];
+    NSDictionary *currentSexDictionary = [filterData objectAtIndex: 0];
+    NSNumber *currentSex = [currentSexDictionary objectForKey: @"Selected"];
+    switch ([currentSex intValue])
+    {
+        case 0:
+            filteredSex = [_animalOfSex mutableArrayValueForKey:@"M"];
+            break;
+        case 1:
+            filteredSex = [_animalOfSex mutableArrayValueForKey:@"F"];
+            break;
+        case 2:
+            filteredSex = [_animalData mutableCopy];
+            break;
+    }
+    //Check Size Selection
+    NSMutableArray *filteredSize = [[NSMutableArray alloc] init];
+    NSDictionary *currentSizeDictionary = [filterData objectAtIndex: 2];
+    NSNumber *currentSize = [currentSizeDictionary objectForKey: @"Selected"];
+    switch ([currentSize intValue])
+    {
+        case 0:
+            filteredSize = [_animalOfSize mutableArrayValueForKey:@"S"];
+            break;
+        case 1:
+            filteredSize = [_animalOfSize mutableArrayValueForKey:@"M"];
+            break;
+        case 2:
+            filteredSize = [_animalOfSize mutableArrayValueForKey:@"L"];
+            break;
+        case 3:
+            filteredSize = [_animalData mutableCopy];
+            break;
+    }
+    
+    
+    NSMutableSet *intersection = [NSMutableSet setWithArray:filteredSex];
+    [intersection intersectSet:[NSSet setWithArray:filteredSize]];
+    
+    NSArray *finalarray = [intersection allObjects];
+
+//    
+//    for(Animal* obj in finalarray)
+//    {
+//        NSLog(@"%@ - %@", obj.Sex, obj.Size);
+//        
+//    }
+
+    
+
+    
+    return nil;
+
 }
 @end
