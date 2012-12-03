@@ -68,6 +68,7 @@ enum {
 
 @interface CHCSVParser ()
 
+//originally unsafe_unretained (just left blank)
 @property (strong, nonatomic) NSMutableData *currentChunk;
 
 - (NSStringEncoding) textEncodingForData:(NSData *)chunkToSniff offset:(NSUInteger *)offset;

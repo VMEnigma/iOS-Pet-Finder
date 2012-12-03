@@ -30,6 +30,8 @@
 		489BD53C166BE8A4008E9EE8 /* FavoriteTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 489BD530166BE8A4008E9EE8 /* FavoriteTab@2x.png */; };
 		48D2307816558EF30028785F /* AnimalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48D2307716558EF30028785F /* AnimalCell.xib */; };
 		4BBCBDD8166C1DDC004C619F /* FavoriteImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBCBDD7166C1DDC004C619F /* FavoriteImageStore.m */; };
+		4BBCBDDA166C30FA004C619F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BBCBDD9166C30FA004C619F /* CoreData.framework */; };
+		4BBCBDDD166C315C004C619F /* PetFinderModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BBCBDDB166C315C004C619F /* PetFinderModel.xcdatamodeld */; };
 		7D08AC8F1651C56D0050663D /* DogsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08AC8D1651C56D0050663D /* DogsViewController.m */; };
 		7D08AC901651C56D0050663D /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D08AC8E1651C56D0050663D /* BaseViewController.xib */; };
 		7D08AC951651C5860050663D /* CatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08AC931651C5860050663D /* CatsViewController.m */; };
@@ -87,6 +89,8 @@
 		48D2307716558EF30028785F /* AnimalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimalCell.xib; sourceTree = "<group>"; };
 		4BBCBDD6166C1DDC004C619F /* FavoriteImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteImageStore.h; sourceTree = "<group>"; };
 		4BBCBDD7166C1DDC004C619F /* FavoriteImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteImageStore.m; sourceTree = "<group>"; };
+		4BBCBDD9166C30FA004C619F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4BBCBDDC166C315C004C619F /* PetFinderModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetFinderModel.xcdatamodel; sourceTree = "<group>"; };
 		7D08AC8C1651C56D0050663D /* DogsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DogsViewController.h; sourceTree = "<group>"; };
 		7D08AC8D1651C56D0050663D /* DogsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DogsViewController.m; sourceTree = "<group>"; };
 		7D08AC8E1651C56D0050663D /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BBCBDDA166C30FA004C619F /* CoreData.framework in Frameworks */,
 				482991E7166BF0CE00C197DE /* MessageUI.framework in Frameworks */,
 				ECD235D3164C6F5C0099253C /* UIKit.framework in Frameworks */,
 				ECD235D5164C6F5C0099253C /* Foundation.framework in Frameworks */,
@@ -169,6 +174,7 @@
 				F1F332EF1659FECA0092329F /* AnimalDataXML.h */,
 				F1F332F41659FEDE0092329F /* AnimalDataXML.m */,
 				F1F332F01659FECA0092329F /* animals.xml */,
+				4BBCBDDB166C315C004C619F /* PetFinderModel.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 		ECD235C3164C6F5C0099253C = {
 			isa = PBXGroup;
 			children = (
+				4BBCBDD9166C30FA004C619F /* CoreData.framework */,
 				482991E8166C033600C197DE /* Default-568h@2x.png */,
 				482991E6166BF0CE00C197DE /* MessageUI.framework */,
 				ECD235D8164C6F5C0099253C /* PetFinder */,
@@ -423,6 +430,7 @@
 				482991E4166BEF7B00C197DE /* FavoriteAnimalStore.m in Sources */,
 				482991F0166C0D2300C197DE /* AsyncImageView.m in Sources */,
 				4BBCBDD8166C1DDC004C619F /* FavoriteImageStore.m in Sources */,
+				4BBCBDDD166C315C004C619F /* PetFinderModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +539,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4BBCBDDB166C315C004C619F /* PetFinderModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4BBCBDDC166C315C004C619F /* PetFinderModel.xcdatamodel */,
+			);
+			currentVersion = 4BBCBDDC166C315C004C619F /* PetFinderModel.xcdatamodel */;
+			path = PetFinderModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ECD235C5164C6F5C0099253C /* Project object */;
 }
