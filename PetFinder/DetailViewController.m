@@ -38,7 +38,7 @@
 -(void)checkIfFavorite
 {
     UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,28,28)];
-    if([[FavoriteAnimalStore singletonFavorites] isDuplicate:animal])
+    if([[FavoriteAnimalStore singletonFavorites] isDuplicate:animal] || faveAnimal)
     {
         [iv setImage:[UIImage imageNamed:@"Favorite-Selected"]];
     }
