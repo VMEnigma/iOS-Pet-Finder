@@ -35,7 +35,7 @@
 			</object>
 			<object class="IBUIView" id="191373211">
 				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">274</int>
+				<int key="NSvFlags">311</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUILabel" id="310697957">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -124,7 +124,7 @@
 					<object class="IBUILabel" id="343273759">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{10, 72}, {301, 91}}</string>
+						<string key="NSFrame">{{10, 80}, {301, 91}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="622056200"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -157,8 +157,8 @@
 					</object>
 					<object class="IBUIImageView" id="622056200">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{10, 171}, {300, 185}}</string>
+						<int key="NSvFlags">304</int>
+						<string key="NSFrame">{{11, 184}, {300, 173}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="279650166"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -168,10 +168,9 @@
 					</object>
 					<object class="IBUIButton" id="279650166">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{69, 364}, {183, 44}}</string>
+						<int key="NSvFlags">269</int>
+						<string key="NSFrame">{{69, 365}, {183, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -317,12 +316,12 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="279650166"/>
 							<reference ref="832026312"/>
 							<reference ref="310697957"/>
 							<reference ref="367174342"/>
 							<reference ref="762605952"/>
 							<reference ref="343273759"/>
+							<reference ref="279650166"/>
 							<reference ref="622056200"/>
 						</array>
 						<reference key="parent" ref="0"/>
