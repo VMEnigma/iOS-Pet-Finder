@@ -17,11 +17,13 @@
 #import "FilterViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface BaseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface BaseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @property (nonatomic,strong)NSArray* filteredData;
 @property (nonatomic,strong)NSArray* unfilteredData;
+@property (nonatomic,strong)NSMutableArray* copiedData;
+@property (nonatomic,strong)IBOutlet UISearchBar * search;
 
 -(void)refreshData;
 -(void)filterData;

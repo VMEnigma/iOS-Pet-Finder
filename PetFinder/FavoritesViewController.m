@@ -14,7 +14,7 @@
 @end
 
 @implementation FavoritesViewController
-@synthesize unfilteredData;
+@synthesize unfilteredData, search, searching, canSelectRows;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,6 +23,7 @@
         self.title = @"Favorites";
         self.tabBarItem.title = @"Favorites";
         self.tabBarItem.image = [UIImage imageNamed:@"FavoriteTab"];
+        self.copiedData = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -40,6 +41,11 @@
 
     
     unfilteredData = [[FavoriteAnimalStore singletonFavorites] allFavorites];
+    
+    search.autocorrectionType = UITextAutocorrectionTypeNo;
+    [search setDelegate:self];
+    searching = NO;
+    canSelectRows = YES;    
     
     [[self tableView] reloadData];
 }
@@ -60,12 +66,16 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(searching)
+        return [self.copiedData count];    
+    
     return [unfilteredData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"AnimalCell";
+    FavoriteAnimal * temp;
     AnimalCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
     if (cell == nil)
     {
@@ -76,7 +86,15 @@
     //Animal *animal = [self.unfilteredData objectAtIndex:[indexPath row]];
     
     Animal * animal = [[Animal alloc] init];
-    FavoriteAnimal * temp = [self.unfilteredData objectAtIndex:[indexPath row]];
+    
+    if(!searching)
+    {
+        temp = [self.unfilteredData objectAtIndex:[indexPath row]];
+    }
+    else
+    {
+        temp = [self.copiedData objectAtIndex:[indexPath row]];
+    }
     
     [animal setName:[temp name]];
     [animal setType:[temp type]];
@@ -112,9 +130,20 @@
     
     dvc.hidesBottomBarWhenPushed = YES;
     
-    FavoriteAnimal * theAnimal = [unfilteredData objectAtIndex:[indexPath row]];
+    FavoriteAnimal * theAnimal;
+    
+    if(!searching)
+    {
+        theAnimal = [unfilteredData objectAtIndex:[indexPath row]];
+    }
+    else
+    {
+        theAnimal = [self.copiedData objectAtIndex:[indexPath row]];
+    }
     
     [dvc setFaveAnimal:theAnimal];
+    
+    [search resignFirstResponder];
     
     [[self navigationController] pushViewController:dvc animated:YES];
 }
@@ -138,13 +167,80 @@
     if([[self tableView] isEditing])
     {
         self.navigationItem.rightBarButtonItem.title = @"Edit";
+        [search setHidden:NO];
         [[self tableView] setEditing:NO animated:YES];
     }
     else
     {
+        [search resignFirstResponder];
+        [search setText:@""];
+        searching = NO;
+        [search setHidden:YES];
+        [self.tableView reloadData];
         self.navigationItem.rightBarButtonItem.title = @"Done";
         [[self tableView] setEditing:YES animated:YES];
     }
 }
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self.copiedData removeAllObjects];
+    
+    searching = YES;
+    canSelectRows = YES;
+    self.tableView.scrollEnabled = YES;
+    [self searchTableView];
+    
+    if([searchBar.text length] == 0)
+        searching = NO;
+    
+    [self.tableView reloadData];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    if([searchBar text].length == 0)
+    {
+        searching = NO;
+    }
+    
+    [searchBar resignFirstResponder];
+    canSelectRows = YES;
+    self.tableView.scrollEnabled = YES;
+    [self.tableView reloadData];
+}
+
+-(void)searchTableView
+{
+    NSString * theText = [search text];
+    
+    for(FavoriteAnimal * currentAnimal in unfilteredData)
+    {
+        if([currentAnimal.name rangeOfString:theText options:NSCaseInsensitiveSearch].length > 0 || [currentAnimal.breed rangeOfString:theText options:NSCaseInsensitiveSearch].length > 0)
+        {
+            [self.copiedData addObject:currentAnimal];
+        }
+    }
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch * touch = [touches anyObject];
+    
+    if(touch.phase == UITouchPhaseBegan)
+    {
+        [self.search resignFirstResponder];
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 @end

@@ -19,7 +19,7 @@
 @end
 
 @implementation BaseViewController
-@synthesize tableView, unfilteredData;
+@synthesize tableView, unfilteredData, filteredData, copiedData, search;
 
 
 

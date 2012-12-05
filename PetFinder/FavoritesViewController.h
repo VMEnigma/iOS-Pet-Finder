@@ -11,6 +11,10 @@
 
 @interface FavoritesViewController : BaseViewController
 @property (strong, nonatomic) NSArray * unfilteredData;
+@property (strong, nonatomic) IBOutlet UISearchBar * search;
+@property BOOL searching;
+@property BOOL canSelectRows;
 
 -(IBAction)editing:(id)sender;
+-(void)searchTableView;
 @end

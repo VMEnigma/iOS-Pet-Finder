@@ -10,7 +10,10 @@
 #import "BaseViewController.h"
 
 @interface CatsViewController : BaseViewController
+@property (strong, nonatomic) IBOutlet UISearchBar * search;
+@property BOOL searching;
+@property BOOL canSelectRows;
 
--(void)refresh;
+-(void)searchTableView;
 
 @end
