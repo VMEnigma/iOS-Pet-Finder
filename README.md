@@ -15,10 +15,10 @@ Technical details
 ==============
 Class list, index, hierarchy members and diagrams can be found at http://www.venexmedia.com/AnimalShelterApp/html/
 
--Favorites are stored using CoreData.
--Filters (Age, Breed, Name) are stored using a pList.
--Data is retrieved using a MVCS and Actor design pattern. A completion block is used to retrieve the successfully parsed data or return an error if there are connection problems
--Data retrieval with error handling is done with NSURLConnection
+*   Favorites are stored using CoreData.
+*   Filters (Age, Breed, Name) are stored using a pList.
+*   Data is retrieved using a MVCS and Actor design pattern. A completion block is used to retrieve the successfully parsed data or return an error if there are connection problems
+*   Data retrieval with error handling is done with NSURLConnection
 
 Online Data Source
 ==============
@@ -35,11 +35,11 @@ Image file names are in the format of ID.jpeg
 
 3rd Party Libraries and API
 ==============
-**bold**CHCSV Parser__bold__ - https://github.com/davedelong/CHCSVParser
+**CHCSV Parser** - https://github.com/davedelong/CHCSVParser
 CHCSV Parser is used to parse the the CSV file.
 
-AsyncImageView - https://github.com/nicklockwood/AsyncImageView
+**AsyncImageView** - https://github.com/nicklockwood/AsyncImageView
 AsyncImageView is used to asynchronously load the images from the online data source.
 
-Google Maps API v2 - https://developers.google.com/maps/documentation/staticmaps/
+**Google Maps API v2** - https://developers.google.com/maps/documentation/staticmaps/
 Google Maps API is used to show a map of the shelter location in the information view.
