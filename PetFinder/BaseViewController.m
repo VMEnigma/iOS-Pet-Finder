@@ -8,8 +8,8 @@
 
 #import "BaseViewController.h"
 #import "DetailViewController.h"
-#import "AnimalData.h"
-#import "CSVAnimalController.h"
+#import "AnimalStore.h"
+#import "CSVAnimalData.h"
 #import "FavoriteAnimalStore.h"
 
 
@@ -19,7 +19,7 @@
 @end
 
 @implementation BaseViewController
-@synthesize tableView, unfilteredData, filteredData, copiedData, search;
+@synthesize tableView, copiedData, search;
 
 
 
@@ -146,14 +146,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailViewController * dvc = [[DetailViewController alloc] init];
     
-    Animal * theAnimal = [unfilteredData objectAtIndex:[indexPath row]];
+//    Animal * theAnimal = [unfilteredData objectAtIndex:[indexPath row]];
+    Animals *theAnimal = [[unfilteredAnimalData animalData] objectAtIndex:[indexPath row]];
     
-    [dvc setAnimal:theAnimal];
+    [dvc setAnimal: theAnimal];
     
     [[self navigationController] pushViewController:dvc animated:YES];
 }
 
-
-
+-(void)fetchEntries
+{
+}
 
 @end

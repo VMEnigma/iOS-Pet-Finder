@@ -14,7 +14,9 @@
 @end
 
 @implementation CatsViewController
-@synthesize unfilteredData, filteredData, search, searching, canSelectRows;
+//@synthesize unfilteredData, filteredData, search, searching, canSelectRows;
+@synthesize search, searching, canSelectRows;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,9 +42,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.unfilteredData = [[AnimalData sharedAnimalData].animalOfType mutableArrayValueForKey:@"Cat"];
-    self.filteredData = [[AnimalData sharedAnimalData] returnFilteredWithAnimalData: self.unfilteredData];
-    [self.tableView reloadData];
+    [self fetchEntries];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -64,7 +64,7 @@
     if(searching)
         return [self.copiedData count];
     
-    return [self.filteredData count];
+    return [filteredData count];
 }
 
 // Customize the appearance of table view cells.
@@ -87,7 +87,7 @@
     }
     else
     {
-        animal = [self.filteredData objectAtIndex:[indexPath row]];
+        animal = [filteredData objectAtIndex:[indexPath row]];
     }
     
     [cell setAnimalModel: animal];
@@ -99,14 +99,7 @@
 
 -(void)refreshData
 {
-    AnimalData * animalData = [AnimalData sharedAnimalData];
-    
-    // Load animal data with CSV parser
-    CSVAnimalController* dataLoader = [[CSVAnimalController alloc] initWithStringUrl:@"http://www.venexmedia.com/AnimalShelterApp/animals.csv"];
-    
-    //Populate singleton data with CSV parsed data
-    [animalData populateAnimalData:[dataLoader getAnimalDataAsArray]];
-    
+    [self fetchEntries];
     // - - - - - - - - - - - - - - -
     
     //Invalidate invalid favorites
@@ -117,7 +110,7 @@
     {
         BOOL exists = NO;
         
-        for(Animal * beast in [animalData animalData])
+        for(Animal * beast in [unfilteredAnimalData animalData])
         {
             if([[fave animalID] compare:[beast AnimalID]] == NSOrderedSame)
             {
@@ -132,8 +125,7 @@
         }
     }
     
-    self.unfilteredData = [[AnimalData sharedAnimalData].animalOfType mutableArrayValueForKey:@"Cat"];
-    self.filteredData = [[AnimalData sharedAnimalData] returnFilteredWithAnimalData: self.unfilteredData];
+    [self fetchEntries];
     searching = NO;
     [self.search setText:@""];
     [self.search resignFirstResponder];    
@@ -221,6 +213,45 @@
         [self.search resignFirstResponder];
     }
 }
-
+//(RG) - Fetch Entries
+- (void)fetchEntries
+{
+    //    UIView *currentTitleView = [[self navigationItem] titleView];
+    //    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
+    //                                       initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    //    [[self navigationItem] setTitleView:aiView];
+    //    [aiView startAnimating];
+    
+    
+    void (^completionBlock)(Animals *obj, NSError *err) = ^(Animals *obj, NSError *err) {
+        // When the request completes, this block will be called.
+        //  [[self navigationItem] setTitleView:currentTitleView];
+        
+        if(!err) {
+            // If everything went ok, grab the channel object and
+            // reload the table.
+            unfilteredAnimalData = obj;
+            unfilteredData = [unfilteredAnimalData.animalOfType mutableArrayValueForKey:@"Cats"];
+            filteredData = [unfilteredAnimalData returnFilteredWithAnimalData: unfilteredData];
+            
+            [[self tableView] reloadData];
+        } else {
+            
+            // If things went bad, show an alert view
+            NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
+                                     [err localizedDescription]];
+            
+            // Create and show an alert view with this error displayed
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                         message:errorString
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+            [av show];
+        }
+    };
+    
+    [[AnimalStore sharedAnimalData] fetchAnimalsWithCompletion:completionBlock];
+}
 
 @end

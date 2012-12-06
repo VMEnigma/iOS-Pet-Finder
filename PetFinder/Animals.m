@@ -1,20 +1,18 @@
 //
-//  AnimalData.m
-//  PetFinder v1.0
+//  Animals.m
+//  PetFinder
 //
-//  Created by Raymond Gonzalez, Reyneiro Hernandez, Gregory Jean Baptiste
-//  https://github.com/raygon3/iOS-Pet-Finder
+//  Created by Raymond Gonzalez on 12/5/12.
 //
-//  This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit
-//  http://creativecommons.org/licenses/by/3.0/
 //
 
-#import "AnimalData.h"
+#import "Animals.h"
 #import "Animal.h"
 #import "Utilities.h"
 
-@implementation AnimalData
+@implementation Animals
 
+@synthesize parentParserDelegate;
 @synthesize animalData = _animalData;
 @synthesize animalOfType = _animalOfType;
 @synthesize animalOfSex = _animalOfSex;
@@ -22,9 +20,10 @@
 @synthesize animalOfSize = _animalOfSize;
 
 #pragma mark - Animal Data Methods
-//(RG) - Populate Animal Data Store by passing it an array of parsed animal data
+//(RG) - Populate Animal Databy passing it an array of CSV parsed animal data
 -(void)populateAnimalData: (NSArray*)dataArray
 {
+    NSLog(@"Populating parseddata");
     //Clear existing array
     self.animalData = [[NSMutableArray alloc] init];
     
@@ -51,6 +50,7 @@
         
         //Add object to general array
         [self.animalData addObject: animalModel];
+        NSLog(@"%@", animalData);
         
         //- - - - - - - - - - - - - - - - - - - - - -
         //Create dictionary with animal Type as key
@@ -64,7 +64,7 @@
         }
         //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
         [[self.animalOfType objectForKey: animalModel.Type] addObject: animalModel];
-                
+        
         //- - - - - - - - - - - - - - - - - - - - - -
         //Create dictionary with animal Sex as key
         
@@ -126,53 +126,13 @@
     
     return self;
 }
-
-//(RG) - Singleton with Shared Animal Data
-+(AnimalData*)sharedAnimalData
-{
-    // Persistent instance.
-    static AnimalData *_default = nil;
-    
-    // Small optimization to avoid wasting time after the
-    // singleton being initialized.
-    if (_default != nil)
-    {
-        return _default;
-    }
-    
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_4_0
-    // Allocates once with Grand Central Dispatch (GCD) routine.
-    // It's thread safe.
-    static dispatch_once_t safer;
-    dispatch_once(&safer, ^(void)
-                  {
-                      _default = [[AnimalData alloc] initSingleton];
-                  });
-#else
-    // Allocates once using the old approach, it's slower.
-    // It's thread safe.
-    @synchronized([MySingleton class])
-    {
-        // The synchronized instruction will make sure,
-        // that only one thread will access this point at a time.
-        if (_default == nil)
-        {
-            _default = [[MySingleton alloc] initSingleton];
-        }
-    }
-#endif
-    
-    return _default;
-    
-}
-
 #pragma mark - Filtered Animal Data
 
 //(RG) - Return filtered animal data based on filter settings
 -(id)returnFilteredWithAnimalData: (id)currentData
-{    
+{
 	NSArray *filterData= [[NSMutableArray alloc] initWithContentsOfFile:[Utilities getFilterPath]];
-   
+    
     //Sex Filter
     NSMutableArray *filteredSex = [[NSMutableArray alloc] init];
     NSDictionary *currentSexDictionary = [filterData objectAtIndex: 0];
@@ -226,7 +186,7 @@
             filteredSize = [_animalData mutableCopy];
             break;
     }
-   
+    
     //Intersection of Current Animal Data, Sex Filter, Age Filter, and Size Filter
     NSMutableSet *intersection = [NSMutableSet setWithArray:currentData];
     [intersection intersectSet:[NSSet setWithArray:filteredSex]];

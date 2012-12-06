@@ -8,19 +8,19 @@
 //  This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit
 //  http://creativecommons.org/licenses/by/3.0/
 
-#import "CSVAnimalController.h"
+#import "CSVAnimalData.h"
 #import "Utilities.h"
 #import "CHCSV.h"
-#import "AnimalData.h"
+#import "AnimalStore.h"
 
 
-@interface CSVAnimalController ()
+@interface CSVAnimalData ()
 {
     NSString* _url;
 }
 @end
 
-@implementation CSVAnimalController
+@implementation CSVAnimalData
 
 //(RG) - Initialize URL
 -(id) initWithStringUrl: (NSString*)url

@@ -14,8 +14,8 @@
 @end
 
 @implementation FavoritesViewController
-@synthesize unfilteredData, search, searching, canSelectRows;
-
+//@synthesize unfilteredData, search, searching, canSelectRows;
+@synthesize search, searching, canSelectRows;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -89,7 +89,7 @@
     
     if(!searching)
     {
-        temp = [self.unfilteredData objectAtIndex:[indexPath row]];
+        temp = [unfilteredData objectAtIndex:[indexPath row]];
     }
     else
     {
@@ -116,7 +116,7 @@
         cell.animalImage.image = [UIImage imageNamed:@"Cats"];
     
     
-    if([[self.unfilteredData objectAtIndex:[indexPath row]] validity] == NO)
+    if([[unfilteredData objectAtIndex:[indexPath row]] validity] == NO)
     {
         //can use an image to signify invalidity
         cell.animalImage.image = nil;

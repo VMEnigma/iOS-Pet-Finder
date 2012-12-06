@@ -27,6 +27,9 @@
 		489BD53A166BE8A4008E9EE8 /* Favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 489BD52E166BE8A4008E9EE8 /* Favorite@2x.png */; };
 		489BD53B166BE8A4008E9EE8 /* FavoriteTab.png in Resources */ = {isa = PBXBuildFile; fileRef = 489BD52F166BE8A4008E9EE8 /* FavoriteTab.png */; };
 		489BD53C166BE8A4008E9EE8 /* FavoriteTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 489BD530166BE8A4008E9EE8 /* FavoriteTab@2x.png */; };
+		48C1BA09167021170063E50A /* AnimalConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C1BA08167021170063E50A /* AnimalConnection.m */; };
+		48C1BA0C167022450063E50A /* XMLAnimalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C1BA0B167022450063E50A /* XMLAnimalData.m */; };
+		48C1BA0F167024CC0063E50A /* Animals.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C1BA0E167024CC0063E50A /* Animals.m */; };
 		48D2307816558EF30028785F /* AnimalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48D2307716558EF30028785F /* AnimalCell.xib */; };
 		48ECD46D166C40D700BF2384 /* FavoriteNavButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ECD467166C40D700BF2384 /* FavoriteNavButton.png */; };
 		48ECD46E166C40D700BF2384 /* FavoriteNavButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ECD468166C40D700BF2384 /* FavoriteNavButton@2x.png */; };
@@ -45,13 +48,13 @@
 		7D08AC951651C5860050663D /* CatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08AC931651C5860050663D /* CatsViewController.m */; };
 		7D08AC9A1651C5A10050663D /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08AC981651C5A10050663D /* FavoritesViewController.m */; };
 		7D08ACB91651DC2E0050663D /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACB81651DC2E0050663D /* Animal.m */; };
-		7D08ACBC1651DC530050663D /* CSVAnimalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACBB1651DC530050663D /* CSVAnimalController.m */; };
+		7D08ACBC1651DC530050663D /* CSVAnimalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACBB1651DC530050663D /* CSVAnimalData.m */; };
 		7D08ACCE1651F6130050663D /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACC71651F6130050663D /* CHCSVParser.m */; };
 		7D08ACCF1651F6130050663D /* CHCSVWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACC91651F6130050663D /* CHCSVWriter.m */; };
 		7D08ACD01651F6130050663D /* NSArray+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACCB1651F6130050663D /* NSArray+CHCSVAdditions.m */; };
 		7D08ACD11651F6130050663D /* NSString+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACCD1651F6130050663D /* NSString+CHCSVAdditions.m */; };
 		7D08ACD41651FBF10050663D /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACD31651FBF10050663D /* Utilities.m */; };
-		7D08ACD81651FCF30050663D /* AnimalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACD71651FCF30050663D /* AnimalData.m */; };
+		7D08ACD81651FCF30050663D /* AnimalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACD71651FCF30050663D /* AnimalStore.m */; };
 		7D60D18316583903007F83D2 /* AnimalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D60D18216583903007F83D2 /* AnimalCell.m */; };
 		7D9DE0DE165EA7C600831BB8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9DE0DD165EA7C600831BB8 /* BaseViewController.m */; };
 		7D9DE0FA165ECAEA00831BB8 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9DE0F8165ECAE900831BB8 /* FilterViewController.m */; };
@@ -91,6 +94,13 @@
 		489BD52E166BE8A4008E9EE8 /* Favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Favorite@2x.png"; sourceTree = "<group>"; };
 		489BD52F166BE8A4008E9EE8 /* FavoriteTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavoriteTab.png; sourceTree = "<group>"; };
 		489BD530166BE8A4008E9EE8 /* FavoriteTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FavoriteTab@2x.png"; sourceTree = "<group>"; };
+		48C1BA07167021170063E50A /* AnimalConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalConnection.h; sourceTree = "<group>"; };
+		48C1BA08167021170063E50A /* AnimalConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalConnection.m; sourceTree = "<group>"; };
+		48C1BA0A167022450063E50A /* XMLAnimalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLAnimalData.h; sourceTree = "<group>"; };
+		48C1BA0B167022450063E50A /* XMLAnimalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLAnimalData.m; sourceTree = "<group>"; };
+		48C1BA0D167024CC0063E50A /* Animals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animals.h; sourceTree = "<group>"; };
+		48C1BA0E167024CC0063E50A /* Animals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animals.m; sourceTree = "<group>"; };
+		48C1BA1416703EB60063E50A /* AnimalDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalDataParser.h; sourceTree = "<group>"; };
 		48D2307716558EF30028785F /* AnimalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimalCell.xib; sourceTree = "<group>"; };
 		48ECD467166C40D700BF2384 /* FavoriteNavButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavoriteNavButton.png; sourceTree = "<group>"; };
 		48ECD468166C40D700BF2384 /* FavoriteNavButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FavoriteNavButton@2x.png"; sourceTree = "<group>"; };
@@ -115,8 +125,8 @@
 		7D08AC981651C5A10050663D /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		7D08ACB71651DC2E0050663D /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
 		7D08ACB81651DC2E0050663D /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
-		7D08ACBA1651DC530050663D /* CSVAnimalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVAnimalController.h; sourceTree = "<group>"; };
-		7D08ACBB1651DC530050663D /* CSVAnimalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVAnimalController.m; sourceTree = "<group>"; };
+		7D08ACBA1651DC530050663D /* CSVAnimalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVAnimalData.h; sourceTree = "<group>"; };
+		7D08ACBB1651DC530050663D /* CSVAnimalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVAnimalData.m; sourceTree = "<group>"; };
 		7D08ACC51651F6130050663D /* CHCSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSV.h; sourceTree = "<group>"; };
 		7D08ACC61651F6130050663D /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		7D08ACC71651F6130050663D /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
@@ -128,8 +138,8 @@
 		7D08ACCD1651F6130050663D /* NSString+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CHCSVAdditions.m"; sourceTree = "<group>"; };
 		7D08ACD21651FBF10050663D /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		7D08ACD31651FBF10050663D /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
-		7D08ACD61651FCF30050663D /* AnimalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalData.h; sourceTree = "<group>"; };
-		7D08ACD71651FCF30050663D /* AnimalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalData.m; sourceTree = "<group>"; };
+		7D08ACD61651FCF30050663D /* AnimalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalStore.h; sourceTree = "<group>"; };
+		7D08ACD71651FCF30050663D /* AnimalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalStore.m; sourceTree = "<group>"; };
 		7D60D18116583903007F83D2 /* AnimalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalCell.h; sourceTree = "<group>"; };
 		7D60D18216583903007F83D2 /* AnimalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalCell.m; sourceTree = "<group>"; };
 		7D9DE0DC165EA7C600831BB8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -177,13 +187,26 @@
 			path = AsyncImageView;
 			sourceTree = "<group>";
 		};
+		48C1BA0516701FDD0063E50A /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				7D08ACD61651FCF30050663D /* AnimalStore.h */,
+				7D08ACD71651FCF30050663D /* AnimalStore.m */,
+				4BBCBDD6166C1DDC004C619F /* FavoriteImageStore.h */,
+				4BBCBDD7166C1DDC004C619F /* FavoriteImageStore.m */,
+				482991E1166BEF7B00C197DE /* FavoriteAnimalStore.h */,
+				482991E2166BEF7B00C197DE /* FavoriteAnimalStore.m */,
+			);
+			name = Stores;
+			sourceTree = "<group>";
+		};
 		7D08AC9C1651C76A0050663D /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				7D08ACB71651DC2E0050663D /* Animal.h */,
 				7D08ACB81651DC2E0050663D /* Animal.m */,
-				7D08ACD61651FCF30050663D /* AnimalData.h */,
-				7D08ACD71651FCF30050663D /* AnimalData.m */,
+				48C1BA0D167024CC0063E50A /* Animals.h */,
+				48C1BA0E167024CC0063E50A /* Animals.m */,
 				F1F332F01659FECA0092329F /* animals.xml */,
 				4BBCBDDB166C315C004C619F /* PetFinderModel.xcdatamodeld */,
 				4BBCBDDE166C3772004C619F /* FavoriteAnimal.h */,
@@ -240,13 +263,18 @@
 			path = CHCSVParser;
 			sourceTree = "<group>";
 		};
-		7D08ACB61651DBF80050663D /* Data Controllers */ = {
+		7D08ACB61651DBF80050663D /* Data Connections */ = {
 			isa = PBXGroup;
 			children = (
-				7D08ACBA1651DC530050663D /* CSVAnimalController.h */,
-				7D08ACBB1651DC530050663D /* CSVAnimalController.m */,
+				7D08ACBA1651DC530050663D /* CSVAnimalData.h */,
+				7D08ACBB1651DC530050663D /* CSVAnimalData.m */,
+				48C1BA07167021170063E50A /* AnimalConnection.h */,
+				48C1BA08167021170063E50A /* AnimalConnection.m */,
+				48C1BA0A167022450063E50A /* XMLAnimalData.h */,
+				48C1BA0B167022450063E50A /* XMLAnimalData.m */,
+				48C1BA1416703EB60063E50A /* AnimalDataParser.h */,
 			);
-			name = "Data Controllers";
+			name = "Data Connections";
 			sourceTree = "<group>";
 		};
 		7D60D18516597C50007F83D2 /* Resources */ = {
@@ -313,14 +341,11 @@
 		ECD235D8164C6F5C0099253C /* PetFinder */ = {
 			isa = PBXGroup;
 			children = (
-				4BBCBDD6166C1DDC004C619F /* FavoriteImageStore.h */,
-				4BBCBDD7166C1DDC004C619F /* FavoriteImageStore.m */,
-				482991E1166BEF7B00C197DE /* FavoriteAnimalStore.h */,
-				482991E2166BEF7B00C197DE /* FavoriteAnimalStore.m */,
-				7D60D18516597C50007F83D2 /* Resources */,
-				7D08ACB61651DBF80050663D /* Data Controllers */,
-				7D08AC9E1651C7A20050663D /* Views */,
 				7D08AC9C1651C76A0050663D /* Models */,
+				48C1BA0516701FDD0063E50A /* Stores */,
+				7D60D18516597C50007F83D2 /* Resources */,
+				7D08ACB61651DBF80050663D /* Data Connections */,
+				7D08AC9E1651C7A20050663D /* Views */,
 				7D08AC9D1651C7850050663D /* View Controllers */,
 				ECD235E1164C6F5C0099253C /* AppDelegate.h */,
 				ECD235E2164C6F5C0099253C /* AppDelegate.m */,
@@ -441,13 +466,13 @@
 				7D08AC951651C5860050663D /* CatsViewController.m in Sources */,
 				7D08AC9A1651C5A10050663D /* FavoritesViewController.m in Sources */,
 				7D08ACB91651DC2E0050663D /* Animal.m in Sources */,
-				7D08ACBC1651DC530050663D /* CSVAnimalController.m in Sources */,
+				7D08ACBC1651DC530050663D /* CSVAnimalData.m in Sources */,
 				7D08ACCE1651F6130050663D /* CHCSVParser.m in Sources */,
 				7D08ACCF1651F6130050663D /* CHCSVWriter.m in Sources */,
 				7D08ACD01651F6130050663D /* NSArray+CHCSVAdditions.m in Sources */,
 				7D08ACD11651F6130050663D /* NSString+CHCSVAdditions.m in Sources */,
 				7D08ACD41651FBF10050663D /* Utilities.m in Sources */,
-				7D08ACD81651FCF30050663D /* AnimalData.m in Sources */,
+				7D08ACD81651FCF30050663D /* AnimalStore.m in Sources */,
 				7D60D18316583903007F83D2 /* AnimalCell.m in Sources */,
 				7D9DE0DE165EA7C600831BB8 /* BaseViewController.m in Sources */,
 				7D9DE0FA165ECAEA00831BB8 /* FilterViewController.m in Sources */,
@@ -457,6 +482,9 @@
 				4BBCBDD8166C1DDC004C619F /* FavoriteImageStore.m in Sources */,
 				4BBCBDDD166C315C004C619F /* PetFinderModel.xcdatamodeld in Sources */,
 				4BBCBDE0166C3772004C619F /* FavoriteAnimal.m in Sources */,
+				48C1BA09167021170063E50A /* AnimalConnection.m in Sources */,
+				48C1BA0C167022450063E50A /* XMLAnimalData.m in Sources */,
+				48C1BA0F167024CC0063E50A /* Animals.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

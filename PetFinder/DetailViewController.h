@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *animalImageView;
 
 
-@property (nonatomic, strong) Animal * animal;
+@property (nonatomic, strong) id animal;
 @property (nonatomic, strong) FavoriteAnimal * faveAnimal;
 
 -(IBAction)adoptThisPet:(id)sender;

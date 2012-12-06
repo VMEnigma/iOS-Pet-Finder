@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CSVAnimalController : NSObject
+@interface CSVAnimalData : NSObject
 
 -(id) initWithStringUrl: (NSString*)url;
 -(NSArray*) getAnimalDataAsArray;
