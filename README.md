@@ -43,3 +43,14 @@ AsyncImageView is used to asynchronously load the images from the online data so
 
 **Google Maps API v2** - https://developers.google.com/maps/documentation/staticmaps/
 Google Maps API is used to show a map of the shelter location in the information view.
+
+App Breakdown and Usage
+==============
+*   Main views in the tab bar consists of Dogs, Cats, Favorites, Info.
+    * **DogsViewController** - Contains list of dogs
+    * CatsViewController - Contains list of cats
+    * FavoritesViewController - Contains list of favorties (Cats and/or Dogs)
+    * InfoViewController - Contains animal shelter contact information and map.
+*   Dogs, Cats and Favorites are a subclass of BaseViewController. BaseViewController contains common code such as adding rounded corners the table view, fetching the data, and setting up search.
+*   
+*   
