@@ -93,8 +93,15 @@
     
     [cell setAnimalModel: animal];
     
-    //Set cell image to cats
-    cell.animalImage.image = [UIImage imageNamed:@"Cats"];
+    //Set cell image to dogs or favorite
+    if([[FavoriteAnimalStore singletonFavorites] isDuplicate:animal])
+    {
+        cell.animalImage.image = [UIImage imageNamed:@"Favorite"];
+    }
+    else
+    {
+        cell.animalImage.image = [UIImage imageNamed:@"Cats"];
+    }
     
     return cell;
 }
