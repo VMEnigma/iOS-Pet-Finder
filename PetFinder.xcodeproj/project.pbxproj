@@ -64,6 +64,7 @@
 		ECD235DD164C6F5C0099253C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECD235DB164C6F5C0099253C /* InfoPlist.strings */; };
 		ECD235DF164C6F5C0099253C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD235DE164C6F5C0099253C /* main.m */; };
 		ECD235E3164C6F5C0099253C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD235E2164C6F5C0099253C /* AppDelegate.m */; };
+		F145BD37167061410049E6CD /* XMLAnimalController.m in Sources */ = {isa = PBXBuildFile; fileRef = F145BD36167061410049E6CD /* XMLAnimalController.m */; };
 		F1F332F21659FECA0092329F /* animals.xml in Resources */ = {isa = PBXBuildFile; fileRef = F1F332F01659FECA0092329F /* animals.xml */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +150,8 @@
 		ECD235E0164C6F5C0099253C /* PetFinder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetFinder-Prefix.pch"; sourceTree = "<group>"; };
 		ECD235E1164C6F5C0099253C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ECD235E2164C6F5C0099253C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F145BD35167061410049E6CD /* XMLAnimalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLAnimalController.h; sourceTree = "<group>"; };
+		F145BD36167061410049E6CD /* XMLAnimalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLAnimalController.m; sourceTree = "<group>"; };
 		F1F332F01659FECA0092329F /* animals.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = animals.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -243,6 +246,8 @@
 		7D08ACB61651DBF80050663D /* Data Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F145BD35167061410049E6CD /* XMLAnimalController.h */,
+				F145BD36167061410049E6CD /* XMLAnimalController.m */,
 				7D08ACBA1651DC530050663D /* CSVAnimalController.h */,
 				7D08ACBB1651DC530050663D /* CSVAnimalController.m */,
 			);
@@ -457,6 +462,7 @@
 				4BBCBDD8166C1DDC004C619F /* FavoriteImageStore.m in Sources */,
 				4BBCBDDD166C315C004C619F /* PetFinderModel.xcdatamodeld in Sources */,
 				4BBCBDE0166C3772004C619F /* FavoriteAnimal.m in Sources */,
+				F145BD37167061410049E6CD /* XMLAnimalController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

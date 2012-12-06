@@ -20,6 +20,7 @@
 
 
 -(void)populateAnimalData: (NSArray*)dataArray;
+-(void)populateAnimalDataFromXMLParser: (NSArray*)dataArray;
 -(id)initSingleton;
 +(AnimalData*)sharedAnimalData;
 -(id)returnFilteredWithAnimalData: (id)currentData;

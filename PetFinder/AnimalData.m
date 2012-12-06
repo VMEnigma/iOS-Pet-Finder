@@ -110,6 +110,80 @@
     [self.animalData sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 }
 
+-(void)populateAnimalDataFromXMLParser: (NSArray*)dataArray
+{
+    //Setup NSDataFormatter to match input string
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy.MM.dd"];
+    
+    // , , , , , , , , , ,
+    //Iterate through data once and populate collections
+    for (Animal* animalModel in dataArray)
+    {
+        //Add object to general array
+        [self.animalData addObject: animalModel];
+        
+        //- - - - - - - - - - - - - - - - - - - - - -
+        //Create dictionary with animal type as key
+        
+        //Check if dictionary exists for type, if not then create it.
+        NSArray* animalArrayOfType = [_animalOfType objectForKey:animalModel.Type];
+        if (animalArrayOfType == nil)
+        {
+            animalArrayOfType = [[NSMutableArray alloc]init];
+            [self.animalOfType setObject:animalArrayOfType forKey:animalModel.Type];
+        }
+        
+        //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
+        [[self.animalOfType objectForKey: animalModel.Type] addObject: animalModel];
+        
+        
+        //- - - - - - - - - - - - - - - - - - - - - -
+        //Create dictionary with animal sex as key
+        
+        //Check if dictionary exists for type, if not then create it.
+        NSArray* animalArrayOfSex = [_animalOfSex objectForKey:animalModel.Sex];
+        if (animalArrayOfSex == nil)
+        {
+            animalArrayOfSex = [[NSMutableArray alloc]init];
+            [self.animalOfSex setObject:animalArrayOfSex forKey:animalModel.Sex];
+        }
+        
+        //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
+        [[self.animalOfSex objectForKey: animalModel.Sex] addObject: animalModel];
+        
+        //- - - - - - - - - - - - - - - - - - - - - -
+        //Create dictionary with animal Age as key
+        
+        //Check if dictionary exists for type, if not then create it.
+        NSArray* animalArrayOfAge = [_animalOfAge objectForKey:animalModel.Age];
+        if (animalArrayOfAge == nil)
+        {
+            animalArrayOfAge = [[NSMutableArray alloc]init];
+            [self.animalOfAge setObject:animalArrayOfAge forKey:animalModel.Age];
+        }
+        
+        //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
+        [[self.animalOfAge objectForKey: animalModel.Age ] addObject: animalModel];
+        
+        
+        //- - - - - - - - - - - - - - - - - - - - - -
+        //Create dictionary with animal Size as key
+        
+        //Check if dictionary exists for type, if not then create it.
+        NSArray* animalArrayOfSize = [_animalOfSize objectForKey:animalModel.Size];
+        if (animalArrayOfSize == nil)
+        {
+            animalArrayOfSize = [[NSMutableArray alloc]init];
+            [self.animalOfSize setObject:animalArrayOfSize forKey:animalModel.Size];
+        }
+        
+        //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
+        [[self.animalOfSize objectForKey: animalModel.Size] addObject: animalModel];
+        
+    }
+}
+
 #pragma mark - Singleton
 //(RG) - Singleton initalizer
 -(id)initSingleton

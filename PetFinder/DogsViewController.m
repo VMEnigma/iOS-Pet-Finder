@@ -7,6 +7,7 @@
 //
 
 #import "DogsViewController.h"
+#import "XMLAnimalController.h"
 
 @interface DogsViewController ()
 
@@ -107,13 +108,33 @@
 {
     AnimalData * animalData = [AnimalData sharedAnimalData];
     
-    // Load animal data with CSV parser
-    CSVAnimalController* dataLoader = [[CSVAnimalController alloc] initWithStringUrl:@"http://www.venexmedia.com/AnimalShelterApp/animals.csv"];
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Load Animal Data Singleton
     
-    //Populate singleton data with CSV parsed data
-    [animalData populateAnimalData:[dataLoader getAnimalDataAsArray]];
+    animalData = [AnimalData sharedAnimalData];
     
-    // - - - - - - - - - - - - - - -
+    int dataSourceValue = [[[NSUserDefaults standardUserDefaults] stringForKey:@"app_data_source"] integerValue];
+    
+    if (dataSourceValue == 1) {
+        XMLAnimalController *dataloader = [[XMLAnimalController alloc] init];
+        //dataloader loadAnimalData:<#(NSURL *)#>]
+        if ([dataloader loadAnimalWithData:nil]) {
+            [animalData populateAnimalDataFromXMLParser:dataloader.animalData];
+        }
+        else
+        {
+            [animalData populateAnimalData:nil];
+        }
+    }
+    else
+    {
+        // Load animal data with CSV parser
+        CSVAnimalController* dataLoader = [[CSVAnimalController alloc] initWithStringUrl:@"http://www.venexmedia.com/AnimalShelterApp/animals.csv"];
+        
+        //Populate singleton data with CSV parsed data
+        [animalData populateAnimalData:[dataLoader getAnimalDataAsArray]];
+    }
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
     //Invalidate invalid favorites
     
