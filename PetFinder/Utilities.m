@@ -10,13 +10,7 @@
 
 @implementation Utilities
 
-+(NSArray*)sortArray:(NSArray*) array forProperty:(NSString*) key ascending:(BOOL) ascending
-{
-    NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:key ascending:ascending];
-    NSArray * descriptors = [NSArray arrayWithObject:valueDescriptor];
-    return [[array sortedArrayUsingDescriptors:descriptors] copy];
-}
-
+//(RG) - Get Contents of URL as NSString
 +(NSString*)getContentsFromUrlAsString:(NSString*) stringUrl
 {
     return [[NSString alloc]
@@ -24,6 +18,8 @@
                                     initWithString: stringUrl]
             encoding:NSUTF8StringEncoding error:nil];
 }
+
+//(RG) - Get filter plist path
 +(NSString*)getFilterPath
 {
     //Get Filter data from Plist

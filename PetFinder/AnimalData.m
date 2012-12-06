@@ -1,9 +1,12 @@
 //
 //  AnimalData.m
-//  PetFinder
+//  PetFinder v1.0
 //
-//  Created by Raymond G on 11/12/12.
+//  Created by Raymond Gonzalez, Reyneiro Hernandez, Gregory Jean Baptiste
+//  https://github.com/raygon3/iOS-Pet-Finder
 //
+//  This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit
+//  http://creativecommons.org/licenses/by/3.0/
 //
 
 #import "AnimalData.h"
@@ -18,15 +21,17 @@
 @synthesize animalOfAge = _animalOfAge;
 @synthesize animalOfSize = _animalOfSize;
 
-
 #pragma mark - Animal Data Methods
+//(RG) - Populate Animal Data Store by passing it an array of parsed animal data
 -(void)populateAnimalData: (NSArray*)dataArray
 {
+    //Clear existing array
+    self.animalData = [[NSMutableArray alloc] init];
+    
     //Setup NSDataFormatter to match input string
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy.MM.dd"];
     
-   // , , , , , , , , , , 
     //Iterate through data once and populate collections
     for (NSArray* animalData in dataArray)
     {
@@ -48,7 +53,7 @@
         [self.animalData addObject: animalModel];
         
         //- - - - - - - - - - - - - - - - - - - - - -
-        //Create dictionary with animal type as key
+        //Create dictionary with animal Type as key
         
         //Check if dictionary exists for type, if not then create it.
         NSArray* animalArrayOfType = [_animalOfType objectForKey:animalModel.Type];
@@ -57,13 +62,11 @@
             animalArrayOfType = [[NSMutableArray alloc]init];
             [self.animalOfType setObject:animalArrayOfType forKey:animalModel.Type];
         }
-        
         //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
         [[self.animalOfType objectForKey: animalModel.Type] addObject: animalModel];
-        
-        
+                
         //- - - - - - - - - - - - - - - - - - - - - -
-        //Create dictionary with animal sex as key
+        //Create dictionary with animal Sex as key
         
         //Check if dictionary exists for type, if not then create it.
         NSArray* animalArrayOfSex = [_animalOfSex objectForKey:animalModel.Sex];
@@ -72,7 +75,6 @@
             animalArrayOfSex = [[NSMutableArray alloc]init];
             [self.animalOfSex setObject:animalArrayOfSex forKey:animalModel.Sex];
         }
-        
         //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
         [[self.animalOfSex objectForKey: animalModel.Sex] addObject: animalModel];
         
@@ -86,10 +88,8 @@
             animalArrayOfAge = [[NSMutableArray alloc]init];
             [self.animalOfAge setObject:animalArrayOfAge forKey:animalModel.Age];
         }
-        
         //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
         [[self.animalOfAge objectForKey: animalModel.Age ] addObject: animalModel];
-        
         
         //- - - - - - - - - - - - - - - - - - - - - -
         //Create dictionary with animal Size as key
@@ -101,21 +101,22 @@
             animalArrayOfSize = [[NSMutableArray alloc]init];
             [self.animalOfSize setObject:animalArrayOfSize forKey:animalModel.Size];
         }
-        
         //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
         [[self.animalOfSize objectForKey: animalModel.Size] addObject: animalModel];
-
     }
+    
+    //Sort animalData array descending by date
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"ShelterDate" ascending:FALSE];
+    [self.animalData sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 }
 
-
 #pragma mark - Singleton
-//Singleton initalizer
+//(RG) - Singleton initalizer
 -(id)initSingleton
 {
     if ((self = [super init]))
     {
-        // Initialization code here.
+        // Class Initialization
         self.animalData = [[NSMutableArray alloc] init];
         self.animalOfType = [[NSMutableDictionary alloc] init];
         self.animalOfSex = [[NSMutableDictionary alloc] init];
@@ -126,7 +127,7 @@
     return self;
 }
 
-//Singleton with Shared Animal Data
+//(RG) - Singleton with Shared Animal Data
 +(AnimalData*)sharedAnimalData
 {
     // Persistent instance.
@@ -167,7 +168,7 @@
 
 #pragma mark - Filtered Animal Data
 
-//Return filtered animal data based on filter settings
+//(RG) - Return filtered animal data based on filter settings
 -(id)returnFilteredWithAnimalData: (id)currentData
 {    
 	NSArray *filterData= [[NSMutableArray alloc] initWithContentsOfFile:[Utilities getFilterPath]];
@@ -231,7 +232,12 @@
     [intersection intersectSet:[NSSet setWithArray:filteredSex]];
     [intersection intersectSet:[NSSet setWithArray:filteredAge]];
     [intersection intersectSet:[NSSet setWithArray:filteredSize]];
-      
-    return [intersection allObjects];
+    NSMutableArray *resultingSet = [NSMutableArray arrayWithArray:[intersection allObjects]];
+    
+    //Sort animalData array descending by date
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"ShelterDate" ascending:FALSE];
+    [resultingSet sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    
+    return resultingSet;
 }
 @end

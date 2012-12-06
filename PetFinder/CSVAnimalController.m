@@ -1,10 +1,12 @@
 //
 //  CSVAnimalController.m
-//  PetFinder
+//  PetFinder v1.0
 //
-//  Created by Raymond G on 11/12/12.
+//  Created by Raymond Gonzalez, Reyneiro Hernandez, Gregory Jean Baptiste
+//  https://github.com/raygon3/iOS-Pet-Finder
 //
-//
+//  This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit
+//  http://creativecommons.org/licenses/by/3.0/
 
 #import "CSVAnimalController.h"
 #import "Utilities.h"
@@ -20,6 +22,7 @@
 
 @implementation CSVAnimalController
 
+//(RG) - Initialize URL
 -(id) initWithStringUrl: (NSString*)url
 {
     self = [super init];
@@ -30,6 +33,7 @@
     return self;
 }
 
+//(RG) - Get Array of parsed CSV Animal Data 
 -(NSArray*) getAnimalDataAsArray
 {
     NSString *urlContents = [Utilities getContentsFromUrlAsString:_url];
@@ -41,7 +45,6 @@
     [urlDataParsed removeObjectAtIndex:0];
     
     return urlDataParsed;
-    
 }
 
 @end

@@ -65,7 +65,6 @@
 		ECD235DF164C6F5C0099253C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD235DE164C6F5C0099253C /* main.m */; };
 		ECD235E3164C6F5C0099253C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD235E2164C6F5C0099253C /* AppDelegate.m */; };
 		F1F332F21659FECA0092329F /* animals.xml in Resources */ = {isa = PBXBuildFile; fileRef = F1F332F01659FECA0092329F /* animals.xml */; };
-		F1F332F51659FEDE0092329F /* AnimalDataXML.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F332F41659FEDE0092329F /* AnimalDataXML.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,9 +149,7 @@
 		ECD235E0164C6F5C0099253C /* PetFinder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetFinder-Prefix.pch"; sourceTree = "<group>"; };
 		ECD235E1164C6F5C0099253C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ECD235E2164C6F5C0099253C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F1F332EF1659FECA0092329F /* AnimalDataXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalDataXML.h; sourceTree = "<group>"; };
 		F1F332F01659FECA0092329F /* animals.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = animals.xml; sourceTree = "<group>"; };
-		F1F332F41659FEDE0092329F /* AnimalDataXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalDataXML.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +184,6 @@
 				7D08ACB81651DC2E0050663D /* Animal.m */,
 				7D08ACD61651FCF30050663D /* AnimalData.h */,
 				7D08ACD71651FCF30050663D /* AnimalData.m */,
-				F1F332EF1659FECA0092329F /* AnimalDataXML.h */,
-				F1F332F41659FEDE0092329F /* AnimalDataXML.m */,
 				F1F332F01659FECA0092329F /* animals.xml */,
 				4BBCBDDB166C315C004C619F /* PetFinderModel.xcdatamodeld */,
 				4BBCBDDE166C3772004C619F /* FavoriteAnimal.h */,
@@ -245,13 +240,13 @@
 			path = CHCSVParser;
 			sourceTree = "<group>";
 		};
-		7D08ACB61651DBF80050663D /* Data Controller */ = {
+		7D08ACB61651DBF80050663D /* Data Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				7D08ACBA1651DC530050663D /* CSVAnimalController.h */,
 				7D08ACBB1651DC530050663D /* CSVAnimalController.m */,
 			);
-			name = "Data Controller";
+			name = "Data Controllers";
 			sourceTree = "<group>";
 		};
 		7D60D18516597C50007F83D2 /* Resources */ = {
@@ -323,7 +318,7 @@
 				482991E1166BEF7B00C197DE /* FavoriteAnimalStore.h */,
 				482991E2166BEF7B00C197DE /* FavoriteAnimalStore.m */,
 				7D60D18516597C50007F83D2 /* Resources */,
-				7D08ACB61651DBF80050663D /* Data Controller */,
+				7D08ACB61651DBF80050663D /* Data Controllers */,
 				7D08AC9E1651C7A20050663D /* Views */,
 				7D08AC9C1651C76A0050663D /* Models */,
 				7D08AC9D1651C7850050663D /* View Controllers */,
@@ -454,7 +449,6 @@
 				7D08ACD41651FBF10050663D /* Utilities.m in Sources */,
 				7D08ACD81651FCF30050663D /* AnimalData.m in Sources */,
 				7D60D18316583903007F83D2 /* AnimalCell.m in Sources */,
-				F1F332F51659FEDE0092329F /* AnimalDataXML.m in Sources */,
 				7D9DE0DE165EA7C600831BB8 /* BaseViewController.m in Sources */,
 				7D9DE0FA165ECAEA00831BB8 /* FilterViewController.m in Sources */,
 				489BD522166BE805008E9EE8 /* DetailViewController.m in Sources */,

@@ -67,8 +67,6 @@
     
     NSString * documentDirectory = [documentDirectorties objectAtIndex:0];
     
-    //return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
-    
     return [documentDirectory stringByAppendingPathComponent:@"store.data"];
 }
 

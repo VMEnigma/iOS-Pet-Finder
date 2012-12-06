@@ -137,8 +137,9 @@
             fave.validity = NO;
         }
     }
-    
     self.unfilteredData = [[AnimalData sharedAnimalData].animalOfType mutableArrayValueForKey:@"Dog"];
+    self.filteredData = [[AnimalData sharedAnimalData] returnFilteredWithAnimalData: self.unfilteredData];
+    
     searching = NO;
     [self.search setText:@""];
     [self.search resignFirstResponder];

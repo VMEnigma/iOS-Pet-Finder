@@ -1,10 +1,13 @@
 //
 //  Animal.m
-//  PetFinder
+//  PetFinder v1.0
 //
-//  Created by Raymond G on 11/12/12.
+//  Created by Raymond Gonzalez, Reyneiro Hernandez, Gregory Jean Baptiste
+//  https://github.com/raygon3/iOS-Pet-Finder
 //
-//
+//  This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit
+//  http://creativecommons.org/licenses/by/3.0/
+
 
 #import "Animal.h"
 
@@ -22,8 +25,7 @@
 @synthesize Size;
 @synthesize ShelterDate;
 
-
-//initialize model
+//(RG) - Initialize Model
 -(id)initWithAnimalId: (NSString *)animalID andName: (NSString*)name andType: (NSString*)type andBreed: (NSString*)breed andDescription1: (NSString*)description1 andDescription2: (NSString*)description2 andDescription3: (NSString*)description3 andSex: (NSString*)sex andAge: (NSNumber*)age andSize: (NSString*)size andShelterDate: (NSDate*)date
 {
     self = [self init];
@@ -42,6 +44,16 @@
         self.ShelterDate = date;
     }
     return self;
+}
+
+//(RG) - Override Description method
+- (NSString*)description
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy.MM.dd"];
+    
+    //Print Name, AnimalID, Type, Date
+    return [NSString stringWithFormat:@"%-13s - %-10s - %-5s - %@", [Name UTF8String], [AnimalID UTF8String], [Type UTF8String], [dateFormat stringFromDate:ShelterDate]];
 }
 
 @end
