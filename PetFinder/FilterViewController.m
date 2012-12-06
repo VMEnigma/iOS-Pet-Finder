@@ -1,14 +1,18 @@
 //
 //  FilterViewController.m
-//  PetFinder
+//  PetFinder v1.0
 //
-//  Created by Raymond G on 11/22/12.
+//  Created by Raymond Gonzalez, Reyneiro Hernandez, Gregory Jean Baptiste
+//  https://github.com/raygon3/iOS-Pet-Finder
 //
-//
+//  This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit
+//  http://creativecommons.org/licenses/by/3.0/
 
 #import "FilterViewController.h"
 #import "Utilities.h"
 
+
+// (RG)
 @interface FilterViewController ()
 
 {
@@ -26,8 +30,6 @@
     if (self) {
         // Custom initialization
         self.title = @"Filter";
-        
-        
     }
     return self;
 }
@@ -64,7 +66,6 @@
 {
     return 3;
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

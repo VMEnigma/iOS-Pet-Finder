@@ -1,13 +1,14 @@
 //
 //  FavoriteAnimal.m
-//  PetFinder
+//  PetFinder v1.0
 //
-//  Created by Gregory Jean-Baptiste on 12/2/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Raymond Gonzalez, Reyneiro Hernandez, Gregory Jean Baptiste
+//  https://github.com/raygon3/iOS-Pet-Finder
 //
+//  This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit
+//  http://creativecommons.org/licenses/by/3.0/
 
 #import "FavoriteAnimal.h"
-
 
 @implementation FavoriteAnimal
 
