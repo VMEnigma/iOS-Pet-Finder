@@ -13,8 +13,8 @@
 #import "DogsViewController.h"
 #import "CatsViewController.h"
 #import "FavoritesViewController.h"
+#import "InfoViewController.h"
 #import "AnimalStore.h"
-#import "CSVAnimalData.h"
 #import "FavoriteAnimalStore.h"
 #import "Utilities.h"
 
@@ -86,25 +86,29 @@ AnimalStore* animalData;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //Initialize 3 view controllers for tabs
+    //Initialize 4 view controllers for tabs
     UIViewController *viewController1 = [[DogsViewController alloc] initWithNibName:@"BaseViewController" bundle:nil];
     UIViewController *viewController2 = [[CatsViewController alloc] initWithNibName:@"BaseViewController" bundle:nil];
     UIViewController *viewController3 = [[FavoritesViewController alloc] initWithNibName:@"BaseViewController" bundle:nil];
+     UIViewController *viewController4 = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
     
-    //Initialize 3 navigation controllers for tabs
+    //Initialize 4 navigation controllers for tabs
     UINavigationController *navigationController1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
     UINavigationController *navigationController2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
     UINavigationController *navigationController3 = [[UINavigationController alloc] initWithRootViewController:viewController3];
+    UINavigationController *navigationController4 = [[UINavigationController alloc] initWithRootViewController:viewController4];
+    
     UIColor *navigationBarColor = [UIColor colorWithRed:0.172549 green:0.643137 blue:0.905882 alpha:1];
     [navigationController1.navigationBar setTintColor: navigationBarColor];
     [navigationController2.navigationBar setTintColor: navigationBarColor];
     [navigationController3.navigationBar setTintColor: navigationBarColor];
+    [navigationController4.navigationBar setTintColor: navigationBarColor];
     
     //Create tab bar controller with 3 tabs and make it the rootViewController
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:0.682353 green:0.062745 blue:0.121569 alpha:1];
     self.tabBarController.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.992157 green:0.772549 blue:0.188235 alpha:1];
-    NSArray* controllers = [NSArray arrayWithObjects: navigationController1, navigationController2, navigationController3, nil];
+    NSArray* controllers = [NSArray arrayWithObjects: navigationController1, navigationController2, navigationController3, navigationController4, nil];
     [self.tabBarController setViewControllers: controllers];
     
     [self.window setRootViewController:self.tabBarController];

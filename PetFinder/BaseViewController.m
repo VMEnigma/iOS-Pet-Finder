@@ -11,7 +11,7 @@
 #import "BaseViewController.h"
 #import "DetailViewController.h"
 #import "AnimalStore.h"
-#import "CSVAnimalData.h"
+
 #import "FavoriteAnimalStore.h"
 
 

@@ -29,6 +29,8 @@
 		489BD53C166BE8A4008E9EE8 /* FavoriteTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 489BD530166BE8A4008E9EE8 /* FavoriteTab@2x.png */; };
 		48C1BA09167021170063E50A /* AnimalConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C1BA08167021170063E50A /* AnimalConnection.m */; };
 		48C1BA0F167024CC0063E50A /* Animals.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C1BA0E167024CC0063E50A /* Animals.m */; };
+		48C1BA2A167070970063E50A /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C1BA28167070960063E50A /* InfoViewController.m */; };
+		48C1BA2B167070970063E50A /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48C1BA29167070960063E50A /* InfoViewController.xib */; };
 		48D2307816558EF30028785F /* AnimalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48D2307716558EF30028785F /* AnimalCell.xib */; };
 		48ECD46D166C40D700BF2384 /* FavoriteNavButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ECD467166C40D700BF2384 /* FavoriteNavButton.png */; };
 		48ECD46E166C40D700BF2384 /* FavoriteNavButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ECD468166C40D700BF2384 /* FavoriteNavButton@2x.png */; };
@@ -97,6 +99,9 @@
 		48C1BA0D167024CC0063E50A /* Animals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animals.h; sourceTree = "<group>"; };
 		48C1BA0E167024CC0063E50A /* Animals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animals.m; sourceTree = "<group>"; };
 		48C1BA1416703EB60063E50A /* AnimalDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalDataParser.h; sourceTree = "<group>"; };
+		48C1BA27167070950063E50A /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		48C1BA28167070960063E50A /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		48C1BA29167070960063E50A /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 		48D2307716558EF30028785F /* AnimalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimalCell.xib; sourceTree = "<group>"; };
 		48ECD467166C40D700BF2384 /* FavoriteNavButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavoriteNavButton.png; sourceTree = "<group>"; };
 		48ECD468166C40D700BF2384 /* FavoriteNavButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FavoriteNavButton@2x.png"; sourceTree = "<group>"; };
@@ -226,6 +231,8 @@
 				7D9DE0DD165EA7C600831BB8 /* BaseViewController.m */,
 				7D9DE0F7165ECAE900831BB8 /* FilterViewController.h */,
 				7D9DE0F8165ECAE900831BB8 /* FilterViewController.m */,
+				48C1BA27167070950063E50A /* InfoViewController.h */,
+				48C1BA28167070960063E50A /* InfoViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -236,6 +243,7 @@
 				489BD521166BE805008E9EE8 /* DetailViewController.xib */,
 				7D08AC8E1651C56D0050663D /* BaseViewController.xib */,
 				7D9DE0F9165ECAE900831BB8 /* FilterViewController.xib */,
+				48C1BA29167070960063E50A /* InfoViewController.xib */,
 				48D2307716558EF30028785F /* AnimalCell.xib */,
 			);
 			name = Views;
@@ -440,6 +448,7 @@
 				48ECD47E166C636100BF2384 /* Favorite-Selected@2x.png in Resources */,
 				484C6DBA166FC25200F6A0EC /* Icon@2x.png in Resources */,
 				484C6DBC166FC25500F6A0EC /* Icon.png in Resources */,
+				48C1BA2B167070970063E50A /* InfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +482,7 @@
 				4BBCBDE0166C3772004C619F /* FavoriteAnimal.m in Sources */,
 				48C1BA09167021170063E50A /* AnimalConnection.m in Sources */,
 				48C1BA0F167024CC0063E50A /* Animals.m in Sources */,
+				48C1BA2A167070970063E50A /* InfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

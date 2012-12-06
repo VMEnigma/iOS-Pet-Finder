@@ -14,7 +14,7 @@
 #import "AnimalStore.h"
 #import "FavoriteAnimalStore.h"
 #import "Utilities.h"
-#import "CSVAnimalData.h"
+
 #import "DetailViewController.h"
 #import "FilterViewController.h"
 #import <QuartzCore/QuartzCore.h>
