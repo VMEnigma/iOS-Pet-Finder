@@ -22,20 +22,23 @@
 @synthesize tableView, copiedData, search;
 
 
-
+//(RG) - Base Class NIB initializer
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        _typeOfAnimal = [[NSString alloc] init];
     }
     return self;
 }
 
+//(RG)
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self fetchEntries];
     
     //Outer view without clipping (shadow + rounded)
     UIView *viewContainer1 = [self.view viewWithTag:2];
@@ -154,8 +157,54 @@
     [[self navigationController] pushViewController:dvc animated:YES];
 }
 
--(void)fetchEntries
+//(RG) - Fetch Entries
+- (void)fetchEntries
 {
+    //First check if this is a Dog or a Cat since Favorties does not need to fetch entries
+    if ([_typeOfAnimal isEqualToString:@"Dog"] || [_typeOfAnimal isEqualToString:@"Cat"])
+    {
+        UIView *currentTitleView = [[self navigationItem] titleView];
+        UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
+                                           initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        [[self navigationItem] setTitleView:aiView];
+        [aiView startAnimating];
+        
+        
+        void (^completionBlock)(Animals *obj, NSError *err) = ^(Animals *obj, NSError *err) {
+            NSLog(@"block recieved");
+              [[self navigationItem] setTitleView:currentTitleView];
+            
+            //If there are no errors, load the data and reload tableview
+            if(!err) {
+                unfilteredAnimalData = obj;
+                NSLog(@"%@", unfilteredAnimalData);
+                unfilteredData = [unfilteredAnimalData.animalOfType mutableArrayValueForKey:_typeOfAnimal];
+                NSLog(@"%@", unfilteredData);
+                filteredData = [unfilteredAnimalData returnFilteredWithAnimalData: unfilteredData];
+                
+                [[self tableView] reloadData];
+                
+            }
+            //Else, error detected, show AlertView error message
+            else
+            {
+
+                NSString *errorString = [NSString stringWithFormat:@"At this moment, Pet Finder can't load data from the shelter. Please try again later."];
+                NSLog(@"FETCH ERROR - %@", [err localizedDescription]);
+                
+                // Create and show an alert view with this error displayed
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                             message:errorString
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+                [alertView show];
+            }
+        };
+        //Requested data from sharedAnimalData singleton
+        [[AnimalStore sharedAnimalData] fetchAnimalsWithCompletion:completionBlock];
+    }        
 }
+
 
 @end

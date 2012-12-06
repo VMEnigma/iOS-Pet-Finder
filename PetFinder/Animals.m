@@ -25,7 +25,8 @@
 {
     NSLog(@"Populating parseddata");
     //Clear existing array
-    self.animalData = [[NSMutableArray alloc] init];
+    //self.animalData = [[NSMutableArray alloc] init];
+    [self initAnimals];
     
     //Setup NSDataFormatter to match input string
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -50,7 +51,7 @@
         
         //Add object to general array
         [self.animalData addObject: animalModel];
-        NSLog(@"%@", animalData);
+        
         
         //- - - - - - - - - - - - - - - - - - - - - -
         //Create dictionary with animal Type as key
@@ -64,6 +65,7 @@
         }
         //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
         [[self.animalOfType objectForKey: animalModel.Type] addObject: animalModel];
+        NSLog(@"%@", self.animalOfType);
         
         //- - - - - - - - - - - - - - - - - - - - - -
         //Create dictionary with animal Sex as key
@@ -108,23 +110,18 @@
     //Sort animalData array descending by date
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"ShelterDate" ascending:FALSE];
     [self.animalData sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    //NSLog(@"%@", self.animalData);
 }
 
-#pragma mark - Singleton
-//(RG) - Singleton initalizer
--(id)initSingleton
+#pragma mark - Initializer
+//(RG) - Animals initalizer
+-(void)initAnimals
 {
-    if ((self = [super init]))
-    {
-        // Class Initialization
         self.animalData = [[NSMutableArray alloc] init];
         self.animalOfType = [[NSMutableDictionary alloc] init];
         self.animalOfSex = [[NSMutableDictionary alloc] init];
         self.animalOfAge = [[NSMutableDictionary alloc] init];
         self.animalOfSize = [[NSMutableDictionary alloc] init];
-    }
-    
-    return self;
 }
 #pragma mark - Filtered Animal Data
 
@@ -198,6 +195,7 @@
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"ShelterDate" ascending:FALSE];
     [resultingSet sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     
+    NSLog(@" filtered data called");
     return resultingSet;
 }
 @end

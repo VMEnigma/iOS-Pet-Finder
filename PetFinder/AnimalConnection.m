@@ -82,13 +82,17 @@ static NSMutableArray *sharedConnectionList = nil;
         
         // Have the root object pull its data
         [[self csvData] populateAnimalData: csvParsedData];
-        
+
         rootObject = [self csvData];
     }
     
     // Pass the root object to the completion block supplied by the controller
     if([self completionBlock])
+    {
         [self completionBlock](rootObject, nil);
+        
+    }
+        
     
     // Destroy connection when finished
     [sharedConnectionList removeObject:self];

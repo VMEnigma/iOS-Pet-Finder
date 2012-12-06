@@ -21,13 +21,11 @@
 @interface BaseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 {
     Animals *unfilteredAnimalData;
-    NSArray* unfilteredData;
-    NSArray* filteredData;
+    NSArray *unfilteredData;
+    NSArray *filteredData;
+    NSString *_typeOfAnimal;
 }
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-
-//@property (nonatomic,strong)NSArray* filteredData;
-//@property (nonatomic,strong)NSArray* unfilteredData;
 @property (nonatomic,strong)NSMutableArray* copiedData;
 @property (nonatomic,strong)IBOutlet UISearchBar * search;
 

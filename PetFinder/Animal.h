@@ -13,7 +13,6 @@
 @interface Animal : NSObject
 
 //Animal fields to make fast enumuration clearer to read
-enum AnimalFields { AnimalID, Name, Type, Breed, Description1, Description2, Description3, Sex, Age, AnimalSize, ShelterDate };
 
 @property (copy, nonatomic) NSString* AnimalID;
 @property (copy, nonatomic) NSString* Name;

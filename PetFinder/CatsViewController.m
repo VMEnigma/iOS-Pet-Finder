@@ -37,6 +37,7 @@
     [search setDelegate:self];
     searching = NO;
     canSelectRows = YES;
+    _typeOfAnimal = @"Cat";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -212,46 +213,6 @@
     {
         [self.search resignFirstResponder];
     }
-}
-//(RG) - Fetch Entries
-- (void)fetchEntries
-{
-    //    UIView *currentTitleView = [[self navigationItem] titleView];
-    //    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
-    //                                       initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    //    [[self navigationItem] setTitleView:aiView];
-    //    [aiView startAnimating];
-    
-    
-    void (^completionBlock)(Animals *obj, NSError *err) = ^(Animals *obj, NSError *err) {
-        // When the request completes, this block will be called.
-        //  [[self navigationItem] setTitleView:currentTitleView];
-        
-        if(!err) {
-            // If everything went ok, grab the channel object and
-            // reload the table.
-            unfilteredAnimalData = obj;
-            unfilteredData = [unfilteredAnimalData.animalOfType mutableArrayValueForKey:@"Cats"];
-            filteredData = [unfilteredAnimalData returnFilteredWithAnimalData: unfilteredData];
-            
-            [[self tableView] reloadData];
-        } else {
-            
-            // If things went bad, show an alert view
-            NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
-                                     [err localizedDescription]];
-            
-            // Create and show an alert view with this error displayed
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                         message:errorString
-                                                        delegate:nil
-                                               cancelButtonTitle:@"OK"
-                                               otherButtonTitles:nil];
-            [av show];
-        }
-    };
-    
-    [[AnimalStore sharedAnimalData] fetchAnimalsWithCompletion:completionBlock];
 }
 
 @end
