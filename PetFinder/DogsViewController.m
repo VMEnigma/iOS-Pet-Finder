@@ -16,9 +16,6 @@
 
 @implementation DogsViewController
 
-//@synthesize filteredData, unfilteredData, dogs, search, searching, canSelectRows;
-@synthesize dogs, search, searching, canSelectRows;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,8 +23,8 @@
         self.title = @"Dogs";
         self.tabBarItem.title = @"Dogs";
         self.tabBarItem.image = [UIImage imageNamed:@"DogsTab"];
-        self.copiedData = [[NSMutableArray alloc] init];
-        unfilteredAnimalData = [[Animals alloc] init];
+        _copiedData = [[NSMutableArray alloc] init];
+        _unfilteredAnimalData = [[Animals alloc] init];
     }
     return self;
 }
@@ -38,8 +35,8 @@
     [self fetchEntries];
     self.search.autocorrectionType = UITextAutocorrectionTypeNo;
     [self.search setDelegate:self];
-    searching = NO;
-    canSelectRows = YES;
+    _searching = NO;
+    _canSelectRows = YES;
     _typeOfAnimal = @"Dog";
    
 }
@@ -69,10 +66,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(searching)
-        return [self.copiedData count];
+    if(_searching)
+        return [_copiedData count];
     
-    return [filteredData count];
+    return [_filteredData count];
 }
 
 // Customize the appearance of table view cells.
@@ -88,13 +85,13 @@
     
     // Configure the cell...
     
-    if(searching)
+    if(_searching)
     {
-        animal = [self.copiedData objectAtIndex:[indexPath row]];
+        animal = [_copiedData objectAtIndex:[indexPath row]];
     }
     else
     {
-        animal = [filteredData objectAtIndex:[indexPath row]];
+        animal = [_filteredData objectAtIndex:[indexPath row]];
     }
     
     [cell setAnimalModel: animal];
@@ -105,48 +102,13 @@
     return cell;
 }
 
--(void)refreshData
-{
-    [self fetchEntries];
-    
-    // - - - - - - - - - - - - - - -
-    
-    //Invalidate invalid favorites
-    
-    FavoriteAnimalStore * favorites = [FavoriteAnimalStore singletonFavorites];
-    
-    for(FavoriteAnimal * fave in [favorites allFavorites])
-    {
-        BOOL exists = NO;
-        
-        for(Animal * beast in [unfilteredAnimalData animalData])
-        {
-            if([[fave animalID] compare:[beast AnimalID]] == NSOrderedSame)
-            {
-                exists = YES;
-                break;
-            }
-        }
-        
-        if(exists == NO)
-        {
-            fave.validity = NO;
-        }
-    }
-    [self fetchEntries];
-    
-    searching = NO;
-    [self.search setText:@""];
-    [self.search resignFirstResponder];
-    [self.tableView reloadData];
-}
 
 #pragma mark -
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if(canSelectRows)
+    if(_canSelectRows)
     {
         DetailViewController * dvc = [[DetailViewController alloc] init];
     
@@ -154,13 +116,13 @@
         
         Animal * theAnimal;
     
-        if(searching)
+        if(_searching)
         {
-            theAnimal = [self.copiedData objectAtIndex:[indexPath row]];
+            theAnimal = [_copiedData objectAtIndex:[indexPath row]];
         }
         else
         {
-            theAnimal = [filteredData objectAtIndex:[indexPath row]];
+            theAnimal = [_filteredData objectAtIndex:[indexPath row]];
         }
         
         //[search setText:@""];
@@ -172,64 +134,6 @@
     }
 }
 
--(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
-    //searching = YES;
-    //canSelectRows = NO;
-    
-    //self.tableView.scrollEnabled = NO;
-}
 
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    [self.copiedData removeAllObjects];
-    
-        searching = YES;
-        canSelectRows = YES;
-        self.tableView.scrollEnabled = YES;
-        [self searchTableView];
-    
-    if([searchBar.text length] == 0)
-        searching = NO;
-    
-    [self.tableView reloadData];
-}
-
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    if([searchBar text].length == 0)
-    {
-        searching = NO;
-    }
-    
-    [searchBar resignFirstResponder];
-    canSelectRows = YES;
-    self.tableView.scrollEnabled = YES;
-    [self.tableView reloadData];
-}
-
--(void)searchTableView
-{
-     NSString * theText = [self.search text];
-    
-    for(Animal * currentAnimal in filteredData)
-    {
-        if([currentAnimal.Name rangeOfString:theText options:NSCaseInsensitiveSearch].length > 0 || [currentAnimal.Breed rangeOfString:theText options:NSCaseInsensitiveSearch].length > 0)
-        {
-            [self.copiedData addObject:currentAnimal];
-        }
-    }
-}
-
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch * touch = [touches anyObject];
-    
-    if(touch.phase == UITouchPhaseBegan)
-    {
-        [self.search resignFirstResponder];
-    }
-}
 
 @end

@@ -20,15 +20,19 @@
 
 @interface BaseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 {
-    Animals *unfilteredAnimalData;
-    NSArray *unfilteredData;
-    NSArray *filteredData;
+    Animals *_unfilteredAnimalData;
+    NSArray *_unfilteredData;
+    NSArray *_filteredData;
     NSString *_typeOfAnimal;
+    BOOL _searching;
+    BOOL _canSelectRows;
+    NSMutableArray* _copiedData;
 }
+
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic,strong)NSMutableArray* copiedData;
 @property (nonatomic,strong)IBOutlet UISearchBar * search;
 
+-(void)searchTableView;
 -(void)fetchEntries;
 -(void)refreshData;
 -(void)filterData;

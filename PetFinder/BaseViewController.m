@@ -19,7 +19,6 @@
 @end
 
 @implementation BaseViewController
-@synthesize tableView, copiedData, search;
 
 
 //(RG) - Base Class NIB initializer
@@ -71,10 +70,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)refreshData
-{
-    
-}
+
 -(void)filterData
 {
     FilterViewController *filterController = [[FilterViewController alloc] init];
@@ -150,7 +146,7 @@
     DetailViewController * dvc = [[DetailViewController alloc] init];
     
 //    Animal * theAnimal = [unfilteredData objectAtIndex:[indexPath row]];
-    Animals *theAnimal = [[unfilteredAnimalData animalData] objectAtIndex:[indexPath row]];
+    Animals *theAnimal = [[_unfilteredAnimalData animalData] objectAtIndex:[indexPath row]];
     
     [dvc setAnimal: theAnimal];
     
@@ -176,11 +172,11 @@
             
             //If there are no errors, load the data and reload tableview
             if(!err) {
-                unfilteredAnimalData = obj;
-                NSLog(@"%@", unfilteredAnimalData);
-                unfilteredData = [unfilteredAnimalData.animalOfType mutableArrayValueForKey:_typeOfAnimal];
-                NSLog(@"%@", unfilteredData);
-                filteredData = [unfilteredAnimalData returnFilteredWithAnimalData: unfilteredData];
+                _unfilteredAnimalData = obj;
+                NSLog(@"%@", _unfilteredAnimalData);
+                _unfilteredData = [_unfilteredAnimalData.animalOfType mutableArrayValueForKey:_typeOfAnimal];
+                NSLog(@"%@", _unfilteredData);
+                _filteredData = [_unfilteredAnimalData returnFilteredWithAnimalData: _unfilteredData];
                 
                 [[self tableView] reloadData];
                 
@@ -206,5 +202,97 @@
     }        
 }
 
+-(void)refreshData
+{
+    [self fetchEntries];
+    
+    // - - - - - - - - - - - - - - -
+    
+    //Invalidate invalid favorites
+    
+    FavoriteAnimalStore * favorites = [FavoriteAnimalStore singletonFavorites];
+    
+    for(FavoriteAnimal * fave in [favorites allFavorites])
+    {
+        BOOL exists = NO;
+        
+        for(Animal * beast in [_unfilteredAnimalData animalData])
+        {
+            if([[fave animalID] compare:[beast AnimalID]] == NSOrderedSame)
+            {
+                exists = YES;
+                break;
+            }
+        }
+        
+        if(exists == NO)
+        {
+            fave.validity = NO;
+        }
+    }
+    _searching = NO;
+    [self.search setText:@""];
+    [self.search resignFirstResponder];
+}
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    //searching = YES;
+    //canSelectRows = NO;
+    
+    //self.tableView.scrollEnabled = NO;
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [_copiedData removeAllObjects];
+    
+    _searching = YES;
+    _canSelectRows = YES;
+    self.tableView.scrollEnabled = YES;
+    [self searchTableView];
+    
+    if([searchBar.text length] == 0)
+        _searching = NO;
+    
+    [self.tableView reloadData];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    if([searchBar text].length == 0)
+    {
+        _searching = NO;
+    }
+    
+    [searchBar resignFirstResponder];
+    _canSelectRows = YES;
+    self.tableView.scrollEnabled = YES;
+    [self.tableView reloadData];
+}
+
+-(void)searchTableView
+{
+    NSString * theText = [self.search text];
+    
+    for(Animal * currentAnimal in _filteredData)
+    {
+        if([currentAnimal.Name rangeOfString:theText options:NSCaseInsensitiveSearch].length > 0 || [currentAnimal.Breed rangeOfString:theText options:NSCaseInsensitiveSearch].length > 0)
+        {
+            [_copiedData addObject:currentAnimal];
+        }
+    }
+}
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch * touch = [touches anyObject];
+    
+    if(touch.phase == UITouchPhaseBegan)
+    {
+        [self.search resignFirstResponder];
+    }
+}
 
 @end
