@@ -110,6 +110,93 @@
     }
 }
 
+-(void)populateAnimalDataFromXMLParser: (NSArray*)dataArray
+{
+    NSLog(@"Populating parseddata");
+    //Clear existing array
+    //self.animalData = [[NSMutableArray alloc] init];
+    [self initAnimals];
+    
+    //Setup NSDataFormatter to match input string
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy.MM.dd"];
+    
+    //Iterate through data once and populate collections
+    for (Animal* animalModel in dataArray)
+    {
+        //        //Build animal object with model. All collections will store this.
+        //        Animal* animalModel = [[Animal alloc]
+        //                               initWithAnimalId:[animalData objectAtIndex:AnimalID]
+        //                               andName:[animalData objectAtIndex:Name]
+        //                               andType:[animalData objectAtIndex:Type]
+        //                               andBreed:[animalData objectAtIndex:Breed]
+        //                               andDescription1:[animalData objectAtIndex:Description1]
+        //                               andDescription2:[animalData objectAtIndex:Description2]
+        //                               andDescription3:[animalData objectAtIndex:Description3]
+        //                               andSex:[animalData objectAtIndex:Sex]
+        //                               andAge:[animalData objectAtIndex:Age]
+        //                               andSize:[animalData objectAtIndex:AnimalSize]
+        //                               andShelterDate:[dateFormat dateFromString:[animalData objectAtIndex:ShelterDate]]];
+        
+        //Add object to general array
+        [self.animalData addObject: animalModel];
+        
+        
+        //- - - - - - - - - - - - - - - - - - - - - -
+        //Create dictionary with animal Type as key
+        
+        //Check if dictionary exists for type, if not then create it.
+        NSArray* animalArrayOfType = [_animalOfType objectForKey:animalModel.Type];
+        if (animalArrayOfType == nil)
+        {
+            animalArrayOfType = [[NSMutableArray alloc]init];
+            [self.animalOfType setObject:animalArrayOfType forKey:animalModel.Type];
+        }
+        //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
+        [[self.animalOfType objectForKey: animalModel.Type] addObject: animalModel];
+        NSLog(@"%@", self.animalOfType);
+        
+        //- - - - - - - - - - - - - - - - - - - - - -
+        //Create dictionary with animal Sex as key
+        
+        //Check if dictionary exists for type, if not then create it.
+        NSArray* animalArrayOfSex = [_animalOfSex objectForKey:animalModel.Sex];
+        if (animalArrayOfSex == nil)
+        {
+            animalArrayOfSex = [[NSMutableArray alloc]init];
+            [self.animalOfSex setObject:animalArrayOfSex forKey:animalModel.Sex];
+        }
+        //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
+        [[self.animalOfSex objectForKey: animalModel.Sex] addObject: animalModel];
+        
+        //- - - - - - - - - - - - - - - - - - - - - -
+        //Create dictionary with animal Age as key
+        
+        //Check if dictionary exists for type, if not then create it.
+        NSArray* animalArrayOfAge = [_animalOfAge objectForKey:animalModel.Age];
+        if (animalArrayOfAge == nil)
+        {
+            animalArrayOfAge = [[NSMutableArray alloc]init];
+            [self.animalOfAge setObject:animalArrayOfAge forKey:animalModel.Age];
+        }
+        //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
+        [[self.animalOfAge objectForKey: animalModel.Age ] addObject: animalModel];
+        
+        //- - - - - - - - - - - - - - - - - - - - - -
+        //Create dictionary with animal Size as key
+        
+        //Check if dictionary exists for type, if not then create it.
+        NSArray* animalArrayOfSize = [_animalOfSize objectForKey:animalModel.Size];
+        if (animalArrayOfSize == nil)
+        {
+            animalArrayOfSize = [[NSMutableArray alloc]init];
+            [self.animalOfSize setObject:animalArrayOfSize forKey:animalModel.Size];
+        }
+        //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
+        [[self.animalOfSize objectForKey: animalModel.Size] addObject: animalModel];
+    }
+}
+
 #pragma mark - Initializer
 //(RG) - Animals initalizer
 -(void)initAnimals

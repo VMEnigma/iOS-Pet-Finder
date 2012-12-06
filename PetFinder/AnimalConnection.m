@@ -9,6 +9,7 @@
 //  http://creativecommons.org/licenses/by/3.0/
 
 #import "AnimalConnection.h"
+#import "XMLAnimalController.h"
 
 static NSMutableArray *sharedConnectionList = nil;
 
@@ -68,6 +69,13 @@ static NSMutableArray *sharedConnectionList = nil;
 //        [parser parse];
 //        
 //        rootObject = [self xmlData];
+        XMLAnimalController *xmlParser = [[XMLAnimalController alloc] init];
+        [xmlParser loadAnimalWithData:container];
+        
+        // Have the root object pull its data
+        [[self xmlData] populateAnimalDataFromXMLParser: xmlParser.animalData];
+        
+        rootObject = [self xmlData];
         
     }
     //Parse using CSV
@@ -94,6 +102,7 @@ static NSMutableArray *sharedConnectionList = nil;
         [self completionBlock](rootObject, nil);
         
     }
+        
     
     // Destroy connection when finished
     [sharedConnectionList removeObject:self];

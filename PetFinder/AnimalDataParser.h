@@ -13,5 +13,6 @@
 @protocol AnimalDataParser <NSObject>
 
 - (void) populateAnimalData: (NSArray*)dataArray;
+-(void)populateAnimalDataFromXMLParser: (NSArray*)dataArray;
 
 @end

@@ -71,6 +71,7 @@
 		ECD235DD164C6F5C0099253C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECD235DB164C6F5C0099253C /* InfoPlist.strings */; };
 		ECD235DF164C6F5C0099253C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD235DE164C6F5C0099253C /* main.m */; };
 		ECD235E3164C6F5C0099253C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD235E2164C6F5C0099253C /* AppDelegate.m */; };
+		F145BD4E1670929B0049E6CD /* XMLAnimalController.m in Sources */ = {isa = PBXBuildFile; fileRef = F145BD4D1670929B0049E6CD /* XMLAnimalController.m */; };
 		F1F332F21659FECA0092329F /* animals.xml in Resources */ = {isa = PBXBuildFile; fileRef = F1F332F01659FECA0092329F /* animals.xml */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,8 @@
 		ECD235E0164C6F5C0099253C /* PetFinder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetFinder-Prefix.pch"; sourceTree = "<group>"; };
 		ECD235E1164C6F5C0099253C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ECD235E2164C6F5C0099253C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F145BD4C1670929B0049E6CD /* XMLAnimalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLAnimalController.h; sourceTree = "<group>"; };
+		F145BD4D1670929B0049E6CD /* XMLAnimalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLAnimalController.m; sourceTree = "<group>"; };
 		F1F332F01659FECA0092329F /* animals.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = animals.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,6 +279,7 @@
 		7D08ACB61651DBF80050663D /* Data Connections */ = {
 			isa = PBXGroup;
 			children = (
+				F145BD4A167092200049E6CD /* XMLParser */,
 				48C1BA07167021170063E50A /* AnimalConnection.h */,
 				48C1BA08167021170063E50A /* AnimalConnection.m */,
 				48C1BA1416703EB60063E50A /* AnimalDataParser.h */,
@@ -377,6 +381,15 @@
 				ECD235E0164C6F5C0099253C /* PetFinder-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F145BD4A167092200049E6CD /* XMLParser */ = {
+			isa = PBXGroup;
+			children = (
+				F145BD4C1670929B0049E6CD /* XMLAnimalController.h */,
+				F145BD4D1670929B0049E6CD /* XMLAnimalController.m */,
+			);
+			name = XMLParser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,6 +512,7 @@
 				48C1BA09167021170063E50A /* AnimalConnection.m in Sources */,
 				48C1BA0F167024CC0063E50A /* Animals.m in Sources */,
 				48C1BA2A167070970063E50A /* InfoViewController.m in Sources */,
+				F145BD4E1670929B0049E6CD /* XMLAnimalController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

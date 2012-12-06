@@ -35,7 +35,7 @@
     // ############ LOGIC TO CHECK APP SETTINGS GOES HERE
     // BOOL FOR CONNECTION TYPE: 0 = CSV, 1 = XML
     // FOR NOW TEMPORARY BOOLEAN SET TO 0 FOR CSV
-    BOOL connectionSetting = 0;
+    BOOL connectionSetting = [[[NSUserDefaults standardUserDefaults] stringForKey:@"app_data_source"] integerValue];
     
     // ###########################################################
     
@@ -68,6 +68,27 @@
     // ############ LOGIC TO START XML CONNECTION GOES HERE
     if(connectionSetting)
     {
+        
+        //URL of Animals XML
+        NSURL *url = [NSURL URLWithString:@"http://www.venexmedia.com/AnimalShelterApp/animals.xml"];
+        
+        NSURLRequest *req = [NSURLRequest requestWithURL:url];
+        
+        //Create an empty Animals
+        Animals *animals = [[Animals alloc] init];
+        
+        //Create a connection "actor" object that will transfer data from the server
+        AnimalConnection *connection = [[AnimalConnection alloc] initWithRequest: req];
+        
+        // When the connection completes, this block from the controller will be executed.
+        [connection setCompletionBlock:block];
+        
+        // Let the empty animals parse the returning data from the website datasource
+        [connection setXmlData:animals];
+        
+        // Begin the connection
+        [connection start];
+
         
     }   
  }
