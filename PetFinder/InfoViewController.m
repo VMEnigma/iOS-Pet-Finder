@@ -7,6 +7,7 @@
 //
 
 #import "InfoViewController.h"
+#import "AsyncImageView.h"
 
 @interface InfoViewController ()
 
@@ -21,6 +22,7 @@
         // Custom initialization
         self.title = @"Info";
         self.tabBarItem.title = @"Info";
+        self.tabBarItem.image = [UIImage imageNamed:@"InfoIcon"];
     }
     return self;
 }
@@ -29,6 +31,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //Load map image using Google Maps API
+    // The URL you want to load (snipped for readability)
+    NSString *mapurl = @"http://maps.google.com/maps/api/staticmap?center=25.924835,-80.155269&zoom=16&markers=color:blue|25.924835,-80.155269&size=307x132&sensor=true";
+    mapurl = [mapurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    // Escape the string
+    mapurl = [mapurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    self.mapImage.imageURL = [NSURL URLWithString: mapurl];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,4 +48,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setMapImage:nil];
+    [super viewDidUnload];
+}
 @end

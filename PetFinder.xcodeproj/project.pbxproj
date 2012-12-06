@@ -31,6 +31,10 @@
 		48C1BA0F167024CC0063E50A /* Animals.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C1BA0E167024CC0063E50A /* Animals.m */; };
 		48C1BA2A167070970063E50A /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C1BA28167070960063E50A /* InfoViewController.m */; };
 		48C1BA2B167070970063E50A /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48C1BA29167070960063E50A /* InfoViewController.xib */; };
+		48C1BA2E167083710063E50A /* shelterlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C1BA2C167083710063E50A /* shelterlogo.png */; };
+		48C1BA2F167083710063E50A /* shelterlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C1BA2D167083710063E50A /* shelterlogo@2x.png */; };
+		48C1BA3216708A9D0063E50A /* infoicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C1BA3016708A9C0063E50A /* infoicon.png */; };
+		48C1BA3316708A9D0063E50A /* infoicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C1BA3116708A9D0063E50A /* infoicon@2x.png */; };
 		48D2307816558EF30028785F /* AnimalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48D2307716558EF30028785F /* AnimalCell.xib */; };
 		48ECD46D166C40D700BF2384 /* FavoriteNavButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ECD467166C40D700BF2384 /* FavoriteNavButton.png */; };
 		48ECD46E166C40D700BF2384 /* FavoriteNavButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ECD468166C40D700BF2384 /* FavoriteNavButton@2x.png */; };
@@ -102,6 +106,10 @@
 		48C1BA27167070950063E50A /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		48C1BA28167070960063E50A /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		48C1BA29167070960063E50A /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		48C1BA2C167083710063E50A /* shelterlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shelterlogo.png; sourceTree = "<group>"; };
+		48C1BA2D167083710063E50A /* shelterlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shelterlogo@2x.png"; sourceTree = "<group>"; };
+		48C1BA3016708A9C0063E50A /* infoicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoicon.png; sourceTree = "<group>"; };
+		48C1BA3116708A9D0063E50A /* infoicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "infoicon@2x.png"; sourceTree = "<group>"; };
 		48D2307716558EF30028785F /* AnimalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimalCell.xib; sourceTree = "<group>"; };
 		48ECD467166C40D700BF2384 /* FavoriteNavButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavoriteNavButton.png; sourceTree = "<group>"; };
 		48ECD468166C40D700BF2384 /* FavoriteNavButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FavoriteNavButton@2x.png"; sourceTree = "<group>"; };
@@ -278,6 +286,10 @@
 		7D60D18516597C50007F83D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				48C1BA2C167083710063E50A /* shelterlogo.png */,
+				48C1BA3016708A9C0063E50A /* infoicon.png */,
+				48C1BA3116708A9D0063E50A /* infoicon@2x.png */,
+				48C1BA2D167083710063E50A /* shelterlogo@2x.png */,
 				48ECD47B166C636100BF2384 /* Favorite-Selected.png */,
 				48ECD47C166C636100BF2384 /* Favorite-Selected@2x.png */,
 				48ECD467166C40D700BF2384 /* FavoriteNavButton.png */,
@@ -449,6 +461,10 @@
 				484C6DBA166FC25200F6A0EC /* Icon@2x.png in Resources */,
 				484C6DBC166FC25500F6A0EC /* Icon.png in Resources */,
 				48C1BA2B167070970063E50A /* InfoViewController.xib in Resources */,
+				48C1BA2E167083710063E50A /* shelterlogo.png in Resources */,
+				48C1BA2F167083710063E50A /* shelterlogo@2x.png in Resources */,
+				48C1BA3216708A9D0063E50A /* infoicon.png in Resources */,
+				48C1BA3316708A9D0063E50A /* infoicon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

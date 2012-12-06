@@ -15,20 +15,22 @@
 		</array>
 	</dict>
 	<dict>
+		<key>Selected</key>
+		<integer>2</integer>
+		<key>Title</key>
+		<string>Age</string>
 		<key>Rows</key>
 		<array>
 			<string>Less than 1 year</string>
 			<string>More than 1 year</string>
 			<string>No Preference</string>
 		</array>
-		<key>Selected</key>
-		<integer>2</integer>
-		<key>Title</key>
-		<string>Age</string>
 	</dict>
 	<dict>
 		<key>Selected</key>
 		<integer>3</integer>
+		<key>Title</key>
+		<string>Size</string>
 		<key>Rows</key>
 		<array>
 			<string>Small</string>
@@ -36,8 +38,6 @@
 			<string>Large</string>
 			<string>No Preference</string>
 		</array>
-		<key>Title</key>
-		<string>Size</string>
 	</dict>
 </array>
 </plist>

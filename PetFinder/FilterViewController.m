@@ -14,7 +14,6 @@
 
 // (RG)
 @interface FilterViewController ()
-
 {
     NSMutableArray *filterData;
     NSString *pListPath;
@@ -46,9 +45,9 @@
     
     //Load filter data from plist
     pListPath = [Utilities getFilterPath];
-	filterData= [[NSMutableArray alloc] initWithContentsOfFile:pListPath];
+	filterData = [[NSMutableArray alloc] initWithContentsOfFile:pListPath];
 }
-
+// Done button on navigation bar
 -(void)doneFilter
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
@@ -69,17 +68,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    //3 rows for Gender and Age
     if (section == 0 || section == 1)
     {
         return 3;
     }
+    // rows for Size
     else
     {
         return 4;
     }
     
 }
-
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -108,9 +108,7 @@
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    
-    
-    
+
     return cell;
 }
 
@@ -118,8 +116,6 @@
     
     NSDictionary *currentSectionDictionary = [filterData objectAtIndex: section];
     return [currentSectionDictionary objectForKey: @"Title"];
-    
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -177,7 +173,6 @@
     //reload filter data
     [filterData writeToFile:pListPath atomically:YES];
     filterData = [[NSMutableArray alloc] initWithContentsOfFile:pListPath];
-    
     
     //reload tableview
     [tableView reloadData];

@@ -15,7 +15,6 @@
 
 @property (weak, nonatomic) id delegate;
 
-
 -(void)doneFilter;
 
 @end

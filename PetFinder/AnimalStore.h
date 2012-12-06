@@ -14,7 +14,6 @@
 
 @interface AnimalStore : NSObject
 
-
 +(AnimalStore*)sharedAnimalData;
 - (void)fetchAnimalsWithCompletion:(void (^)(Animals *obj, NSError *err))block;
 

@@ -94,7 +94,6 @@ static NSMutableArray *sharedConnectionList = nil;
         [self completionBlock](rootObject, nil);
         
     }
-        
     
     // Destroy connection when finished
     [sharedConnectionList removeObject:self];
