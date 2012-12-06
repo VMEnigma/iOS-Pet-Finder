@@ -28,7 +28,6 @@
 		489BD53B166BE8A4008E9EE8 /* FavoriteTab.png in Resources */ = {isa = PBXBuildFile; fileRef = 489BD52F166BE8A4008E9EE8 /* FavoriteTab.png */; };
 		489BD53C166BE8A4008E9EE8 /* FavoriteTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 489BD530166BE8A4008E9EE8 /* FavoriteTab@2x.png */; };
 		48C1BA09167021170063E50A /* AnimalConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C1BA08167021170063E50A /* AnimalConnection.m */; };
-		48C1BA0C167022450063E50A /* XMLAnimalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C1BA0B167022450063E50A /* XMLAnimalData.m */; };
 		48C1BA0F167024CC0063E50A /* Animals.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C1BA0E167024CC0063E50A /* Animals.m */; };
 		48D2307816558EF30028785F /* AnimalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48D2307716558EF30028785F /* AnimalCell.xib */; };
 		48ECD46D166C40D700BF2384 /* FavoriteNavButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ECD467166C40D700BF2384 /* FavoriteNavButton.png */; };
@@ -48,7 +47,6 @@
 		7D08AC951651C5860050663D /* CatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08AC931651C5860050663D /* CatsViewController.m */; };
 		7D08AC9A1651C5A10050663D /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08AC981651C5A10050663D /* FavoritesViewController.m */; };
 		7D08ACB91651DC2E0050663D /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACB81651DC2E0050663D /* Animal.m */; };
-		7D08ACBC1651DC530050663D /* CSVAnimalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACBB1651DC530050663D /* CSVAnimalData.m */; };
 		7D08ACCE1651F6130050663D /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACC71651F6130050663D /* CHCSVParser.m */; };
 		7D08ACCF1651F6130050663D /* CHCSVWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACC91651F6130050663D /* CHCSVWriter.m */; };
 		7D08ACD01651F6130050663D /* NSArray+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D08ACCB1651F6130050663D /* NSArray+CHCSVAdditions.m */; };
@@ -96,8 +94,6 @@
 		489BD530166BE8A4008E9EE8 /* FavoriteTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FavoriteTab@2x.png"; sourceTree = "<group>"; };
 		48C1BA07167021170063E50A /* AnimalConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalConnection.h; sourceTree = "<group>"; };
 		48C1BA08167021170063E50A /* AnimalConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalConnection.m; sourceTree = "<group>"; };
-		48C1BA0A167022450063E50A /* XMLAnimalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLAnimalData.h; sourceTree = "<group>"; };
-		48C1BA0B167022450063E50A /* XMLAnimalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLAnimalData.m; sourceTree = "<group>"; };
 		48C1BA0D167024CC0063E50A /* Animals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animals.h; sourceTree = "<group>"; };
 		48C1BA0E167024CC0063E50A /* Animals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animals.m; sourceTree = "<group>"; };
 		48C1BA1416703EB60063E50A /* AnimalDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalDataParser.h; sourceTree = "<group>"; };
@@ -125,8 +121,6 @@
 		7D08AC981651C5A10050663D /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		7D08ACB71651DC2E0050663D /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
 		7D08ACB81651DC2E0050663D /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
-		7D08ACBA1651DC530050663D /* CSVAnimalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVAnimalData.h; sourceTree = "<group>"; };
-		7D08ACBB1651DC530050663D /* CSVAnimalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVAnimalData.m; sourceTree = "<group>"; };
 		7D08ACC51651F6130050663D /* CHCSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSV.h; sourceTree = "<group>"; };
 		7D08ACC61651F6130050663D /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		7D08ACC71651F6130050663D /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
@@ -266,12 +260,8 @@
 		7D08ACB61651DBF80050663D /* Data Connections */ = {
 			isa = PBXGroup;
 			children = (
-				7D08ACBA1651DC530050663D /* CSVAnimalData.h */,
-				7D08ACBB1651DC530050663D /* CSVAnimalData.m */,
 				48C1BA07167021170063E50A /* AnimalConnection.h */,
 				48C1BA08167021170063E50A /* AnimalConnection.m */,
-				48C1BA0A167022450063E50A /* XMLAnimalData.h */,
-				48C1BA0B167022450063E50A /* XMLAnimalData.m */,
 				48C1BA1416703EB60063E50A /* AnimalDataParser.h */,
 			);
 			name = "Data Connections";
@@ -466,7 +456,6 @@
 				7D08AC951651C5860050663D /* CatsViewController.m in Sources */,
 				7D08AC9A1651C5A10050663D /* FavoritesViewController.m in Sources */,
 				7D08ACB91651DC2E0050663D /* Animal.m in Sources */,
-				7D08ACBC1651DC530050663D /* CSVAnimalData.m in Sources */,
 				7D08ACCE1651F6130050663D /* CHCSVParser.m in Sources */,
 				7D08ACCF1651F6130050663D /* CHCSVWriter.m in Sources */,
 				7D08ACD01651F6130050663D /* NSArray+CHCSVAdditions.m in Sources */,
@@ -483,7 +472,6 @@
 				4BBCBDDD166C315C004C619F /* PetFinderModel.xcdatamodeld in Sources */,
 				4BBCBDE0166C3772004C619F /* FavoriteAnimal.m in Sources */,
 				48C1BA09167021170063E50A /* AnimalConnection.m in Sources */,
-				48C1BA0C167022450063E50A /* XMLAnimalData.m in Sources */,
 				48C1BA0F167024CC0063E50A /* Animals.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
