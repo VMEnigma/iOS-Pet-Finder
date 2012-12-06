@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionField;
 @property (weak, nonatomic) IBOutlet UIImageView *animalImageView;
 
-
 @property (nonatomic, strong) id animal;
 @property (nonatomic, strong) FavoriteAnimal * faveAnimal;
 

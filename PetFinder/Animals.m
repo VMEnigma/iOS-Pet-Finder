@@ -1,10 +1,12 @@
 //
 //  Animals.m
-//  PetFinder
+//  PetFinder v1.0
 //
-//  Created by Raymond Gonzalez on 12/5/12.
+//  Created by Raymond Gonzalez, Reyneiro Hernandez, Gregory Jean Baptiste
+//  https://github.com/raygon3/iOS-Pet-Finder
 //
-//
+//  This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit
+//  http://creativecommons.org/licenses/by/3.0/
 
 #import "Animals.h"
 #import "Animal.h"
@@ -19,7 +21,7 @@
 @synthesize animalOfAge = _animalOfAge;
 @synthesize animalOfSize = _animalOfSize;
 
-#pragma mark - Animal Data Methods
+#pragma mark - Populate Animal Data
 //(RG) - Populate Animal Databy passing it an array of CSV parsed animal data
 -(void)populateAnimalData: (NSArray*)dataArray
 {
@@ -106,11 +108,6 @@
         //Dictionary is now guaranteed to exist for type. Add the animal to the corresponding type.
         [[self.animalOfSize objectForKey: animalModel.Size] addObject: animalModel];
     }
-    
-    //Sort animalData array descending by date
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"ShelterDate" ascending:FALSE];
-    [self.animalData sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    //NSLog(@"%@", self.animalData);
 }
 
 #pragma mark - Initializer
@@ -124,7 +121,6 @@
         self.animalOfSize = [[NSMutableDictionary alloc] init];
 }
 #pragma mark - Filtered Animal Data
-
 //(RG) - Return filtered animal data based on filter settings
 -(id)returnFilteredWithAnimalData: (id)currentData
 {
@@ -191,11 +187,13 @@
     [intersection intersectSet:[NSSet setWithArray:filteredSize]];
     NSMutableArray *resultingSet = [NSMutableArray arrayWithArray:[intersection allObjects]];
     
-    //Sort animalData array descending by date
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"ShelterDate" ascending:FALSE];
-    [resultingSet sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    
-    NSLog(@" filtered data called");
+    //Sort by Descending Date and Ascending Name
+    [resultingSet sortUsingDescriptors:
+     [NSArray arrayWithObjects:
+      [NSSortDescriptor sortDescriptorWithKey:@"ShelterDate" ascending:NO],
+      [NSSortDescriptor sortDescriptorWithKey:@"Name" ascending:YES],
+      nil]];
+
     return resultingSet;
 }
 @end
