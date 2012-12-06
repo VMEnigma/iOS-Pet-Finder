@@ -109,7 +109,7 @@
 						<string key="IBPlaceholder">Search by Animal Name or Breed</string>
 						<object class="NSColor" key="IBTintColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4wOTcxMzIxMzU3NSAwLjQ2NDUzNjQ5NyAwLjUzNDQ1ODcwNTQAA</bytes>
+							<bytes key="NSRGB">MC4wODQ0NDY5NDkxMSAwLjUyMDc0MTU5MTEgMC43NTExNzU4NjEAA</bytes>
 						</object>
 						<object class="IBUITextInputTraits" key="IBTextInputTraits">
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>

@@ -8,6 +8,7 @@
 
 #import "InfoViewController.h"
 #import "AsyncImageView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface InfoViewController ()
 
@@ -34,12 +35,22 @@
     
     //Load map image using Google Maps API
     // The URL you want to load (snipped for readability)
-    NSString *mapurl = @"http://maps.google.com/maps/api/staticmap?center=25.924835,-80.155269&zoom=16&markers=color:blue|25.924835,-80.155269&size=307x132&sensor=true";
+    //NSString *mapurl = @"http://maps.google.com/maps/api/staticmap?center=25.924835,-80.155269&zoom=16&markers=color:blue|25.924835,-80.155269&size=307x132&sensor=true";
+    NSString *mapurl = @"http://maps.google.com/maps/api/staticmap?center=25.924835,-80.155269&zoom=16&markers=color:blue|25.924835,-80.155269&size=400x200&sensor=true";
     mapurl = [mapurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     // Escape the string
     mapurl = [mapurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     self.mapImage.imageURL = [NSURL URLWithString: mapurl];
+    
+    
+    //Shadow for shelter location on map
+    UIView *viewContainer1 = [self.view viewWithTag:5];
+    viewContainer1.layer.shadowColor = [[UIColor blackColor] CGColor];
+    viewContainer1.layer.shadowOpacity = 0.8;
+    viewContainer1.layer.shadowRadius = 5.0;
+    viewContainer1.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    
 }
 
 - (void)didReceiveMemoryWarning
