@@ -31,13 +31,9 @@
 //(RG) - Fetches Animals with Animal Connection
 - (void)fetchAnimalsWithCompletion:(void (^)(Animals *obj, NSError *err))block
 {
-    // ###########################################################
-    // ############ LOGIC TO CHECK APP SETTINGS GOES HERE
+    // Check App settings for data source
     // BOOL FOR CONNECTION TYPE: 0 = CSV, 1 = XML
-    // FOR NOW TEMPORARY BOOLEAN SET TO 0 FOR CSV
     BOOL connectionSetting = [[[NSUserDefaults standardUserDefaults] stringForKey:@"app_data_source"] integerValue];
-    
-    // ###########################################################
     
     //Start connection for CSV (connectionSetting = 0 means it is loading with CSV)
     if (!connectionSetting)

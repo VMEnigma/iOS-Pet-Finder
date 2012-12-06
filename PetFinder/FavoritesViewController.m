@@ -36,11 +36,9 @@
     
     self.navigationItem.rightBarButtonItem = nil;
     
-    UIBarButtonItem * bbi = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editing:)];
-    
-    [[self navigationItem] setLeftBarButtonItem:bbi];
+    //Update buttons in navigation controller
+    [self updateNavigationButtons];
 
-    
     _unfilteredData = [[FavoriteAnimalStore singletonFavorites] allFavorites];
     
     self.search.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -65,6 +63,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark -
+#pragma mark Table view datesource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(_searching)
@@ -82,9 +82,6 @@
     {
         cell = [[AnimalCell alloc] init];
     }
-    
-    // Configure the cell...
-    //Animal *animal = [self.unfilteredData objectAtIndex:[indexPath row]];
     
     Animal * animal = [[Animal alloc] init];
     
@@ -126,6 +123,8 @@
     return cell;
 }
 
+#pragma mark -
+#pragma mark Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailViewController * dvc = [[DetailViewController alloc] init];
     
@@ -163,25 +162,59 @@
     }
 }
 
--(IBAction)editing:(id)sender
+#pragma mark Editing Mode
+
+//(RG) - Update navigation bar bttons
+-(void)updateNavigationButtons
 {
+    UIBarButtonItem *currentButton;
+    
+    //In editing mode only add the 'done' button.
+    if (self.tableView.editing)
+    {
+        currentButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:self
+                                                                      action:@selector(editing:)];
+        currentButton.tintColor = [UIColor colorWithRed:0.003922 green:0.619608 blue:1.000000 alpha:1];
+    }
+    //In normal mode add 'edit' button
+    else
+    {
+
+        currentButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                                                                    target:self
+                                                                      action:@selector(editing:)];
+
+    }
+    //Add button(s) to navigation bar
+    self.navigationItem.leftBarButtonItem = currentButton;
+}
+
+//Editing action
+-(void)editing:(id)sender
+{
+    //Enter or Leave editing mode
+    [self.tableView setEditing:!self.tableView.editing animated:YES];
+    
+    //Disable search in editing mode
     if([[self tableView] isEditing])
     {
-        self.navigationItem.rightBarButtonItem.title = @"Edit";
-        [self.search setHidden:NO];
-        [[self tableView] setEditing:NO animated:YES];
+        [self.search setHidden:YES];
     }
+    //Enable search when not editing
     else
     {
         [self.search resignFirstResponder];
         [self.search setText:@""];
         _searching = NO;
-        [self.search setHidden:YES];
+        [self.search setHidden:NO];
         [self.tableView reloadData];
-        self.navigationItem.rightBarButtonItem.title = @"Done";
-        [[self tableView] setEditing:YES animated:YES];
     }
+
+    [self updateNavigationButtons];
 }
+
 
 
 @end

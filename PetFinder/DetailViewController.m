@@ -22,16 +22,13 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
-   // UIBarButtonItem * back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backPressed:)];
-    
+      
     self.navigationItem.title = @"Details";
     
     //Rounded corners for animal image
     UIView *viewContainer1 = [self.view viewWithTag:2];
     viewContainer1.layer.cornerRadius = 10;
     viewContainer1.clipsToBounds = YES;
-
     
     [self checkIfFavorite];
 }
@@ -95,16 +92,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     BOOL success = [self becomeFirstResponder];
-    
-    if(success)
-    {
-        NSLog(@"Win");
-    }
-    else
-    {
-        NSLog(@"Lose");
-    }
-    
+       
     [super viewDidAppear:animated];
 }
 

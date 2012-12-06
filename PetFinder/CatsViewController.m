@@ -42,6 +42,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    //Fetch new entries
     [self fetchEntries];
 }
 - (void)didReceiveMemoryWarning
@@ -91,13 +92,12 @@
     }
     
     [cell setAnimalModel: animal];
-    //Set cell image to dogs
+    
+    //Set cell image to cats
     cell.animalImage.image = [UIImage imageNamed:@"Cats"];
     
     return cell;
 }
-
-
 
 
 #pragma mark -

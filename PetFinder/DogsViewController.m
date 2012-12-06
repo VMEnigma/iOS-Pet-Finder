@@ -40,13 +40,12 @@
     _searching = NO;
     _canSelectRows = YES;
     _typeOfAnimal = @"Dog";
-   
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    //Load Animal Data from Singleton
+
+    //Fetch new entries
     [self fetchEntries];
 }
 

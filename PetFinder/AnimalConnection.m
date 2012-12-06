@@ -61,14 +61,7 @@ static NSMutableArray *sharedConnectionList = nil;
     if([self xmlData])
     {
         NSLog(@"Parsing with XML");
-//        // Create a parser with the incoming data and let the root object parse
-//        // its contents
-//        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:container];
-//        
-//        [parser setDelegate:[self xmlData]];
-//        [parser parse];
-//        
-//        rootObject = [self xmlData];
+
         XMLAnimalController *xmlParser = [[XMLAnimalController alloc] init];
         [xmlParser loadAnimalWithData:container];
         

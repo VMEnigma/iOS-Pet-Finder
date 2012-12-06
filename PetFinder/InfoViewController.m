@@ -22,7 +22,7 @@
         // Custom initialization
         self.title = @"Info";
         self.tabBarItem.title = @"Info";
-        self.tabBarItem.image = [UIImage imageNamed:@"InfoIcon"];
+        self.tabBarItem.image = [UIImage imageNamed:@"InfoTab"];
     }
     return self;
 }

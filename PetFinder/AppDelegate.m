@@ -45,42 +45,6 @@ AnimalStore* animalData;
         NSString *defaultPlistPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Filter.plist"];
         success = [fileManager copyItemAtPath:defaultPlistPath  toPath:pListPath error:&error];
     }
-    
-//    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-//    // Load Animal Data Singleton
-//
-//    animalData = [AnimalStore sharedAnimalData];
-//    
-//    // Load animal data with CSV parser
-//    CSVAnimalData* dataLoader = [[CSVAnimalData alloc] initWithStringUrl:@"http://www.venexmedia.com/AnimalShelterApp/animals.csv"];
-//    
-//    //Populate singleton data with CSV parsed data
-//    [animalData populateAnimalData:[dataLoader getAnimalDataAsArray]];
-//    
-//    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-//    //Invalidate invalid favorites
-//    
-//    FavoriteAnimalStore * favorites = [FavoriteAnimalStore singletonFavorites];
-//    
-//    for(FavoriteAnimal * fave in [favorites allFavorites])
-//    {
-//        BOOL exists = NO;
-//        
-//        for(Animal * beast in [ animalData])
-//        {
-//            if([[fave animalID] compare:[beast AnimalID]] == NSOrderedSame)
-//            {
-//                exists = YES;
-//                break;
-//            }
-//        }
-//        
-//        if(exists == NO)
-//        {
-//            fave.validity = NO;
-//        }
-//    }
-//    
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // (RG) - Load main views with tab bar controller
     

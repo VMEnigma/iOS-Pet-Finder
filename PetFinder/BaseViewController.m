@@ -93,53 +93,6 @@
     return 0;
 }
 
-
-// Customize the appearance of table view cells.
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    
-//
-//}
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- 
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
 #pragma mark -
 #pragma mark Table view delegate
 
@@ -154,6 +107,8 @@
     [[self navigationController] pushViewController:dvc animated:YES];
 }
 
+#pragma mark -
+#pragma mark Data Access Methods
 //(RG) - Fetch Entries
 - (void)fetchEntries
 {
@@ -174,9 +129,9 @@
             //If there are no errors, load the data and reload tableview
             if(!err) {
                 _unfilteredAnimalData = obj;
-                NSLog(@"%@", _unfilteredAnimalData);
+                //NSLog(@"%@", _unfilteredAnimalData);
                 _unfilteredData = [_unfilteredAnimalData.animalOfType mutableArrayValueForKey:_typeOfAnimal];
-                NSLog(@"%@", _unfilteredData);
+                //NSLog(@"%@", _unfilteredData);
                 _filteredData = [_unfilteredAnimalData returnFilteredWithAnimalData: _unfilteredData];
                 
                 [[self tableView] reloadData];
@@ -236,6 +191,9 @@
     [self.search resignFirstResponder];
 }
 
+
+#pragma mark -
+#pragma mark Search Bar Methods
 -(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
     //searching = YES;
@@ -284,7 +242,6 @@
         }
     }
 }
-
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
