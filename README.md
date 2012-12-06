@@ -48,9 +48,25 @@ App Breakdown and Usage
 ==============
 *   Main views in the tab bar consists of Dogs, Cats, Favorites, Info.
     * **DogsViewController** - Contains list of dogs
-    * CatsViewController - Contains list of cats
-    * FavoritesViewController - Contains list of favorties (Cats and/or Dogs)
-    * InfoViewController - Contains animal shelter contact information and map.
-*   Dogs, Cats and Favorites are a subclass of BaseViewController. BaseViewController contains common code such as adding rounded corners the table view, fetching the data, and setting up search.
-*   
-*   
+    * **CatsViewController** - Contains list of cats
+    * **FavoritesViewController** - Contains list of favorties (Cats and/or Dogs)
+    * **InfoViewController** - Contains animal shelter contact information and map.
+*   Dogs, Cats and Favorites are a subclass of BaseViewController. **BaseViewController** contains common code such as adding rounded corners the table view, fetching the data, and setting up search.
+
+*   Additional Views:
+	* **FilterViewController** is the controller for the filter view. Filter data is loaded using a pList in the applications document directory called **Filter.plist**
+	* **DetailViewController** is the controller for the detail view. The image for an animal is loaded asynchronously using AsyncImageView. Users can shake their phone to add an animal to their favorites. Users also send an email to the animal shelter to inquire for more information.
+
+*	Stores:
+	* **AnimalStore** - Main store for animal data. Singleton. Loads data with CSV or XML. This is where the paths are found for both data sources.
+	* **FavoriteImageStore** - Favorite animal images store. Singleton.
+	* **FavortieAnimalStore** - Favorite Animal store. Favorite animals are stored so that they are always available regardless if the online data source has it or not. Core Data.
+
+*	Models:
+	* **Animal** - Model for animal with fields: ID, Name, Type, Breed, Description1, Description2, Description3, Sex, Age, Size, ShelterDate
+	* **Animals** - Model containing array of animals. Data is loaded with a completion block using **fetchAnimalsWithCompletion:**
+	* **FavoriteAnimal** - Model for Favorite animal with same fields as Animal and an extra field for validity.
+
+*	Data Connections:
+	* **AnimalConnection** - This class establishes the connection and retrieves data from the CSV or XML datasource depending on the application setting. It uses NSURLConnection for error handling.
+	* **AnimalDataParser** - Protocol for parshing populating data with CSV or XML
