@@ -1,10 +1,12 @@
 //
-//  XMLAnimalController.m
-//  PetFinder
+//  AnimalDataParser.h
+//  PetFinder v1.0
 //
-//  Created by Reyneiro Hernandez on 12/5/12.
+//  Created by Raymond Gonzalez, Reyneiro Hernandez, Gregory Jean Baptiste
+//  https://github.com/raygon3/iOS-Pet-Finder
 //
-//
+//  This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit
+//  http://creativecommons.org/licenses/by/3.0/
 
 #import "XMLAnimalController.h"
 #import "Animal.h"
@@ -52,13 +54,9 @@ typedef enum
 
 -(BOOL)loadAnimalWithData:(NSData*)data
 {
-    data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"animals"
-                                                                          ofType:@"xml"]];
-//    NSString * s = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"animals"
-//                                                                       ofType:@"xml"] encoding:NSStringEncodingConversionAllowLossy error:nil];
-//    
+
     xmlParser = [[NSXMLParser alloc] initWithStream:[[NSInputStream alloc] initWithData:data]];
-//    xmlParser = [[NSXMLParser alloc] initWithData:data];
+
     xmlParser.delegate = self;
     return [xmlParser parse];
 }
